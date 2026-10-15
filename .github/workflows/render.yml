@@ -1,0 +1,76 @@
+name: render-video
+
+# Runs when a job file is committed under jobs/. No secrets are used or stored;
+# the built-in GITHUB_TOKEN only publishes the finished MP4 as a Release asset.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "jobs/*.json"
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job file to render, e.g. jobs/smoke-test-001.json"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-video
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Ensure FFmpeg and fonts
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          sudo apt-get install -y -qq fonts-dejavu-core >/dev/null 2>&1 || true
+          ffmpeg -version | head -1
+          ffmpeg -hide_banner -filters 2>/dev/null | grep -E " drawtext | gradients " || true
+
+      - name: Find job files
+        id: jobs
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "files=${{ github.event.inputs.job }}" >> "$GITHUB_OUTPUT"
+          else
+            files=$(git diff-tree --no-commit-id --name-only -r --diff-filter=AM HEAD -- 'jobs/*.json' | tr '\n' ' ')
+            echo "files=$files" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Render
+        run: |
+          set -euo pipefail
+          for f in ${{ steps.jobs.outputs.files }}; do
+            python3 scripts/render.py "$f"
+          done
+          ls -la out
+
+      - name: Publish release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for f in ${{ steps.jobs.outputs.files }}; do
+            id=$(python3 -c "import json,sys;print(json.load(open('$f'))['id'])")
+            tag="video-$id"
+            if gh release view "$tag" >/dev/null 2>&1; then
+              gh release upload "$tag" "out/$id.mp4" "out/$id.json" --clobber
+            else
+              gh release create "$tag" "out/$id.mp4" "out/$id.json" \
+                --title "$id" --notes "Rendered by workflow run ${{ github.run_id }}. Spec report: $id.json" \
+                --target "${{ github.sha }}"
+            fi
+            echo "https://github.com/${{ github.repository }}/releases/download/$tag/$id.mp4"
+          done
