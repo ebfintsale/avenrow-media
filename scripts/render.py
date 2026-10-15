@@ -314,6 +314,11 @@ def main():
         want = sum(s["duration_s"] for s in shots)
         extra = {"shots": shots, "render_script_seconds": secs, "caption": job.get("caption"),
                  "audio": job.get("audio", "silent")}
+    elif job.get("type") == "flame":
+        import render_flame
+        shots, meta = render_flame.render_flame(job, out_dir)
+        want = float(job["shots"][0]["dur"])
+        extra = meta
     else:
         raise SystemExit(f"unsupported job type: {job.get('type')}")
     info = ffprobe_json(mp4, "-show_format", "-show_streams")
