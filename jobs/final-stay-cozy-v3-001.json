@@ -1,0 +1,8 @@
+{
+ "id": "final-stay-cozy-v3-001",
+ "type": "audio",
+ "scene": "stay-cozy",
+ "seed": 11,
+ "src": "https://github.com/ebfintsale/avenrow-media/releases/download/video-stay-cozy-v3-001/stay-cozy-v3-001.mp4",
+ "note": "Typography V1 picture unchanged (video stream copied); original synthesized ambience baked in"
+}

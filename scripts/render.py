@@ -310,7 +310,10 @@ def main():
         import contact
         contact.run_contact(job, out_dir)
         return
-    if job.get("type") == "smoke":
+    if job.get("type") == "audio":
+        import audio
+        want, extra = audio.run_audio(job, out_dir)
+    elif job.get("type") == "smoke":
         render_smoke(job, mp4)
         want = float(job.get("duration", 5))
     elif job.get("type") == "montage":
