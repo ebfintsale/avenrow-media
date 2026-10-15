@@ -1,0 +1,100 @@
+{
+  "id": "stay-cozy-pilot-001",
+  "type": "montage",
+  "product": "Stay Cozy Soy Candle (Etsy listing 4593737204)",
+  "caption": "plans cancelled. candle lit. exactly how it should be \ud83d\udd6f\ufe0f\n#cozyhome #apartmenttok #candlelover #cozyaesthetic",
+  "audio": "silent",
+  "shots": [
+    {
+      "src": "https://app-uploads.krea.ai/public/3db45066-a107-4243-b416-4427e5ce7da5.png",
+      "dur": 2.6,
+      "motion": {
+        "z0": 1.03,
+        "z1": 1.09,
+        "fx0": 0.5,
+        "fx1": 0.5,
+        "fy0": 0.7,
+        "fy1": 0.45
+      },
+      "text": {
+        "lines": [
+          "pov: you're staying",
+          "in tonight"
+        ],
+        "start": 0.3,
+        "end": 2.4,
+        "y": 320,
+        "size": 66
+      },
+      "mode": "cover"
+    },
+    {
+      "src": "https://app-uploads.krea.ai/public/aa00e928-db38-4567-8224-440d6e8d105e.png",
+      "dur": 1.8,
+      "cropx": 0.5,
+      "motion": {
+        "z0": 1.11,
+        "z1": 1.03,
+        "fx0": 0.25,
+        "fx1": 0.55,
+        "fy0": 0.5,
+        "fy1": 0.5
+      },
+      "mode": "cover"
+    },
+    {
+      "src": "https://app-uploads.krea.ai/public/b6abf74f-3540-42d8-bb96-1a33dfd9ebd6.png",
+      "dur": 2.0,
+      "cropx": 0.5,
+      "motion": {
+        "z0": 1.04,
+        "z1": 1.1,
+        "fx0": 0.25,
+        "fx1": 0.75,
+        "fy0": 0.5,
+        "fy1": 0.5
+      },
+      "mode": "cover"
+    },
+    {
+      "src": "https://app-uploads.krea.ai/public/bbea3506-8e0f-4d51-9222-2823170ee766.png",
+      "dur": 1.8,
+      "cropx": 0.5,
+      "motion": {
+        "z0": 1.06,
+        "z1": 1.1,
+        "fx0": 0.5,
+        "fx1": 0.5,
+        "fy0": 0.8,
+        "fy1": 0.2
+      },
+      "mode": "cover"
+    },
+    {
+      "src": "https://i.etsystatic.com/67533802/r/il/b37581/8664347108/il_fullxfull.8664347108_gmbf.jpg",
+      "dur": 2.8,
+      "mode": "auto",
+      "motion": {
+        "z0": 1.0,
+        "z1": 1.12,
+        "fx0": 0.5,
+        "fx1": 0.5,
+        "fy0": 0.5,
+        "fy1": 0.55,
+        "ease_end": 0.85,
+        "sway": 0
+      },
+      "text": {
+        "lines": [
+          "Stay Cozy \u00b7 link in bio"
+        ],
+        "start": 0.7,
+        "end": 2.8,
+        "y": 1450,
+        "size": 44,
+        "alpha": 0.92,
+        "fade": 0.3
+      }
+    }
+  ]
+}

@@ -35,7 +35,9 @@ jobs:
             sudo apt-get update -qq
             sudo apt-get install -y -qq ffmpeg
           fi
-          sudo apt-get install -y -qq fonts-dejavu-core >/dev/null 2>&1 || true
+          sudo apt-get update -qq >/dev/null 2>&1 || true
+          sudo apt-get install -y -qq fonts-dejavu-core fonts-inter >/dev/null 2>&1 || true
+          fc-match "Inter:style=Medium" || true
           ffmpeg -version | head -1
           ffmpeg -hide_banner -filters 2>/dev/null | grep -E " drawtext | gradients " || true
 
@@ -65,10 +67,14 @@ jobs:
           for f in ${{ steps.jobs.outputs.files }}; do
             id=$(python3 -c "import json,sys;print(json.load(open('$f'))['id'])")
             tag="video-$id"
+            assets=("out/$id.mp4" "out/$id.json")
+            for extra in "out/$id-contact.jpg" "out/$id-label-frame.jpg"; do
+              if [ -f "$extra" ]; then assets+=("$extra"); fi
+            done
             if gh release view "$tag" >/dev/null 2>&1; then
-              gh release upload "$tag" "out/$id.mp4" "out/$id.json" --clobber
+              gh release upload "$tag" "${assets[@]}" --clobber
             else
-              gh release create "$tag" "out/$id.mp4" "out/$id.json" \
+              gh release create "$tag" "${assets[@]}" \
                 --title "$id" --notes "Rendered by workflow run ${{ github.run_id }}. Spec report: $id.json" \
                 --target "${{ github.sha }}"
             fi
