@@ -1,0 +1,49 @@
+{
+ "id": "typo-prev-witching",
+ "type": "flame",
+ "product": "Witching Hour (4595122114)",
+ "caption": "the room goes quiet when this one's lit\n#witchyvibes #halloweendecor #moodycandle #cozyhome",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.45,
+   0.25,
+   0.62,
+   0.46
+  ],
+  "seed": 47,
+  "gust_t": 6.3
+ },
+ "shots": [
+  {
+   "src": "https://app-uploads.krea.ai/public/00879d39-14df-48f7-b276-68a63df0be66.png",
+   "dur": 10.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.05,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.55,
+    "fy1": 0.45
+   },
+   "text": {
+    "lines": [
+     "lights off.",
+     "candle on."
+    ],
+    "start": 1.0,
+    "end": 3.8,
+    "y": 1480,
+    "size": 62,
+    "alpha": 0.95,
+    "fade": 0.6
+   }
+  }
+ ],
+ "stills": [
+  1.5,
+  2.5,
+  3.5
+ ]
+}

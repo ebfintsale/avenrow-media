@@ -249,7 +249,11 @@ def render_flame(job, out_dir):
     font = R.find_font()
     vf = ""
     if shot.get("text"):
-        vf = R.text_filters(shot["text"], font, tmp, "hook") + ","
+        if shot["text"].get("v1"):
+            import typo
+            vf = typo.v1_filters(shot["text"], tmp, "hook") + ","
+        else:
+            vf = R.text_filters(shot["text"], font, tmp, "hook") + ","
     vf += ("scale=out_color_matrix=bt709:out_range=tv:flags=lanczos+accurate_rnd+full_chroma_int,"
            "format=yuv420p")
     mp4 = out_dir / f"{job['id']}.mp4"

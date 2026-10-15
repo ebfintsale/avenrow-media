@@ -1,0 +1,48 @@
+{
+ "id": "typo-prev-ghostly",
+ "type": "flame",
+ "product": "Ghostly Hours (4595187915)",
+ "caption": "okay but the ghosts are adorable \ud83d\udc7b\n#cuteghost #spookyseason #halloweendecor #cozyhome",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.36,
+   0.06,
+   0.62,
+   0.34
+  ],
+  "seed": 73,
+  "gust_t": 5.4
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/8f1a26/8676215096/il_fullxfull.8676215096_3jyc.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.04,
+    "z1": 1.04,
+    "fx0": 0.4,
+    "fx1": 0.56,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "lines": [
+     "cute ghosts only this october"
+    ],
+    "start": 0.6,
+    "end": 3.3,
+    "y": 105,
+    "size": 54,
+    "alpha": 0.95,
+    "fade": 0.6
+   }
+  }
+ ],
+ "stills": [
+  1.0,
+  2.0,
+  3.0
+ ]
+}
