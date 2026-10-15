@@ -1,0 +1,44 @@
+{
+ "id": "tt-1017-pm-halloween-couples",
+ "type": "flame",
+ "product": "Halloween Couples (4586334708)",
+ "caption": "dinner by candlelight, halloween edition 🎃\n#halloweendate #couplesgift #spookyseason #cozyhome",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.42,
+   0.26,
+   0.6,
+   0.46
+  ],
+  "seed": 63,
+  "gust_t": 4.4
+ },
+ "shots": [
+  {
+   "src": "https://app-uploads.krea.ai/public/ad53f9c2-d08f-4676-a34f-cb5c5e5d2eb1.png",
+   "dur": 9.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.04,
+    "z1": 1.04,
+    "fx0": 0.62,
+    "fx1": 0.38,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "lines": [
+     "halloween date night,",
+     "no costume needed"
+    ],
+    "start": 0.6,
+    "end": 3.4,
+    "y": 330,
+    "size": 64,
+    "alpha": 0.95,
+    "fade": 0.6
+   }
+  }
+ ]
+}
