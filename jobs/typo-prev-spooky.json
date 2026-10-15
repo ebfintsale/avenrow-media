@@ -1,0 +1,48 @@
+{
+ "id": "typo-prev-spooky",
+ "type": "flame",
+ "product": "Spooky Season (4595161018)",
+ "caption": "a little spooky, mostly cozy \ud83c\udf83\n#spookyseason #halloweendecor #fallaesthetic #candlelover",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.4,
+   0.06,
+   0.6,
+   0.32
+  ],
+  "seed": 34,
+  "gust_t": 4.1
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/bf8d93/8675850820/il_fullxfull.8675850820_3iup.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.06,
+    "fx0": 0.47,
+    "fx1": 0.53,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "lines": [
+     "spooky season, but make it cozy"
+    ],
+    "start": 0.4,
+    "end": 3.0,
+    "y": 105,
+    "size": 54,
+    "alpha": 0.95,
+    "fade": 0.6
+   }
+  }
+ ],
+ "stills": [
+  0.9,
+  1.8,
+  2.7
+ ]
+}

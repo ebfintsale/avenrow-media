@@ -1,0 +1,50 @@
+{
+ "id": "typo-prev-midnight",
+ "type": "flame",
+ "product": "Midnight Magic (4595194402)",
+ "caption": "for the witchy corner you keep adding to \u2728\n#witchyaesthetic #halloweendecor #celestial #candlelover",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.4,
+   0.28,
+   0.62,
+   0.5
+  ],
+  "seed": 21,
+  "gust_t": 5.2
+ },
+ "shots": [
+  {
+   "src": "https://app-uploads.krea.ai/public/88d34403-ee7a-4f57-9c82-7fb724d921c7.png",
+   "dur": 9.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.02,
+    "z1": 1.06,
+    "fx0": 0.62,
+    "fx1": 0.4,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "lines": [
+     "a witchy little corner",
+     "for october"
+    ],
+    "start": 0.7,
+    "end": 3.4,
+    "y": 300,
+    "size": 60,
+    "alpha": 0.95,
+    "fade": 0.6,
+    "x_off": 130
+   }
+  }
+ ],
+ "stills": [
+  1.2,
+  2.0,
+  2.8
+ ]
+}

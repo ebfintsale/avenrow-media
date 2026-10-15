@@ -321,7 +321,7 @@ def main():
     elif job.get("type") == "flame":
         import render_flame
         shots, meta = render_flame.render_flame(job, out_dir)
-        if job.get("dry_run"):
+        if job.get("dry_run") or job.get("stills"):
             (out_dir / f"{job['id']}.json").write_text(json.dumps(meta, indent=2))
             print(json.dumps(meta, indent=2))
             return

@@ -42,6 +42,11 @@ jobs:
           ffmpeg -version | head -1
           ffmpeg -hide_banner -filters 2>/dev/null | grep -E " drawtext | gradients " || true
 
+      - name: Fetch DM Sans
+        run: |
+          python3 scripts/fetch_font.py
+          ls -la fonts
+
       - name: Find job files
         id: jobs
         run: |
@@ -69,7 +74,7 @@ jobs:
             id=$(python3 -c "import json,sys;print(json.load(open('$f'))['id'])")
             tag="video-$id"
             assets=("out/$id.json")
-            for extra in "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg; do
+            for extra in "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png; do
               if [ -f "$extra" ]; then assets+=("$extra"); fi
             done
             if gh release view "$tag" >/dev/null 2>&1; then
@@ -81,3 +86,7 @@ jobs:
             fi
             echo "https://github.com/${{ github.repository }}/releases/download/$tag/$id.mp4"
           done
+          if ls fonts/*.ttf >/dev/null 2>&1; then
+            if gh release view assets-fonts >/dev/null 2>&1; then gh release upload assets-fonts fonts/*.ttf --clobber
+            else gh release create assets-fonts fonts/*.ttf --title assets-fonts --notes "DM Sans (OFL) for Typography V1" --target "${{ github.sha }}"; fi
+          fi

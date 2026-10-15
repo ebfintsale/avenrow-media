@@ -1,0 +1,48 @@
+{
+ "id": "typo-prev-pumpkin",
+ "type": "flame",
+ "product": "Pumpkin Season (4595155861)",
+ "caption": "october, but in candle form \ud83c\udf42\n#falldecor #pumpkinseason #cozyautumn #apartmenttok",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.4,
+   0.1,
+   0.62,
+   0.36
+  ],
+  "seed": 58,
+  "gust_t": 5.0
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/57b39b/8675967298/il_fullxfull.8675967298_5m6c.jpg",
+   "dur": 9.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.07,
+    "z1": 1.0,
+    "fx0": 0.52,
+    "fx1": 0.52,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "lines": [
+     "your fall apartment needed this"
+    ],
+    "start": 0.6,
+    "end": 3.3,
+    "y": 105,
+    "size": 54,
+    "alpha": 0.95,
+    "fade": 0.6
+   }
+  }
+ ],
+ "stills": [
+  1.0,
+  1.9,
+  2.8
+ ]
+}

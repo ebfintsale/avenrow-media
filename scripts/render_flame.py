@@ -234,6 +234,18 @@ def render_flame(job, out_dir):
     fx0, fx1 = float(mo.get("fx0", 0.5)), float(mo.get("fx1", mo.get("fx0", 0.5)))
     fy0, fy1 = float(mo.get("fy0", 0.5)), float(mo.get("fy1", mo.get("fy0", 0.5)))
     sig = make_signals(n, int(fcfg.get("seed", 11)), float(fcfg.get("gust_t", 4.6)))
+    if job.get("stills"):
+        # typography preview: text-free frames at given times, identical image/flame/camera to the video
+        names = []
+        for ts in job["stills"]:
+            i = min(n - 1, int(round(float(ts) * FPS)))
+            u = smoothstep(i / (n - 1))
+            eff, _ = fl.frame(sig, i)
+            fr = camera(eff, z0 + (z1 - z0) * u, fx0 + (fx1 - fx0) * u, fy0 + (fy1 - fy0) * u)
+            nm = f"{job['id']}-still-{float(ts):.1f}.png"
+            cv2.imwrite(str(out_dir / nm), fr); names.append(nm)
+        shutil.rmtree(tmp, ignore_errors=True)
+        return shots_meta, {"stills": names, "flame_location_base_px": loc}
     font = R.find_font()
     vf = ""
     if shot.get("text"):
