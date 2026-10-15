@@ -29,13 +29,12 @@
    },
    "text": {
     "lines": [
-     "spooky season,",
-     "but make it cozy"
+     "spooky season, but make it cozy"
     ],
     "start": 0.4,
     "end": 3.0,
-    "y": 280,
-    "size": 66,
+    "y": 105,
+    "size": 54,
     "alpha": 0.95,
     "fade": 0.6
    }

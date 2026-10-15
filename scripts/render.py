@@ -143,7 +143,7 @@ def text_filters(txt, font, tmp, prefix):
         f.write_text(line, encoding="utf-8")
         parts.append(
             f"drawtext=fontfile='{font}':textfile='{f}':fontsize={size}:fontcolor={CREAM}:"
-            f"alpha='{alpha}':x=(w-text_w)/2:y={int(txt['y']) + i * leading}:"
+            f"alpha='{alpha}':x=(w-text_w)/2+{int(txt.get('x_off', 0))}:y={int(txt['y']) + i * leading}:"
             f"shadowcolor=0x000000@0.55:shadowx=0:shadowy=3"
         )
     return ",".join(parts)

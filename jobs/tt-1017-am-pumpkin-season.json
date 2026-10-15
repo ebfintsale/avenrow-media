@@ -29,13 +29,12 @@
    },
    "text": {
     "lines": [
-     "your fall apartment",
-     "needed this"
+     "your fall apartment needed this"
     ],
     "start": 0.6,
     "end": 3.3,
-    "y": 300,
-    "size": 64,
+    "y": 105,
+    "size": 54,
     "alpha": 0.95,
     "fade": 0.6
    }
