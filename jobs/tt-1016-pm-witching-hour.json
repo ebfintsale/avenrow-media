@@ -28,16 +28,23 @@
     "fy1": 0.45
    },
    "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 70,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
     "lines": [
      "lights off.",
      "candle on."
     ],
+    "align": "right",
+    "margin": 100,
+    "y": 240,
+    "leading": 66,
     "start": 1.0,
-    "end": 3.8,
-    "y": 1480,
-    "size": 62,
-    "alpha": 0.95,
-    "fade": 0.6
+    "end": 3.8
    }
   }
  ]

@@ -2,7 +2,7 @@
  "id": "tt-1016-am-spooky-season",
  "type": "flame",
  "product": "Spooky Season (4595161018)",
- "caption": "a little spooky, mostly cozy 🎃\n#spookyseason #halloweendecor #fallaesthetic #candlelover",
+ "caption": "a little spooky, mostly cozy \ud83c\udf83\n#spookyseason #halloweendecor #fallaesthetic #candlelover",
  "audio": "silent",
  "flame": {
   "hint": [
@@ -28,15 +28,23 @@
     "fy1": 0.5
    },
    "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
     "lines": [
-     "spooky season, but make it cozy"
+     "spooky season,",
+     "but make it cozy"
     ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 66,
     "start": 0.4,
-    "end": 3.0,
-    "y": 105,
-    "size": 54,
-    "alpha": 0.95,
-    "fade": 0.6
+    "end": 3.0
    }
   }
  ]

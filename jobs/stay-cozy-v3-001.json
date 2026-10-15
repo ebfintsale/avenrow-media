@@ -1,17 +1,47 @@
 {
-  "id": "stay-cozy-v3-001",
-  "type": "flame",
-  "product": "Stay Cozy Soy Candle (Etsy listing 4593737204)",
-  "caption": "plans cancelled. candle lit. exactly how it should be 🕯️\n#cozyhome #apartmenttok #candlelover #cozyaesthetic",
-  "audio": "silent",
-  "flame": {"cx": 557, "tip": 817, "base": 900, "lean_px": 3.0, "stretch": 0.03, "glow": 0.03, "seed": 11, "gust_t": 4.6},
-  "shots": [
-    {
-      "src": "https://app-uploads.krea.ai/public/3db45066-a107-4243-b416-4427e5ce7da5.png",
-      "dur": 8.0,
-      "mode": "cover",
-      "motion": {"z0": 1.0, "z1": 1.05},
-      "text": {"lines": ["pov: you're staying", "in tonight"], "start": 0.5, "end": 3.5, "y": 320, "size": 66, "alpha": 0.95, "fade": 0.6}
-    }
-  ]
+ "id": "stay-cozy-v3-001",
+ "type": "flame",
+ "product": "Stay Cozy Soy Candle (Etsy listing 4593737204)",
+ "caption": "plans cancelled. candle lit. exactly how it should be \ud83d\udd6f\ufe0f\n#cozyhome #apartmenttok #candlelover #cozyaesthetic",
+ "audio": "silent",
+ "flame": {
+  "cx": 557,
+  "tip": 817,
+  "base": 900,
+  "lean_px": 3.0,
+  "stretch": 0.03,
+  "glow": 0.03,
+  "seed": 11,
+  "gust_t": 4.6
+ },
+ "shots": [
+  {
+   "src": "https://app-uploads.krea.ai/public/3db45066-a107-4243-b416-4427e5ce7da5.png",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.05
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 70,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "lines": [
+     "pov: you're staying",
+     "in tonight"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 170,
+    "leading": 66,
+    "start": 0.5,
+    "end": 3.5
+   }
+  }
+ ]
 }

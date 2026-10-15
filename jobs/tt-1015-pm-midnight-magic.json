@@ -2,7 +2,7 @@
  "id": "tt-1015-pm-midnight-magic",
  "type": "flame",
  "product": "Midnight Magic (4595194402)",
- "caption": "for the witchy corner you keep adding to ✨\n#witchyaesthetic #halloweendecor #celestial #candlelover",
+ "caption": "for the witchy corner you keep adding to \u2728\n#witchyaesthetic #halloweendecor #celestial #candlelover",
  "audio": "silent",
  "flame": {
   "hint": [
@@ -28,17 +28,23 @@
     "fy1": 0.5
    },
    "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 70,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
     "lines": [
      "a witchy little corner",
      "for october"
     ],
+    "align": "right",
+    "margin": 100,
+    "y": 205,
+    "leading": 66,
     "start": 0.7,
-    "end": 3.4,
-    "y": 300,
-    "size": 60,
-    "alpha": 0.95,
-    "fade": 0.6,
-    "x_off": 130
+    "end": 3.4
    }
   }
  ]
