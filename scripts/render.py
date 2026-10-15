@@ -306,6 +306,10 @@ def main():
     out_dir.mkdir(exist_ok=True)
     mp4 = out_dir / f"{job['id']}.mp4"
     extra = {}
+    if job.get("type") == "contact":
+        import contact
+        contact.run_contact(job, out_dir)
+        return
     if job.get("type") == "smoke":
         render_smoke(job, mp4)
         want = float(job.get("duration", 5))
