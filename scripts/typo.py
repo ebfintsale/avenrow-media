@@ -47,10 +47,10 @@ def v1_filters(txt, tmp, prefix, still=False):
         for dx, dy, a in SHADOW:
             parts.append(
                 f"drawtext=fontfile='{font}':textfile='{f}':fontsize={size}:fontcolor=0x000000:"
-                f"alpha='{alpha_s(a)}':x={x}+{dx}:y={yy}+{dy}"
+                f"alpha='{alpha_s(a)}':x='{x}+{dx}':y='{yy}+{dy}'"
             )
         parts.append(
             f"drawtext=fontfile='{font}':textfile='{f}':fontsize={size}:fontcolor={OFFWHITE}:"
-            f"alpha='{alpha_w}':x={x}:y={yy}"
+            f"alpha='{alpha_w}':x='{x}':y='{yy}'"
         )
     return ",".join(parts)
