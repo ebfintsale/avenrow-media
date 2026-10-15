@@ -1,0 +1,16 @@
+{
+  "id": "stay-cozy-v2-001",
+  "type": "montage",
+  "product": "Stay Cozy Soy Candle (Etsy listing 4593737204)",
+  "caption": "plans cancelled. candle lit. exactly how it should be 🕯️\n#cozyhome #apartmenttok #candlelover #cozyaesthetic",
+  "audio": "silent",
+  "shots": [
+    {
+      "src": "https://app-uploads.krea.ai/public/3db45066-a107-4243-b416-4427e5ce7da5.png",
+      "dur": 8.0,
+      "mode": "cover",
+      "motion": {"z0": 1.0, "z1": 1.05, "fx0": 0.5, "fx1": 0.5, "fy0": 0.5, "fy1": 0.5, "sway": 0},
+      "text": {"lines": ["pov: you're staying", "in tonight"], "start": 0.5, "end": 3.5, "y": 320, "size": 66, "alpha": 0.95, "fade": 0.6}
+    }
+  ]
+}
