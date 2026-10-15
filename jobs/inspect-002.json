@@ -1,0 +1,32 @@
+{
+ "id": "inspect-002",
+ "type": "contact",
+ "tw": 600,
+ "rows_per_sheet": 1,
+ "groups": [
+  {
+   "label": "SPOOKY-E1-vs-WITCH-E1-vs-WITCH-P01",
+   "urls": [
+    "https://i.etsystatic.com/67533802/r/il/bf8d93/8675850820/il_fullxfull.8675850820_3iup.jpg",
+    "https://i.etsystatic.com/67533802/r/il/da6741/8723358109/il_fullxfull.8723358109_6eeg.jpg",
+    "https://app-uploads.krea.ai/public/00879d39-14df-48f7-b276-68a63df0be66.png"
+   ]
+  },
+  {
+   "label": "PUMPK-E1-vs-PUMPK-P05-vs-MIDN-P07",
+   "urls": [
+    "https://i.etsystatic.com/67533802/r/il/57b39b/8675967298/il_fullxfull.8675967298_5m6c.jpg",
+    "https://app-uploads.krea.ai/public/00f04c71-c163-4929-803c-bda12437696c.png",
+    "https://app-uploads.krea.ai/public/88d34403-ee7a-4f57-9c82-7fb724d921c7.png"
+   ]
+  },
+  {
+   "label": "MIDN-E1-COUPLE-P10-GHOSTCOZY-P13",
+   "urls": [
+    "https://i.etsystatic.com/67533802/r/il/86fdec/8724123889/il_fullxfull.8724123889_bq3o.jpg",
+    "https://app-uploads.krea.ai/public/ad53f9c2-d08f-4676-a34f-cb5c5e5d2eb1.png",
+    "https://app-uploads.krea.ai/public/774bccf0-26ce-4b9e-92e1-80b52e31986e.png"
+   ]
+  }
+ ]
+}

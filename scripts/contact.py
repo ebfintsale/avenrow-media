@@ -5,9 +5,11 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import render as R
 
 TW = 200
+TWV = [200]
 
 
-def thumb(path, label):
+def thumb(path, label, TW=None):
+    TW = TW or TWV[0]
     img = cv2.imread(str(path), cv2.IMREAD_COLOR)
     if img is None:
         img = np.zeros((300, TW, 3), np.uint8)
@@ -23,6 +25,7 @@ def thumb(path, label):
 
 
 def run_contact(job, out_dir):
+    TWV[0] = int(job.get('tw', 200))
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="contact_"))
     rows, meta, n = [], [], 0
     for g in job["groups"]:
