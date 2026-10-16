@@ -1,0 +1,13 @@
+{
+ "id": "ig-feed-test-001",
+ "type": "crop",
+ "note": "Instagram infrastructure test: Housewarming 4589576684 approved Krea creative, 4:5 crop",
+ "items": [
+  {
+   "name": "housewarming",
+   "src": "https://app-uploads.krea.ai/public/6bb93e5f-274f-4a5a-9cdc-5d2b53aac15b.png",
+   "fy": 0.33,
+   "fx": 0.5
+  }
+ ]
+}
