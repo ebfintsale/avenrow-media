@@ -1,0 +1,102 @@
+{
+ "id": "ig-batch01-scout-001",
+ "type": "crop",
+ "items": [
+  {
+   "name": "slowsunday",
+   "src": "https://app-uploads.krea.ai/public/1357eec5-66f1-42ac-be39-55308c4fee5d.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "spooky",
+   "src": "https://app-uploads.krea.ai/public/9a8c2a53-848e-496d-bb16-32dc8be44aac.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "bestfriend",
+   "src": "https://app-uploads.krea.ai/public/390ef3f6-78ac-45c3-a3c7-0b2b49b302d3.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "pumpkinA",
+   "src": "https://app-uploads.krea.ai/public/00f04c71-c163-4929-803c-bda12437696c.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "ghostly",
+   "src": "https://app-uploads.krea.ai/public/4fa24bea-c378-426e-a435-27e8d1b2b396.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "baddec",
+   "src": "https://app-uploads.krea.ai/public/44b5185f-424f-473c-b842-327b029e547e.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "ghostcozy",
+   "src": "https://app-uploads.krea.ai/public/774bccf0-26ce-4b9e-92e1-80b52e31986e.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "pumpkinB",
+   "src": "https://app-uploads.krea.ai/public/efd5633e-0197-46b1-baef-b86c91e63d07.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "witching",
+   "src": "https://app-uploads.krea.ai/public/00879d39-14df-48f7-b276-68a63df0be66.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "midnight",
+   "src": "https://app-uploads.krea.ai/public/88d34403-ee7a-4f57-9c82-7fb724d921c7.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "couples",
+   "src": "https://app-uploads.krea.ai/public/ad53f9c2-d08f-4676-a34f-cb5c5e5d2eb1.png",
+   "fy": 0.45,
+   "fx": 0.5
+  },
+  {
+   "name": "stay2",
+   "src": "https://i.etsystatic.com/67533802/r/il/e105ca/8712182727/il_fullxfull.8712182727_8yto.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "stay3",
+   "src": "https://i.etsystatic.com/67533802/r/il/d8d5bf/8712184005/il_fullxfull.8712184005_qswt.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "self2",
+   "src": "https://i.etsystatic.com/67533802/r/il/994885/8649638003/il_fullxfull.8649638003_ixhg.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "new2",
+   "src": "https://i.etsystatic.com/67533802/r/il/94dd42/8673612387/il_fullxfull.8673612387_pjf9.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "cancel2",
+   "src": "https://i.etsystatic.com/67533802/r/il/79cf7c/8601554920/il_fullxfull.8601554920_kcdx.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "slow2",
+   "src": "https://i.etsystatic.com/67533802/r/il/271fe2/8664536538/il_fullxfull.8664536538_bneh.jpg",
+   "preview_only": true
+  }
+ ]
+}
