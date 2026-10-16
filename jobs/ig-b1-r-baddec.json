@@ -1,0 +1,60 @@
+{
+ "id": "ig-b1-r-baddec",
+ "type": "flame",
+ "product": "baddec",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.4,
+   0.3,
+   0.6,
+   0.46
+  ],
+  "seed": 41,
+  "gust_t": 4.8,
+  "lean_px": 3.0,
+  "stretch": 0.03,
+  "glow": 0.03
+ },
+ "shots": [
+  {
+   "src": "https://app-uploads.krea.ai/public/44b5185f-424f-473c-b842-327b029e547e.png",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.06,
+    "fx0": 0.45,
+    "fx1": 0.52,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 70,
+    "lines": [
+     "that friend who",
+     "always says yes"
+    ],
+    "align": "right",
+    "margin": 150,
+    "y": 275,
+    "leading": 70,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 820,
+     "max": 0.45,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "Typography V1",
+ "note": "Instagram Batch 01 Reel picture (IG safe-zone hook placement); audio baked after approval"
+}

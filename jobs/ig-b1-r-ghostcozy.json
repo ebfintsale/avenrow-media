@@ -1,0 +1,55 @@
+{
+ "id": "ig-b1-r-ghostcozy",
+ "type": "flame",
+ "product": "ghostcozy",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.42,
+   0.29,
+   0.62,
+   0.45
+  ],
+  "seed": 42,
+  "gust_t": 4.8,
+  "lean_px": 3.0,
+  "stretch": 0.03,
+  "glow": 0.03
+ },
+ "shots": [
+  {
+   "src": "https://app-uploads.krea.ai/public/774bccf0-26ce-4b9e-92e1-80b52e31986e.png",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.05,
+    "z1": 1.0,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 70,
+    "lines": [
+     "staying in",
+     "this halloween"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 275,
+    "leading": 70,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12
+   }
+  }
+ ],
+ "typography": "Typography V1",
+ "note": "Instagram Batch 01 Reel picture (IG safe-zone hook placement); audio baked after approval"
+}

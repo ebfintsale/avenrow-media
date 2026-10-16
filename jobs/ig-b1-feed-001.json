@@ -1,0 +1,60 @@
+{
+ "id": "ig-b1-feed-001",
+ "type": "crop",
+ "items": [
+  {
+   "name": "spooky",
+   "src": "https://app-uploads.krea.ai/public/9a8c2a53-848e-496d-bb16-32dc8be44aac.png",
+   "fy": 0.5,
+   "fx": 0.5
+  },
+  {
+   "name": "ghostly",
+   "src": "https://app-uploads.krea.ai/public/4fa24bea-c378-426e-a435-27e8d1b2b396.png",
+   "fy": 0.5,
+   "fx": 0.5
+  },
+  {
+   "name": "pumpkinB",
+   "src": "https://app-uploads.krea.ai/public/efd5633e-0197-46b1-baef-b86c91e63d07.png",
+   "fy": 0.5,
+   "fx": 0.5
+  },
+  {
+   "name": "slowsunday",
+   "src": "https://app-uploads.krea.ai/public/1357eec5-66f1-42ac-be39-55308c4fee5d.png",
+   "fy": 0.5,
+   "fx": 0.5
+  },
+  {
+   "name": "bestfriend",
+   "src": "https://app-uploads.krea.ai/public/390ef3f6-78ac-45c3-a3c7-0b2b49b302d3.png",
+   "fy": 0.5,
+   "fx": 0.5
+  },
+  {
+   "name": "birthday",
+   "src": "https://i.etsystatic.com/67533802/r/il/865766/8631690228/il_fullxfull.8631690228_3egl.jpg",
+   "fy": 0.5,
+   "fx": 0.5
+  },
+  {
+   "name": "anniversary",
+   "src": "https://i.etsystatic.com/67533802/r/il/7c2dcf/8601843780/il_fullxfull.8601843780_erpv.jpg",
+   "fy": 0.5,
+   "fx": 0.5
+  },
+  {
+   "name": "longdist",
+   "src": "https://i.etsystatic.com/67533802/r/il/d64a8e/8601388356/il_fullxfull.8601388356_9nan.jpg",
+   "fy": 0.5,
+   "fx": 0.5
+  },
+  {
+   "name": "staycozy",
+   "src": "https://i.etsystatic.com/67533802/r/il/e105ca/8712182727/il_fullxfull.8712182727_8yto.jpg",
+   "fy": 0.5,
+   "fx": 0.5
+  }
+ ]
+}
