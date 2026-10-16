@@ -1,0 +1,31 @@
+{
+ "id": "ig-crop-scout-001",
+ "type": "crop",
+ "items": [
+  {
+   "name": "slowsunday",
+   "src": "https://app-uploads.krea.ai/public/1357eec5-66f1-42ac-be39-55308c4fee5d.png",
+   "preview_only": true
+  },
+  {
+   "name": "selfcare",
+   "src": "https://app-uploads.krea.ai/public/4574441b-90dc-4ee6-b644-e5554cb1b373.png",
+   "preview_only": true
+  },
+  {
+   "name": "housewarming",
+   "src": "https://app-uploads.krea.ai/public/6bb93e5f-274f-4a5a-9cdc-5d2b53aac15b.png",
+   "preview_only": true
+  },
+  {
+   "name": "cancelled",
+   "src": "https://app-uploads.krea.ai/public/a33ad2a4-db7e-44dd-bd18-13d188238dea.png",
+   "preview_only": true
+  },
+  {
+   "name": "newhome",
+   "src": "https://app-uploads.krea.ai/public/02161efc-de56-4c50-9e24-97f4e6e2e215.png",
+   "preview_only": true
+  }
+ ]
+}

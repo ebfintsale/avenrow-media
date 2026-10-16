@@ -74,7 +74,7 @@ jobs:
             id=$(python3 -c "import json,sys;print(json.load(open('$f'))['id'])")
             tag="video-$id"
             assets=("out/$id.json")
-            for extra in "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png; do
+            for extra in "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png out/$id-crop*.jpg out/$id-src*.jpg; do
               if [ -f "$extra" ]; then assets+=("$extra"); fi
             done
             if gh release view "$tag" >/dev/null 2>&1; then

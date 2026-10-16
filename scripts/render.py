@@ -310,6 +310,12 @@ def main():
         import contact
         contact.run_contact(job, out_dir)
         return
+    if job.get("type") == "crop":
+        import crop
+        meta = crop.run_crop(job, out_dir)
+        (out_dir / f"{job['id']}.json").write_text(json.dumps(meta, indent=2))
+        print(json.dumps(meta, indent=2))
+        return
     if job.get("type") == "audio":
         import audio
         want, extra = audio.run_audio(job, out_dir)
