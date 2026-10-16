@@ -1,0 +1,8 @@
+{
+ "id": "final-ig-reel-staycozy-001",
+ "type": "audio",
+ "scene": "stay-cozy",
+ "seed": 11,
+ "src": "https://github.com/ebfintsale/avenrow-media/releases/download/video-ig-reel-staycozy-pic-001/ig-reel-staycozy-pic-001.mp4",
+ "note": "Instagram Reel test: same original synthesized stay-cozy ambience (seed 11) as TikTok final; video stream copied"
+}
