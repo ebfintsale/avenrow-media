@@ -267,6 +267,13 @@ def render_flame(job, out_dir):
     print("+", " ".join(cmd), flush=True)
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     params, proof, strip = [], {}, []
+    txt_cfg = shot.get("text") or {}
+    scrim_cfg = txt_cfg.get("scrim")
+    if scrim_cfg:
+        hh = int(scrim_cfg.get("h", 800))
+        yy_ = np.arange(H, dtype=np.float32)
+        gcol = np.clip(1.0 - yy_ / hh, 0, 1) ** float(scrim_cfg.get("pow", 1.6))
+        scrim_g = gcol.reshape(H, 1, 1)
     cxy = []
     for i in range(n):
         u = smoothstep(i / (n - 1))
@@ -299,6 +306,14 @@ def render_flame(job, out_dir):
             strip.append(cv2.resize(frame[y0:y0 + 3 * r, x0:x0 + 2 * r], (200, 300), interpolation=cv2.INTER_AREA))
         if i == n - 12:
             cv2.imwrite(str(tmp / "label.png"), frame)
+        if scrim_cfg:
+            tt = i / FPS
+            s0, e0 = float(txt_cfg.get("start", 0.6)), float(txt_cfg.get("end", 3.4))
+            fi_, fo_ = float(txt_cfg.get("fade_in", 0.55)), float(txt_cfg.get("fade_out", 0.45))
+            env = max(0.0, min(1.0, (tt - s0) / fi_)) * max(0.0, min(1.0, (e0 - tt) / fo_))
+            if env > 0:
+                gy = scrim_g * (float(scrim_cfg.get("max", 0.4)) * env)
+                frame = (frame.astype(np.float32) * (1.0 - gy)).clip(0, 255).astype(np.uint8)
         p.stdin.write(frame.tobytes())
     p.stdin.close()
     if p.wait() != 0:

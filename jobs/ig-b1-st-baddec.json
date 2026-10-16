@@ -1,0 +1,53 @@
+{
+ "id": "ig-b1-st-baddec",
+ "type": "flame",
+ "product": "baddec",
+ "audio": "silent",
+ "stills": [
+  2.0,
+  5.5
+ ],
+ "flame": {
+  "hint": [
+   0.4,
+   0.3,
+   0.6,
+   0.46
+  ],
+  "seed": 41,
+  "gust_t": 4.8,
+  "lean_px": 3.0,
+  "stretch": 0.03,
+  "glow": 0.03
+ },
+ "shots": [
+  {
+   "src": "https://app-uploads.krea.ai/public/44b5185f-424f-473c-b842-327b029e547e.png",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.06,
+    "fx0": 0.45,
+    "fx1": 0.52,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 70,
+    "lines": [
+     "x"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 300,
+    "leading": 70,
+    "start": 0.5,
+    "end": 3.5
+   }
+  }
+ ],
+ "typography": "Typography V1"
+}
