@@ -102,6 +102,18 @@ def synth(scene, dur, seed):
         y = room(90, 800, 1.1) + band(800, 3500, 0.20, 5, 2, 5, 0.6) + tones([120], 0.06) + cand(0.12, 1.0)
     elif s == "ghostly":      # cozy halloween, airy and playful
         y = room(90, 750, 1.1) + band(500, 2600, 0.26, 3, 1.5, 3, 0.8) + band(2500, 6000, 0.05, 6, 0.4, 1.0) + cand(0.10, 1.0)
+    elif s == "selfcare":     # quiet bathroom evening, faint airy steam
+        y = room(90, 650, 1.2) + tones([130, 196], 0.09) + band(1500, 4500, 0.05, 4, 4, 8, 0.6) + cand(0.10, 0.8)
+    elif s == "newhome":      # quiet sunny apartment, first night in
+        y = room(100, 850, 1.0) + tones([196], 0.07) + band(300, 1200, 0.12, 4, 3, 6, 1.0) + cand(0.08, 0.9)
+    elif s == "cancelled":    # cozy night in, very faint rain at the window
+        y = room(80, 600, 1.3) + tones([110, 165], 0.10) + band(1800, 6500, 0.07, 3, 6, 10, 0.4) + cand(0.11, 0.8)
+    elif s == "badidea":      # playful halloween evening, airy
+        y = room(90, 780, 1.1) + band(500, 2600, 0.22, 4, 1.5, 3, 0.8) + band(2500, 6000, 0.045, 6, 0.4, 1.0) + cand(0.11, 1.1)
+    elif s == "ghostcozy":    # cozy halloween night in
+        y = room(90, 700, 1.2) + tones([110, 165], 0.12) + band(300, 1300, 0.22, 4, 3, 6, 1.1) + cand(0.12, 0.9)
+    elif s == "couples":      # quiet dinner-for-two room
+        y = room(80, 600, 1.3) + tones([123, 185], 0.13) + band(200, 900, 0.09, 4, 4, 8, 1.0) + cand(0.10, 0.7)
     else:
         raise SystemExit(f"unknown scene {s}")
     t = np.arange(n) / SR
