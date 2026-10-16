@@ -1,0 +1,55 @@
+{
+ "id": "ig-b1-st-ghostly",
+ "type": "flame",
+ "product": "Ghostly Hours (4595187915)",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.36,
+   0.06,
+   0.62,
+   0.34
+  ],
+  "seed": 73,
+  "gust_t": 5.4
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/8f1a26/8676215096/il_fullxfull.8676215096_3jyc.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.04,
+    "z1": 1.04,
+    "fx0": 0.4,
+    "fx1": 0.56,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 70,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "lines": [
+     "cute ghosts only",
+     "this october"
+    ],
+    "align": "right",
+    "margin": 100,
+    "y": 135,
+    "leading": 70,
+    "start": 0.6,
+    "end": 3.3
+   }
+  }
+ ],
+ "typography": "AVENROW TikTok Typography V1",
+ "stills": [
+  2.0,
+  5.5
+ ]
+}

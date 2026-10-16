@@ -1,0 +1,53 @@
+{
+ "id": "ig-b1-st-cancelled",
+ "type": "flame",
+ "product": "cancelled",
+ "audio": "silent",
+ "stills": [
+  2.0,
+  5.5
+ ],
+ "flame": {
+  "hint": [
+   0.41,
+   0.35,
+   0.61,
+   0.5
+  ],
+  "seed": 32,
+  "gust_t": 4.8,
+  "lean_px": 3.0,
+  "stretch": 0.03,
+  "glow": 0.03
+ },
+ "shots": [
+  {
+   "src": "https://app-uploads.krea.ai/public/a33ad2a4-db7e-44dd-bd18-13d188238dea.png",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.06,
+    "z1": 1.0,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 70,
+    "lines": [
+     "x"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 300,
+    "leading": 70,
+    "start": 0.5,
+    "end": 3.5
+   }
+  }
+ ],
+ "typography": "Typography V1"
+}
