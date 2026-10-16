@@ -1,0 +1,24 @@
+{
+ "id": "ig-b1-feed-002",
+ "type": "crop",
+ "items": [
+  {
+   "name": "birthday",
+   "src": "https://i.etsystatic.com/67533802/r/il/865766/8631690228/il_fullxfull.8631690228_3egl.jpg",
+   "fy": 0.5,
+   "fx": 0.78
+  },
+  {
+   "name": "anniversary",
+   "src": "https://i.etsystatic.com/67533802/r/il/7c2dcf/8601843780/il_fullxfull.8601843780_erpv.jpg",
+   "fy": 0.5,
+   "fx": 0.72
+  },
+  {
+   "name": "longdist",
+   "src": "https://i.etsystatic.com/67533802/r/il/d64a8e/8601388356/il_fullxfull.8601388356_9nan.jpg",
+   "fy": 0.5,
+   "fx": 0.72
+  }
+ ]
+}
