@@ -3,10 +3,6 @@
  "type": "flame",
  "product": "boo",
  "audio": "silent",
- "stills": [
-  1.8,
-  5.5
- ],
  "flame": {
   "hint": [
    0.44,
