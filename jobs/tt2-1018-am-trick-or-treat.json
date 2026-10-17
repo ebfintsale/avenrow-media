@@ -15,13 +15,14 @@
   "extra": [
    {
     "hint": [
-     0.28,
-     0.3,
-     0.37,
-     0.43
+     0.29,
+     0.31,
+     0.36,
+     0.42
     ],
     "seed": 141,
-    "gust_t": 3.2
+    "gust_t": 3.2,
+    "thr": 205
    }
   ]
  },
@@ -66,5 +67,5 @@
  ],
  "typography": "AVENROW TikTok Typography V1",
  "note": "Oct 18-20 revision 2 (real Etsy secondary images, varied framing)",
- "rev": 3
+ "rev": 4
 }

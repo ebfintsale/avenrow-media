@@ -101,7 +101,7 @@ def build_base(path, frame=None):
     return np.ascontiguousarray(base), (iw, ih), {"y0": y0, "h": fh, "w": fw}
 
 
-def detect_flame(base, hint=None):
+def detect_flame(base, hint=None, thr=228):
     """Find the flame: bright, tall, narrow blob. Returns dict in base px + candidates."""
     bh, bw = base.shape[:2]
     half = cv2.resize(base, (bw // 2, bh // 2), interpolation=cv2.INTER_AREA)
@@ -109,7 +109,7 @@ def detect_flame(base, hint=None):
     hx0, hy0, hx1, hy1 = hint or (0.0, 0.0, 1.0, 1.0)
     X0, X1, Y0, Y1 = int(hx0 * lum.shape[1]), int(hx1 * lum.shape[1]), int(hy0 * lum.shape[0]), int(hy1 * lum.shape[0])
     mask = np.zeros(lum.shape, np.uint8)
-    mask[Y0:Y1, X0:X1] = (lum[Y0:Y1, X0:X1] >= 228).astype(np.uint8)
+    mask[Y0:Y1, X0:X1] = (lum[Y0:Y1, X0:X1] >= thr).astype(np.uint8)
     n, lab, stats, cents = cv2.connectedComponentsWithStats(mask, connectivity=8)
     cands = []
     for i in range(1, n):
@@ -252,7 +252,7 @@ def render_flame(job, out_dir):
     extras = []
     for ex in fcfg.get("extra", []):
         exc = dict(ex)
-        eloc = detect_flame(base, to_base(exc.get("hint")))
+        eloc = detect_flame(base, to_base(exc.get("hint")), exc.get("thr", 228))
         extras.append((Flame(base, eloc, {**fcfg, **exc}), eloc, exc))
     debug_sheet(base, loc, out_dir / f"{job['id']}-sheet1.jpg")
     shots_meta = [{"index": 1, "source_url": shot["src"], "source_sha256": R.sha256(src),
