@@ -1,150 +1,87 @@
-"""AVENROW original ambient sound design v2 (pure numpy synthesis; no samples, no music, no vocals).
-v2 (2026-10-17): wind / airy / leaf-wind / drone sound direction REMOVED. Each profile = warm band-limited room tone + soft cloth rustles + wood ticks + optional vinyl-like crackle + tiny candle crackles.
-No loops: everything is generated for the clip's full length from a seeded RNG."""
-import json, pathlib, subprocess, re, shutil, tempfile, wave
+"""AVENROW original sound design v3 - SPARSE (owner decision 2026-10-17).
+
+Permanently REMOVED from AVENROW automated video production: wind, airy ambience, filtered-noise ambience,
+continuous room-tone noise, white-noise-like textures, vinyl hiss/crackle beds, low drones, any continuous
+atmospheric bed. Between sounds the track is digital silence.
+
+What it makes: a handful of isolated, tiny, individually synthesized candle crackles (only for lit candles),
+with clear silence around each. No loops, no samples, no music, no vocals. Events are placed by a seeded RNG.
+"""
+import pathlib, subprocess, re, shutil, tempfile, wave
 import numpy as np
 
 SR = 44100
-TARGET_LUFS = -27.0   # v2: quiet, clearly secondary to the picture
-FADE_IN, FADE_OUT = 0.8, 1.3
+PEAK_DBFS = -17.0          # loudest single event; everything else is quieter
+MIN_GAP = 0.9              # seconds of clear silence between events (onset to onset, minimum)
 
 
-def shaped(n, rng, lo, hi, tilt=0.0):
-    """Band-limited noise (soft edges), optional spectral tilt (f^-tilt/2 amplitude). RMS=1."""
-    x = rng.standard_normal(n)
+def _burst(L, rng, lo, hi):
+    """Short band-limited noise burst (FFT band-pass on a tiny window), unit peak."""
+    x = rng.standard_normal(L)
     X = np.fft.rfft(x)
-    f = np.fft.rfftfreq(n, 1 / SR)
-    edge_lo, edge_hi = max(lo * 0.5, 1.0), hi * 1.5
-    m = np.ones_like(f)
-    m *= np.clip((f - edge_lo) / max(lo - edge_lo, 1e-6), 0, 1)
-    m *= np.clip((edge_hi - f) / max(edge_hi - hi, 1e-6), 0, 1)
-    m *= (np.maximum(f, 20.0) / 200.0) ** (-tilt / 2)
-    y = np.fft.irfft(X * m, n)
-    return y / (np.sqrt(np.mean(y ** 2)) + 1e-12)
+    f = np.fft.rfftfreq(L, 1 / SR)
+    m = ((f >= lo) & (f <= hi)).astype(float)
+    y = np.fft.irfft(X * m, L)
+    return y / (np.max(np.abs(y)) + 1e-9)
 
 
-def slow(n, rng, rate, depth, floor=0.0):
-    """Smooth random envelope in [floor, ~1+depth]; `rate` ~ cycles/sec of movement."""
-    e = shaped(n, rng, 0.02, rate, 0.0)
-    e = e / (np.max(np.abs(e)) + 1e-9)
-    return np.clip(1.0 + depth * e, floor, None)
+def crackle(rng, kind):
+    """One candle crackle. 'tick' = 1-3 micro-pulses; 'snap' = one slightly larger pop with a faint wooden body."""
+    if kind == "snap":
+        pulses = [(0.0, 1.0, rng.uniform(0.006, 0.011), rng.uniform(2200, 3600), rng.uniform(5200, 7800))]
+        body_f, body_amp = rng.uniform(380, 640), 0.35
+    else:
+        k = int(rng.integers(1, 4))
+        t, pulses = 0.0, []
+        for _ in range(k):
+            pulses.append((t, rng.uniform(0.35, 0.8), rng.uniform(0.002, 0.005), rng.uniform(2800, 4200), rng.uniform(6000, 9000)))
+            t += rng.uniform(0.006, 0.028)
+        body_f, body_amp = rng.uniform(500, 900), 0.12
+    total = int((pulses[-1][0] + 0.06) * SR)
+    y = np.zeros(total)
+    for t0, amp, dur, lo, hi in pulses:
+        i = int(t0 * SR)
+        L = max(32, int(dur * SR * 3))
+        env = np.exp(-np.arange(L) / (dur * SR))
+        env[:8] *= np.linspace(0.3, 1, 8)      # ~0.2 ms attack, no digital click
+        m = min(L, total - i)
+        if m > 0:
+            y[i:i + m] += (_burst(L, rng, lo, hi) * env * amp)[:m]
+    # faint resonant body of the wax/wick for realism
+    Lb = int(0.025 * SR)
+    tb = np.arange(Lb) / SR
+    body = np.sin(2 * np.pi * body_f * tb) * np.exp(-tb / 0.006) * body_amp
+    y[:Lb] += body[:total]
+    return y / (np.max(np.abs(y)) + 1e-9)
 
 
-def swells(n, rng, count, lo_s, hi_s):
-    """A few long raised-cosine swells at random places."""
-    env = np.zeros(n)
-    for _ in range(count):
-        L = int(rng.uniform(lo_s, hi_s) * SR)
-        s = int(rng.uniform(0, max(1, n - L)))
-        env[s:s + L] += 0.5 - 0.5 * np.cos(np.linspace(0, 2 * np.pi, L, endpoint=False))[: n - s]
-    return np.clip(env, 0, 1)
-
-
-def sines(n, freqs, rng, trem=0.25, trem_rate=0.07):
-    t = np.arange(n) / SR
-    y = np.zeros(n)
-    for f in freqs:
-        ph = rng.uniform(0, 2 * np.pi)
-        a = 1 + trem * np.sin(2 * np.pi * trem_rate * rng.uniform(0.6, 1.4) * t + rng.uniform(0, 6.28))
-        y += a * np.sin(2 * np.pi * f * t + ph)
-    return y / (np.sqrt(np.mean(y ** 2)) + 1e-12)
-
-
-def candle(n, rng, rate=1.1, level=1.0):
-    """Very sparse, tiny soft ticks + faint flutter. Never loud, never regular."""
-    y = np.zeros(n)
-    t = 0.0
-    dur = n / SR
-    while t < dur:
-        t += rng.exponential(1.0 / rate)
-        i = int(t * SR)
-        L = int(rng.uniform(0.006, 0.03) * SR)
-        if i + L >= n:
-            break
-        b = shaped(L, rng, 1500, 6500) * np.exp(-np.linspace(0, rng.uniform(5, 9), L))
-        y[i:i + L] += b * rng.lognormal(-0.6, 0.6)
-    flutter = shaped(n, rng, 500, 2600) * 0.06 * slow(n, rng, 1.2, 0.8, 0.0)
-    return (y * 0.35 + flutter) * level
-
-
-def stereo(fn, n, rng):
-    return np.stack([fn(rng), fn(rng)], axis=1)
-
-
-def clicks(n, rng, rate, lo, hi, dec, amp_mu=-1.0, amp_sd=0.7, maxlen=0.02):
-    """Poisson-timed tiny transients (band-limited noise with fast decay). Irregular by construction."""
-    y = np.zeros(n)
-    t = 0.0
-    dur = n / SR
-    while True:
-        t += rng.exponential(1.0 / rate)
-        i = int(t * SR)
-        L = int(min(maxlen, rng.uniform(0.002, maxlen)) * SR) + 8
-        if i + L >= n:
-            break
-        b = shaped(L, rng, lo, hi) * np.exp(-np.linspace(0, dec * rng.uniform(0.7, 1.4), L))
-        y[i:i + L] += b * rng.lognormal(amp_mu, amp_sd)
-    return y
-
-
-def rustle(n, rng, rate):
-    """Soft fabric / paper movement: short, gentle, filtered bursts with slow attack. Very sparse."""
-    y = np.zeros(n)
-    t = 0.0
-    dur = n / SR
-    while True:
-        t += rng.exponential(1.0 / rate)
-        i = int(t * SR)
-        L = int(rng.uniform(0.08, 0.28) * SR)
-        if i + L >= n:
-            break
-        env = np.sin(np.linspace(0, np.pi, L)) ** 2
-        y[i:i + L] += shaped(L, rng, 1200, 4200, 0.8) * env * rng.lognormal(-1.2, 0.4)
-    return y
-
-
-# Production ambience profiles (v2 room-tone system). No wind, no airy swells, no tonal drones, no white-noise bed.
-PROFILES = {
-    #            room lo,hi,tilt  room_g  vinyl_rate vinyl_g  candle_rate candle_g  rustle_rate  tick_rate
-    "roomdusk":  dict(room=(170, 1000, 0.9), rg=1.0, vr=7.0, vg=0.55, cr=0.45, cg=0.55, ru=0.14, tk=0.08),   # warm autumn evening
-    "roomnight": dict(room=(160, 900, 1.0), rg=1.0, vr=5.0, vg=0.45, cr=0.40, cg=0.50, ru=0.10, tk=0.06),   # quiet cozy night in
-    "roomday":   dict(room=(180, 1150, 0.7), rg=1.0, vr=0.0, vg=0.0,  cr=0.35, cg=0.40, ru=0.18, tk=0.10),  # bright morning / desk, no vinyl
-}
-
-
-def synth(scene, dur, seed):
-    if scene not in PROFILES:
-        raise SystemExit(f"unknown scene {scene} (v2 profiles: {', '.join(PROFILES)})")
-    P = PROFILES[scene]
+def synth(dur, seed, n_events=None):
     rng = np.random.default_rng(seed)
     n = int(dur * SR)
-    lo, hi, tilt = P["room"]
-    # warm room tone: band-limited (no energy below ~150 Hz -> no drone), nearly steady (+/-1 dB drift), mostly-correlated stereo
-    shared = shaped(n, rng, lo, hi, tilt)
-    drift = 1.0 + 0.10 * (shaped(n, rng, 0.03, 0.25, 0.0) / 3.0)
-    L = (0.75 * shared + 0.25 * shaped(n, rng, lo, hi, tilt)) * drift
-    R = (0.75 * shared + 0.25 * shaped(n, rng, lo, hi, tilt)) * drift
-    room = np.stack([L, R], 1) * P["rg"] * 0.6
-    y = room.copy()
-    def pan(sig, w):
-        return np.stack([sig * (1 - w), sig * w], 1) * 2 * 0.5
-    # soft cozy texture: gentle fabric/paper rustles + rare low wood ticks, panned randomly
-    for _ in range(1):
-        y += pan(rustle(n, rng, P["ru"]), rng.uniform(0.3, 0.7)) * 0.20
-    y += pan(clicks(n, rng, P["tk"], 220, 900, 14, -0.4, 0.4, 0.04), rng.uniform(0.3, 0.7)) * 0.22
-    # vinyl-like surface texture (original synthesized, no sampled records): sparse crackle + small pops, no hiss bed
-    if P["vr"] > 0:
-        crack = clicks(n, rng, P["vr"], 2500, 9000, 70, -2.1, 0.8, 0.004)
-        pops = clicks(n, rng, P["vr"] * 0.04, 800, 4500, 40, -1.0, 0.5, 0.012)
-        y += pan(crack, 0.5) * P["vg"] * 0.5 + pan(pops, rng.uniform(0.35, 0.65)) * P["vg"] * 0.35
-    # tiny realistic candle: sparse small crackles + rare slightly larger snap (no airy flutter)
-    cand = clicks(n, rng, P["cr"], 1800, 7500, 55, -1.4, 0.7, 0.014)
-    snap = clicks(n, rng, P["cr"] * 0.12, 900, 5000, 30, -0.6, 0.4, 0.02)
-    y += pan(cand, rng.uniform(0.4, 0.6)) * P["cg"] + pan(snap, rng.uniform(0.4, 0.6)) * P["cg"] * 0.8
-    t = np.arange(n) / SR
-    fade = np.minimum(1, t / FADE_IN) * np.minimum(1, (dur - t) / FADE_OUT)
-    fade = (0.5 - 0.5 * np.cos(np.pi * np.clip(fade, 0, 1)))
-    return y * fade[:, None]
+    y = np.zeros((n, 2))
+    if n_events is None:
+        n_events = int(round(rng.uniform(0.45, 0.65) * dur))      # ~4-5 events in 8 s
+    # place events with enforced silence between them; keep clear of the first 0.7 s and last 0.8 s
+    times, tries = [], 0
+    while len(times) < n_events and tries < 400:
+        tries += 1
+        t = rng.uniform(0.7, dur - 0.8)
+        if all(abs(t - u) >= MIN_GAP for u in times):
+            times.append(t)
+    times.sort()
+    snap_at = int(rng.integers(0, len(times))) if times else -1
+    for k, t in enumerate(times):
+        e = crackle(rng, "snap" if k == snap_at else "tick")
+        lvl = 1.0 if k == snap_at else rng.uniform(0.30, 0.62)        # ticks are clearly quieter than the one snap
+        pan = rng.uniform(0.38, 0.62)
+        i = int(t * SR)
+        e = e * lvl
+        m = min(len(e), n - i)
+        y[i:i + m, 0] += e[:m] * (1 - pan) * 2 * 0.5
+        y[i:i + m, 1] += e[:m] * pan * 2 * 0.5
+    pk = np.max(np.abs(y)) + 1e-9
+    y = y / pk * 10 ** (PEAK_DBFS / 20)
+    return y, times
 
 
 def lufs(path):
@@ -152,26 +89,13 @@ def lufs(path):
                        capture_output=True, text=True)
     i = re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)
     p = re.findall(r"Peak:\s+(-?[\d.]+) dBFS", r.stderr)
-    return float(i[-1]), float(p[-1]) if p else None
+    return (float(i[-1]) if i else None), (float(p[-1]) if p else None)
 
 
 def write_wav(path, y):
     pcm = (np.clip(y, -1, 1) * 32767).astype("<i2")
     with wave.open(str(path), "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
-
-
-def make_wav(scene, dur, seed, path):
-    y = synth(scene, dur, seed)
-    y = y / (np.max(np.abs(y)) + 1e-9) * 0.1            # provisional level
-    write_wav(path, y)
-    cur, _ = lufs(path)
-    y = y * 10 ** ((TARGET_LUFS - cur) / 20)
-    pk = np.max(np.abs(y))
-    if pk > 0.7:                                          # keep true peak safely under -3 dBFS
-        y = y * (0.7 / pk)
-    write_wav(path, y)
-    return lufs(path)
 
 
 def vmd5(p):
@@ -186,14 +110,19 @@ def run_audio(job, out_dir):
     src = R.fetch(job["src"], tmp, 1)
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(src)],
                                capture_output=True, text=True).stdout)
-    wav = out_dir / f"{job['id']}-ambience.wav"
-    i_lufs, peak = make_wav(job["scene"], dur, int(job.get("seed", 1)), wav)
+    y, times = synth(dur, int(job.get("seed", 1)), job.get("events"))
+    wav = out_dir / f"{job['id']}-sparse.wav"
+    write_wav(wav, y)
+    i_lufs, peak = lufs(wav)
+    sil = float(np.mean(np.max(np.abs(y), axis=1) == 0))
     mp4 = out_dir / f"{job['id']}.mp4"
     subprocess.run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", str(src), "-i", str(wav),
                     "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "44100",
                     "-ac", "2", "-t", f"{dur:.3f}", "-movflags", "+faststart", str(mp4)], check=True)
-    meta = {"audio": "original synthesized ambience", "scene": job["scene"], "seed": job.get("seed", 1),
-            "integrated_lufs": i_lufs, "true_peak_dbfs": peak, "fade_in_s": FADE_IN, "fade_out_s": FADE_OUT,
+    meta = {"audio": "sparse candle crackles only (v3); no bed", "seed": job.get("seed", 1),
+            "event_times_s": [round(t, 2) for t in times], "n_events": len(times),
+            "integrated_lufs": i_lufs, "true_peak_dbfs": peak, "digital_silence_fraction": round(sil, 3),
+            "min_gap_s": MIN_GAP,
             "video_stream_md5_source": vmd5(src), "video_stream_md5_final": vmd5(mp4),
             "source_url": job["src"], "caption": job.get("caption")}
     meta["video_stream_identical"] = meta["video_stream_md5_source"] == meta["video_stream_md5_final"]

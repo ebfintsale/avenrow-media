@@ -71,13 +71,34 @@ def smoothstep(u):
 
 
 # ---------------------------------------------------------------- base / detection
-def build_base(path):
+def build_base(path, frame=None):
+    """Cover-fit base (default) or 'frame' mode: whole photo at full width on a blurred, dimmed extension
+    of itself (the real photo is never cropped, stretched or repainted; the bands above/below are only blur)."""
     img = cv2.imread(str(path), cv2.IMREAD_COLOR)
     ih, iw = img.shape[:2]
+    if frame is None:
+        s = max(WIN_W / iw, WIN_H / ih)
+        nw, nh = int(round(iw * s)), int(round(ih * s))
+        base = cv2.resize(img, (nw, nh), interpolation=cv2.INTER_LANCZOS4)
+        return np.ascontiguousarray(base), (iw, ih), None
     s = max(WIN_W / iw, WIN_H / ih)
-    nw, nh = int(round(iw * s)), int(round(ih * s))
-    base = cv2.resize(img, (nw, nh), interpolation=cv2.INTER_LANCZOS4)
-    return np.ascontiguousarray(base), (iw, ih)
+    bg = cv2.resize(img, (int(round(iw * s)), int(round(ih * s))), interpolation=cv2.INTER_AREA)
+    ox, oy = (bg.shape[1] - WIN_W) // 2, (bg.shape[0] - WIN_H) // 2
+    bg = bg[oy:oy + WIN_H, ox:ox + WIN_W]
+    bg = cv2.GaussianBlur(bg, (0, 0), float(frame.get("blur", 70)))
+    bg = (bg.astype(np.float32) * float(frame.get("dim", 0.45))).clip(0, 255)
+    fw = WIN_W
+    fh = int(round(ih * fw / iw))
+    fg = cv2.resize(img, (fw, fh), interpolation=cv2.INTER_AREA if fw < iw else cv2.INTER_LANCZOS4)
+    y0 = int(round(float(frame.get("top", 300)) * 2))
+    # soft shadow under the photo
+    sh = np.zeros((WIN_H, WIN_W), np.float32)
+    sh[max(0, y0 - 10):min(WIN_H, y0 + fh + 40), :] = 1.0
+    sh = cv2.GaussianBlur(sh, (0, 0), 40)
+    bg = bg * (1.0 - 0.35 * sh[..., None])
+    base = bg.astype(np.uint8)
+    base[y0:y0 + fh, 0:fw] = fg
+    return np.ascontiguousarray(base), (iw, ih), {"y0": y0, "h": fh, "w": fw}
 
 
 def detect_flame(base, hint=None):
@@ -166,9 +187,9 @@ class Flame:
         cut = np.clip((self.by + 0.40 * hgt - gy) / (0.25 * hgt), 0, 1)  # zero by 0.4H below the rim
         self.G = (G * cut).astype(np.float32)[..., None]
 
-    def frame(self, sig, i):
+    def frame(self, sig, i, canvas=None):
         t, lean, bend, stretch, width, light, gust = sig
-        base = self.base.copy()
+        base = canvas if canvas is not None else self.base.copy()
         A = self.amp * (lean[i] + 1.8 * gust[i])
         B = 0.9 * self.amp * bend[i]
         s_ = float(np.clip(self.str_amp * (stretch[i] - 0.8 * gust[i]), -0.08, 0.08))
@@ -208,8 +229,18 @@ def render_flame(job, out_dir):
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="flame_"))
     shot = job["shots"][0]
     src = R.fetch(shot["src"], tmp, 1)
-    base, (iw, ih) = build_base(src)
+    fr_cfg = shot.get("frame")
+    base, (iw, ih), frect = build_base(src, fr_cfg)
     fcfg = job["flame"]
+
+    def to_base(hint):
+        if not frect or not hint:
+            return hint
+        x0, y0, x1, y1 = hint
+        f = lambda y: (frect["y0"] + y * frect["h"]) / base.shape[0]
+        return [x0, f(y0), x1, f(y1)]
+    fcfg = dict(fcfg)
+    fcfg["hint"] = to_base(fcfg.get("hint"))
     if "base_xy" in fcfg:
         loc = dict(fcfg["base_xy"])
         loc["height"] = loc["base"] - loc["tip"]
@@ -218,6 +249,11 @@ def render_flame(job, out_dir):
         loc = detect_flame(base, fcfg.get("hint"))
         loc["detected"] = True
     fl = Flame(base, loc, fcfg)
+    extras = []
+    for ex in fcfg.get("extra", []):
+        exc = dict(ex)
+        eloc = detect_flame(base, to_base(exc.get("hint")))
+        extras.append((Flame(base, eloc, {**fcfg, **exc}), eloc, exc))
     debug_sheet(base, loc, out_dir / f"{job['id']}-sheet1.jpg")
     shots_meta = [{"index": 1, "source_url": shot["src"], "source_sha256": R.sha256(src),
                    "source_size": f"{iw}x{ih}", "base_size": f"{base.shape[1]}x{base.shape[0]}",
@@ -234,6 +270,7 @@ def render_flame(job, out_dir):
     fx0, fx1 = float(mo.get("fx0", 0.5)), float(mo.get("fx1", mo.get("fx0", 0.5)))
     fy0, fy1 = float(mo.get("fy0", 0.5)), float(mo.get("fy1", mo.get("fy0", 0.5)))
     sig = make_signals(n, int(fcfg.get("seed", 11)), float(fcfg.get("gust_t", 4.6)))
+    esigs = [make_signals(n, int(exc.get("seed", 21 + k)), float(exc.get("gust_t", fcfg.get("gust_t", 4.6)) + 0.5)) for k, (_, _, exc) in enumerate(extras)]
     if job.get("stills"):
         # typography preview: text-free frames at given times, identical image/flame/camera to the video
         names = []
@@ -280,6 +317,8 @@ def render_flame(job, out_dir):
         z = z0 + (z1 - z0) * u
         fx, fy = fx0 + (fx1 - fx0) * u, fy0 + (fy1 - fy0) * u
         eff, prm = fl.frame(sig, i)
+        for (efl, _, _), esg in zip(extras, esigs):
+            eff, _ = efl.frame(esg, i, canvas=eff)
         frame = camera(eff, z, fx, fy)
         params.append(prm)
         if i in (0, n // 3, 2 * n // 3, n - 1):
