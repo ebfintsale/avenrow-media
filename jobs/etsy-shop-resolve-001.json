@@ -1,0 +1,10 @@
+{
+ "id": "etsy-shop-resolve-001",
+ "type": "webfetch",
+ "urls": [
+  "https://www.etsy.com/shop/Avenrow?sort_order=date_desc",
+  "https://www.etsy.com/shop/Avenrow?sort_order=date_desc&page=2",
+  "https://www.etsy.com/shop/Avenrow/items",
+  "https://www.etsy.com/shop/Avenrow?search_query=halloween"
+ ]
+}
