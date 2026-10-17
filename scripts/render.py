@@ -310,6 +310,12 @@ def main():
         import contact
         contact.run_contact(job, out_dir)
         return
+    if job.get("type") == "pin":
+        import pin
+        meta = pin.run_pin(job, out_dir)
+        (out_dir / f"{job['id']}.json").write_text(json.dumps(meta, indent=2))
+        print(json.dumps(meta, indent=2))
+        return
     if job.get("type") == "webfetch":
         import webfetch
         meta = webfetch.run_webfetch(job, out_dir)
