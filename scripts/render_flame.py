@@ -102,6 +102,15 @@ def build_base(path, frame=None):
 
 
 def detect_flame(base, hint=None, thr=228):
+    for t in [thr] + [x for x in (236, 244, 220, 250, 212) if x != thr]:
+        try:
+            return _detect_flame(base, hint, t)
+        except SystemExit:
+            continue
+    raise SystemExit("no lit flame detected in hint window - refusing to animate (never animate an unlit candle)")
+
+
+def _detect_flame(base, hint=None, thr=228):
     """Find the flame: bright, tall, narrow blob. Returns dict in base px + candidates."""
     bh, bw = base.shape[:2]
     half = cv2.resize(base, (bw // 2, bh // 2), interpolation=cv2.INTER_AREA)
