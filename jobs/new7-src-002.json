@@ -1,0 +1,46 @@
+{
+ "id": "new7-src-002",
+ "type": "crop",
+ "items": [
+  {
+   "name": "trickortreat2",
+   "src": "https://i.etsystatic.com/67533802/r/il/5eb182/8729403295/il_fullxfull.8729403295_ayqu.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "trickortreat3",
+   "src": "https://i.etsystatic.com/67533802/r/il/5adc66/8729403729/il_fullxfull.8729403729_8mte.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "trickortreat4",
+   "src": "https://i.etsystatic.com/67533802/r/il/78cfc0/8681585262/il_fullxfull.8681585262_whro.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "trickortreat5",
+   "src": "https://i.etsystatic.com/67533802/r/il/46b232/8681585704/il_fullxfull.8681585704_es3t.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "selfcareclub2",
+   "src": "https://i.etsystatic.com/67533802/r/il/847b5b/8735434135/il_fullxfull.8735434135_5fj3.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "goodmorning2",
+   "src": "https://i.etsystatic.com/67533802/r/il/76db53/8687840394/il_fullxfull.8687840394_7hj7.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "goodvibes2",
+   "src": "https://i.etsystatic.com/67533802/r/il/0e614e/8735524105/il_fullxfull.8735524105_tgai.jpg",
+   "preview_only": true
+  },
+  {
+   "name": "hauntedhouse2",
+   "src": "https://i.etsystatic.com/67533802/r/il/045492/8681724538/il_fullxfull.8681724538_moc8.jpg",
+   "preview_only": true
+  }
+ ]
+}
