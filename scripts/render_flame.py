@@ -333,6 +333,9 @@ def render_flame(job, out_dir):
         eff, prm = fl.frame(sig, i)
         for (efl, _, _), esg in zip(extras, esigs):
             eff, _ = efl.frame(esg, i, canvas=eff)
+        if frect:  # flame shimmer must never cross into the extension bands
+            eff[:frect["y0"]] = base[:frect["y0"]]
+            eff[frect["y0"] + frect["h"]:] = base[frect["y0"] + frect["h"]:]
         frame = camera(eff, z, fx, fy)
         params.append(prm)
         if i in (0, n // 3, 2 * n // 3, n - 1):
