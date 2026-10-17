@@ -354,4 +354,13 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import traceback
+    try:
+        main()
+    except BaseException as e:  # noqa: BLE001  record the failure as a release asset instead of failing silently
+        jid = json.loads(pathlib.Path(sys.argv[1]).read_text()).get("id", "unknown")
+        pathlib.Path("out").mkdir(exist_ok=True)
+        pathlib.Path("out", f"{jid}.json").write_text(json.dumps({"id": jid, "error": str(e)[:600],
+                                                         "trace": traceback.format_exc()[-1500:]}, indent=2))
+        print("FAILED", jid, e)
+        sys.exit(0)
