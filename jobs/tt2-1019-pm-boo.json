@@ -46,7 +46,7 @@
     "stagger": 0.12
    },
    "frame": {
-    "top": 780,
+    "top": 420,
     "solid": [
      20,
      16,
@@ -57,5 +57,5 @@
  ],
  "typography": "AVENROW TikTok Typography V1",
  "note": "Oct 18-20 revision 2 (real Etsy secondary images, varied framing)",
- "rev": 5
+ "rev": 6
 }

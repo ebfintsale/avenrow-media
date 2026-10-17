@@ -94,12 +94,12 @@ def build(it, photo):
         y = 770 + int(it.get("size", 74) * 1.35)
         for k, t in enumerate(it["items"], 1):
             if lay == "checklist":
-                d.rounded_rectangle((70, y + 6, 126, y + 62), 12, outline=fg + (255,), width=5)
-                check(d, 80, y + 14, 38, fg + (255,))
+                d.rounded_rectangle((70, y + 8, 134, y + 72), 14, outline=fg + (255,), width=5)
+                check(d, 81, y + 17, 44, fg + (255,))
             else:
-                d.text((70, y), f"{k}.", font=font(54), fill=fg + (255,))
-            d.text((150, y + 2), t, font=font(54, False), fill=fg + (255,))
-            y += 92
+                d.text((70, y), f"{k}.", font=font(it.get("item_size", 64)), fill=fg + (255,))
+            d.text((150, y + 2), t, font=font(it.get("item_size", 64), False), fill=fg + (255,))
+            y += it.get("gap", 120)
         d.text((70, H - 120), it.get("foot", "AVENROW"), font=font(30), fill=fg + (170,))
         return im.convert("RGB")
     if lay == "quote_overlay":
@@ -118,10 +118,10 @@ def build(it, photo):
         d.text((W // 2, 130), "PERMISSION SLIP", font=font(40), fill=(130, 100, 80), anchor="ma")
         d.line([(120, 200), (W - 120, 200)], fill=(150, 125, 100), width=3)
         lines(d, (W // 2, 260), it["lines"], font(it.get("size", 104)), INK, int(it.get("size", 104) * 1.08), anchor="ma")
-        ph = rounded(zcover(photo, 700, 520, fx, fy, it.get('z', 1.0)).convert("RGB"), 28)
-        base = im.convert("RGBA"); base.alpha_composite(ph, (150, 800))
+        ph = rounded(zcover(photo, 800, 640, fx, fy, it.get('z', 1.0)).convert("RGB"), 28)
+        base = im.convert("RGBA"); base.alpha_composite(ph, (100, 700))
         d = ImageDraw.Draw(base)
-        d.text((W // 2, 1370), it.get("sub", ""), font=font(34, False), fill=(130, 100, 80), anchor="ma")
+        d.text((W // 2, 1390), it.get("sub", ""), font=font(36, False), fill=(130, 100, 80), anchor="ma")
         return base.convert("RGB")
     if lay == "arch":
         bg = tuple(it.get("bg", CREAM)); fg = tuple(it.get("fg", INK))
