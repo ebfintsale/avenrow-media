@@ -1,0 +1,51 @@
+{
+ "id": "pin-krea-r1",
+ "type": "crop",
+ "items": [
+  {
+   "name": "goodmorning",
+   "src": "https://app-uploads.krea.ai/public/497859d1-6c53-4ad8-8a4e-71dd0a3be4bf.png",
+   "preview_only": true
+  },
+  {
+   "name": "happybday",
+   "src": "https://app-uploads.krea.ai/public/fbd63f28-1a70-4a18-9f2d-ad5d4bee17a3.png",
+   "preview_only": true
+  },
+  {
+   "name": "hauntedhouse",
+   "src": "https://app-uploads.krea.ai/public/58a887d2-ea57-4aa7-b5cf-83697ec8ba75.png",
+   "preview_only": true
+  },
+  {
+   "name": "goodvibes",
+   "src": "https://app-uploads.krea.ai/public/010d9748-9ec6-43c6-8990-1722754173de.png",
+   "preview_only": true
+  },
+  {
+   "name": "couples",
+   "src": "https://app-uploads.krea.ai/public/4e9fab9f-83d2-41f0-8d74-36c1f7effa17.png",
+   "preview_only": true
+  },
+  {
+   "name": "midnight",
+   "src": "https://app-uploads.krea.ai/public/d07ac1c0-2a88-4d54-b147-e86566acb4ab.png",
+   "preview_only": true
+  },
+  {
+   "name": "boo",
+   "src": "https://app-uploads.krea.ai/public/381a5dfb-78a6-4b3a-b2d4-2b1da6595117.png",
+   "preview_only": true
+  },
+  {
+   "name": "trickortreat",
+   "src": "https://app-uploads.krea.ai/public/b82848cd-ae03-45ae-89f4-208b393aa06b.png",
+   "preview_only": true
+  },
+  {
+   "name": "witching",
+   "src": "https://app-uploads.krea.ai/public/c7de9823-a77d-41af-9513-1d15b0acdd7f.png",
+   "preview_only": true
+  }
+ ]
+}
