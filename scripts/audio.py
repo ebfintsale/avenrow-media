@@ -1,11 +1,11 @@
-"""AVENROW original ambient sound design (pure numpy synthesis; no samples, no music, no vocals).
-Each scene = shaped-noise room tone + slow texture layers + very sparse candle micro-ticks.
+"""AVENROW original ambient sound design v2 (pure numpy synthesis; no samples, no music, no vocals).
+v2 (2026-10-17): wind / airy / leaf-wind / drone sound direction REMOVED. Each profile = warm band-limited room tone + soft cloth rustles + wood ticks + optional vinyl-like crackle + tiny candle crackles.
 No loops: everything is generated for the clip's full length from a seeded RNG."""
 import json, pathlib, subprocess, re, shutil, tempfile, wave
 import numpy as np
 
 SR = 44100
-TARGET_LUFS = -23.0
+TARGET_LUFS = -27.0   # v2: quiet, clearly secondary to the picture
 FADE_IN, FADE_OUT = 0.8, 1.3
 
 
@@ -71,51 +71,76 @@ def stereo(fn, n, rng):
     return np.stack([fn(rng), fn(rng)], axis=1)
 
 
+def clicks(n, rng, rate, lo, hi, dec, amp_mu=-1.0, amp_sd=0.7, maxlen=0.02):
+    """Poisson-timed tiny transients (band-limited noise with fast decay). Irregular by construction."""
+    y = np.zeros(n)
+    t = 0.0
+    dur = n / SR
+    while True:
+        t += rng.exponential(1.0 / rate)
+        i = int(t * SR)
+        L = int(min(maxlen, rng.uniform(0.002, maxlen)) * SR) + 8
+        if i + L >= n:
+            break
+        b = shaped(L, rng, lo, hi) * np.exp(-np.linspace(0, dec * rng.uniform(0.7, 1.4), L))
+        y[i:i + L] += b * rng.lognormal(amp_mu, amp_sd)
+    return y
+
+
+def rustle(n, rng, rate):
+    """Soft fabric / paper movement: short, gentle, filtered bursts with slow attack. Very sparse."""
+    y = np.zeros(n)
+    t = 0.0
+    dur = n / SR
+    while True:
+        t += rng.exponential(1.0 / rate)
+        i = int(t * SR)
+        L = int(rng.uniform(0.08, 0.28) * SR)
+        if i + L >= n:
+            break
+        env = np.sin(np.linspace(0, np.pi, L)) ** 2
+        y[i:i + L] += shaped(L, rng, 1200, 4200, 0.8) * env * rng.lognormal(-1.2, 0.4)
+    return y
+
+
+# Production ambience profiles (v2 room-tone system). No wind, no airy swells, no tonal drones, no white-noise bed.
+PROFILES = {
+    #            room lo,hi,tilt  room_g  vinyl_rate vinyl_g  candle_rate candle_g  rustle_rate  tick_rate
+    "roomdusk":  dict(room=(170, 1000, 0.9), rg=1.0, vr=7.0, vg=0.55, cr=0.45, cg=0.55, ru=0.14, tk=0.08),   # warm autumn evening
+    "roomnight": dict(room=(160, 900, 1.0), rg=1.0, vr=5.0, vg=0.45, cr=0.40, cg=0.50, ru=0.10, tk=0.06),   # quiet cozy night in
+    "roomday":   dict(room=(180, 1150, 0.7), rg=1.0, vr=0.0, vg=0.0,  cr=0.35, cg=0.40, ru=0.18, tk=0.10),  # bright morning / desk, no vinyl
+}
+
+
 def synth(scene, dur, seed):
+    if scene not in PROFILES:
+        raise SystemExit(f"unknown scene {scene} (v2 profiles: {', '.join(PROFILES)})")
+    P = PROFILES[scene]
     rng = np.random.default_rng(seed)
     n = int(dur * SR)
-
-    def room(lo, hi, tilt, g=1.0):
-        return stereo(lambda r: shaped(n, r, lo, hi, tilt) * slow(n, r, 0.15, 0.12, 0.5), n, rng) * g
-
-    def band(lo, hi, g, nsw, ls, hs, tilt=0.0):
-        return stereo(lambda r: shaped(n, r, lo, hi, tilt) * swells(n, r, nsw, ls, hs) * slow(n, r, 0.3, 0.3, 0.2), n, rng) * g
-
-    def tones(freqs, g, spread=0.35):
-        L = sines(n, freqs, rng)
-        R = sines(n, [f * (1 + spread * 0.004) for f in freqs], rng)
-        return np.stack([L, R], 1) * g * slow(n, rng, 0.08, 0.35, 0.2)[:, None]
-
-    def cand(level, rate=1.1):
-        return np.stack([candle(n, rng, rate, level), candle(n, rng, rate, level)], 1)
-
-    s = scene
-    if s == "stay-cozy":      # quiet cozy night room + faint distant city air
-        y = room(90, 700, 1.2) + tones([110, 165], 0.14) + band(200, 1100, 0.10, 4, 4, 8, 1.0) + cand(0.10, 0.8)
-    elif s == "midnight":     # darker, slightly atmospheric
-        y = room(80, 450, 1.4) + tones([147, 196, 294], 0.22) + band(4000, 9000, 0.035, 5, 2, 4) + cand(0.08, 0.7)
-    elif s == "spooky":       # warm autumn room + soft wind
-        y = room(90, 800, 1.1) + tones([131], 0.10) + band(300, 1300, 0.30, 4, 3, 6, 1.2) + cand(0.12, 1.0)
-    elif s == "witching":     # dark room, mysterious not horror
-        y = room(70, 350, 1.6) + tones([147, 148.6, 220], 0.20, 0.5) + band(3500, 8000, 0.03, 4, 2, 4) + cand(0.07, 0.6)
-    elif s == "pumpkin":      # warm autumn evening, leaf-wind
-        y = room(90, 800, 1.1) + band(800, 3500, 0.20, 5, 2, 5, 0.6) + tones([120], 0.06) + cand(0.12, 1.0)
-    elif s == "ghostly":      # cozy halloween, airy and playful
-        y = room(90, 750, 1.1) + band(500, 2600, 0.26, 3, 1.5, 3, 0.8) + band(2500, 6000, 0.05, 6, 0.4, 1.0) + cand(0.10, 1.0)
-    elif s == "selfcare":     # quiet bathroom evening, faint airy steam
-        y = room(90, 650, 1.2) + tones([130, 196], 0.09) + band(1500, 4500, 0.05, 4, 4, 8, 0.6) + cand(0.10, 0.8)
-    elif s == "newhome":      # quiet sunny apartment, first night in
-        y = room(100, 850, 1.0) + tones([196], 0.07) + band(300, 1200, 0.12, 4, 3, 6, 1.0) + cand(0.08, 0.9)
-    elif s == "cancelled":    # cozy night in, very faint rain at the window
-        y = room(80, 600, 1.3) + tones([110, 165], 0.10) + band(1800, 6500, 0.07, 3, 6, 10, 0.4) + cand(0.11, 0.8)
-    elif s == "badidea":      # playful halloween evening, airy
-        y = room(90, 780, 1.1) + band(500, 2600, 0.22, 4, 1.5, 3, 0.8) + band(2500, 6000, 0.045, 6, 0.4, 1.0) + cand(0.11, 1.1)
-    elif s == "ghostcozy":    # cozy halloween night in
-        y = room(90, 700, 1.2) + tones([110, 165], 0.12) + band(300, 1300, 0.22, 4, 3, 6, 1.1) + cand(0.12, 0.9)
-    elif s == "couples":      # quiet dinner-for-two room
-        y = room(80, 600, 1.3) + tones([123, 185], 0.13) + band(200, 900, 0.09, 4, 4, 8, 1.0) + cand(0.10, 0.7)
-    else:
-        raise SystemExit(f"unknown scene {s}")
+    lo, hi, tilt = P["room"]
+    # warm room tone: band-limited (no energy below ~150 Hz -> no drone), nearly steady (+/-1 dB drift), mostly-correlated stereo
+    shared = shaped(n, rng, lo, hi, tilt)
+    drift = 1.0 + 0.10 * (shaped(n, rng, 0.03, 0.25, 0.0) / 3.0)
+    L = (0.75 * shared + 0.25 * shaped(n, rng, lo, hi, tilt)) * drift
+    R = (0.75 * shared + 0.25 * shaped(n, rng, lo, hi, tilt)) * drift
+    room = np.stack([L, R], 1) * P["rg"] * 0.6
+    y = room.copy()
+    def pan(sig, w):
+        return np.stack([sig * (1 - w), sig * w], 1) * 2 * 0.5
+    # soft cozy texture: gentle fabric/paper rustles + rare low wood ticks, panned randomly
+    for _ in range(1):
+        y += pan(rustle(n, rng, P["ru"]), rng.uniform(0.3, 0.7)) * 0.20
+    y += pan(clicks(n, rng, P["tk"], 220, 900, 14, -0.4, 0.4, 0.04), rng.uniform(0.3, 0.7)) * 0.22
+    # vinyl-like surface texture (original synthesized, no sampled records): sparse crackle + small pops, no hiss bed
+    if P["vr"] > 0:
+        crack = clicks(n, rng, P["vr"], 2500, 9000, 70, -2.1, 0.8, 0.004)
+        pops = clicks(n, rng, P["vr"] * 0.04, 800, 4500, 40, -1.0, 0.5, 0.012)
+        y += pan(crack, 0.5) * P["vg"] * 0.5 + pan(pops, rng.uniform(0.35, 0.65)) * P["vg"] * 0.35
+    # tiny realistic candle: sparse small crackles + rare slightly larger snap (no airy flutter)
+    cand = clicks(n, rng, P["cr"], 1800, 7500, 55, -1.4, 0.7, 0.014)
+    snap = clicks(n, rng, P["cr"] * 0.12, 900, 5000, 30, -0.6, 0.4, 0.02)
+    y += pan(cand, rng.uniform(0.4, 0.6)) * P["cg"] + pan(snap, rng.uniform(0.4, 0.6)) * P["cg"] * 0.8
     t = np.arange(n) / SR
     fade = np.minimum(1, t / FADE_IN) * np.minimum(1, (dur - t) / FADE_OUT)
     fade = (0.5 - 0.5 * np.cos(np.pi * np.clip(fade, 0, 1)))

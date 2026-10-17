@@ -1,0 +1,56 @@
+{
+ "id": "tt-1018-am-trick-or-treat",
+ "type": "flame",
+ "product": "trickortreat",
+ "audio": "silent",
+ "stills": [
+  1.8,
+  5.5
+ ],
+ "flame": {
+  "hint": [
+   0.46,
+   0.12,
+   0.58,
+   0.3
+  ],
+  "seed": 41,
+  "gust_t": 4.4
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/84b0bb/8681583738/il_fullxfull.8681583738_4e2o.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.06,
+    "fx0": 0.52,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "trick or treat,",
+     "candle edition"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.4,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12
+   }
+  }
+ ],
+ "typography": "AVENROW TikTok Typography V1",
+ "note": "Oct 18-20 batch preview; real Etsy IMAGE1; audio baked after approval"
+}

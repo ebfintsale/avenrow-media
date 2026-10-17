@@ -1,0 +1,61 @@
+{
+ "id": "tt-1020-am-good-vibes-only",
+ "type": "flame",
+ "product": "goodvibes",
+ "audio": "silent",
+ "stills": [
+  1.8,
+  5.5
+ ],
+ "flame": {
+  "hint": [
+   0.46,
+   0.17,
+   0.58,
+   0.33
+  ],
+  "seed": 45,
+  "gust_t": 5.0
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/b40778/8687711160/il_fullxfull.8687711160_ez80.jpg",
+   "dur": 9.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.06,
+    "z1": 1.0,
+    "fx0": 0.52,
+    "fx1": 0.48,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "desk update:",
+     "good vibes only"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.4,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 700,
+     "max": 0.32,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW TikTok Typography V1",
+ "note": "Oct 18-20 batch preview; real Etsy IMAGE1; audio baked after approval"
+}

@@ -1,0 +1,61 @@
+{
+ "id": "tt-1018-pm-self-care-club",
+ "type": "flame",
+ "product": "selfcareclub",
+ "audio": "silent",
+ "stills": [
+  1.8,
+  5.5
+ ],
+ "flame": {
+  "hint": [
+   0.44,
+   0.17,
+   0.57,
+   0.33
+  ],
+  "seed": 42,
+  "gust_t": 5.0
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/5511f7/8735433559/il_fullxfull.8735433559_oyrh.jpg",
+   "dur": 9.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.07,
+    "z1": 1.0,
+    "fx0": 0.5,
+    "fx1": 0.54,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "tonight's plan:",
+     "self care club"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.4,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 700,
+     "max": 0.3,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW TikTok Typography V1",
+ "note": "Oct 18-20 batch preview; real Etsy IMAGE1; audio baked after approval"
+}
