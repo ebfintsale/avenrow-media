@@ -1,0 +1,307 @@
+{
+ "id": "pins-r1",
+ "type": "pin",
+ "items": [
+  {
+   "name": "p01-trickortreat",
+   "layout": "card_bottom",
+   "src": "https://i.etsystatic.com/67533802/r/il/84b0bb/8681583738/il_fullxfull.8681583738_4e2o.jpg",
+   "z": 1.9,
+   "fx": 0.52,
+   "fy": 0.58,
+   "lines": [
+    "trick or treat",
+    "yourself."
+   ],
+   "sub": "A Halloween candle gift, minus the candy."
+  },
+  {
+   "name": "p02-goodmorning",
+   "layout": "arch",
+   "src": "https://i.etsystatic.com/67533802/r/il/c3b61d/8735652869/il_fullxfull.8735652869_131f.jpg",
+   "fx": 0.52,
+   "fy": 0.5,
+   "bg": [
+    252,
+    230,
+    210
+   ],
+   "fg": [
+    120,
+    58,
+    38
+   ],
+   "lines": [
+    "slow mornings,",
+    "good mornings."
+   ]
+  },
+  {
+   "name": "p03-happybday",
+   "layout": "split_band",
+   "src": "https://i.etsystatic.com/67533802/r/il/07a336/8687775854/il_fullxfull.8687775854_r0ke.jpg",
+   "bg": [
+    58,
+    98,
+    160
+   ],
+   "fg": [
+    250,
+    240,
+    215
+   ],
+   "lines": [
+    "a birthday gift",
+    "they'll actually keep."
+   ]
+  },
+  {
+   "name": "p04-boo",
+   "layout": "duo",
+   "src": "https://i.etsystatic.com/67533802/r/il/a7f8cd/8729869455/il_fullxfull.8729869455_m44n.jpg",
+   "fy": 0.12,
+   "src2": "https://i.etsystatic.com/67533802/r/il/a7f8cd/8729869455/il_fullxfull.8729869455_m44n.jpg",
+   "z2": 2.2,
+   "fx2": 0.5,
+   "fy2": 0.5,
+   "bg": [
+    24,
+    40,
+    66
+   ],
+   "fg": [
+    250,
+    238,
+    215
+   ],
+   "lines": [
+    "ghosts, but",
+    "make it cute."
+   ]
+  },
+  {
+   "name": "p05-selfcare",
+   "layout": "checklist",
+   "src": "https://i.etsystatic.com/67533802/r/il/5511f7/8735433559/il_fullxfull.8735433559_oyrh.jpg",
+   "bg": [
+    246,
+    222,
+    214
+   ],
+   "fg": [
+    120,
+    40,
+    50
+   ],
+   "head": "self care night:",
+   "items": [
+    "phone off",
+    "candle on",
+    "nowhere to be"
+   ]
+  },
+  {
+   "name": "p06-hauntedhouse",
+   "layout": "polaroid",
+   "src": "https://i.etsystatic.com/67533802/r/il/291027/8729543053/il_fullxfull.8729543053_4oeo.jpg",
+   "fx": 0.52,
+   "fy": 0.55,
+   "z": 1.15,
+   "bg": [
+    60,
+    24,
+    20
+   ],
+   "fg": [
+    246,
+    226,
+    190
+   ],
+   "lines": [
+    "halloween,",
+    "but make it moody."
+   ],
+   "rot": 3
+  },
+  {
+   "name": "p07-goodvibes",
+   "layout": "duo",
+   "src": "https://i.etsystatic.com/67533802/r/il/b40778/8687711160/il_fullxfull.8687711160_ez80.jpg",
+   "src2": "https://i.etsystatic.com/67533802/r/il/0e614e/8735524105/il_fullxfull.8735524105_tgai.jpg",
+   "fy": 0.5,
+   "fy2": 0.55,
+   "bg": [
+    84,
+    118,
+    92
+   ],
+   "fg": [
+    250,
+    240,
+    215
+   ],
+   "lines": [
+    "small desk upgrades",
+    "that feel good."
+   ]
+  },
+  {
+   "name": "p08-couples",
+   "layout": "split_band",
+   "src": "https://i.etsystatic.com/67533802/r/il/936f57/8679353363/il_fullxfull.8679353363_rxpt.jpg",
+   "bg": [
+    28,
+    26,
+    24
+   ],
+   "fg": [
+    246,
+    226,
+    190
+   ],
+   "lines": [
+    "halloween date night,",
+    "at home."
+   ],
+   "sub": "Halloween candle for couples"
+  },
+  {
+   "name": "p09-staycozy",
+   "layout": "numbered",
+   "src": "https://i.etsystatic.com/67533802/r/il/b37581/8664347108/il_fullxfull.8664347108_gmbf.jpg",
+   "bg": [
+    240,
+    228,
+    222
+   ],
+   "fg": [
+    88,
+    30,
+    44
+   ],
+   "head": "cozy reading nook:",
+   "items": [
+    "a good book",
+    "a soft blanket",
+    "a candle lit"
+   ]
+  },
+  {
+   "name": "p10-midnight",
+   "layout": "arch",
+   "src": "https://i.etsystatic.com/67533802/r/il/86fdec/8724123889/il_fullxfull.8724123889_bq3o.jpg",
+   "fx": 0.5,
+   "bg": [
+    22,
+    56,
+    48
+   ],
+   "fg": [
+    246,
+    226,
+    190
+   ],
+   "lines": [
+    "a witchy",
+    "little corner."
+   ]
+  },
+  {
+   "name": "p11-boo2",
+   "layout": "arch",
+   "src": "https://i.etsystatic.com/67533802/r/il/a7f8cd/8729869455/il_fullxfull.8729869455_m44n.jpg",
+   "fx": 0.5,
+   "bg": [
+    226,
+    148,
+    84
+   ],
+   "fg": [
+    30,
+    40,
+    64
+   ],
+   "lines": [
+    "the hostess gift,",
+    "spooky edition."
+   ]
+  },
+  {
+   "name": "p12-longdistance",
+   "layout": "split_band",
+   "band_top": true,
+   "src": "https://i.etsystatic.com/67533802/r/il/d64a8e/8601388356/il_fullxfull.8601388356_9nan.jpg",
+   "bg": [
+    244,
+    236,
+    222
+   ],
+   "fg": [
+    52,
+    38,
+    30
+   ],
+   "size": 80,
+   "lines": [
+    "different places.",
+    "same person",
+    "i'd call first."
+   ]
+  },
+  {
+   "name": "p13-trickortreat2",
+   "layout": "duo",
+   "src": "https://i.etsystatic.com/67533802/r/il/5eb182/8729403295/il_fullxfull.8729403295_ayqu.jpg",
+   "src2": "https://i.etsystatic.com/67533802/r/il/5adc66/8729403729/il_fullxfull.8729403729_8mte.jpg",
+   "fy": 0.55,
+   "fy2": 0.5,
+   "bg": [
+    58,
+    34,
+    26
+   ],
+   "fg": [
+    246,
+    226,
+    190
+   ],
+   "lines": [
+    "build a halloween",
+    "gift basket."
+   ]
+  },
+  {
+   "name": "p14-norush",
+   "layout": "slip",
+   "src": "https://i.etsystatic.com/67533802/r/il/910792/8673733031/il_fullxfull.8673733031_at9j.jpg",
+   "lines": [
+    "nothing needs",
+    "you right now."
+   ],
+   "sub": "granted: one quiet night in"
+  },
+  {
+   "name": "p15-witching",
+   "layout": "polaroid",
+   "src": "https://i.etsystatic.com/67533802/r/il/da6741/8723358109/il_fullxfull.8723358109_6eeg.jpg",
+   "fx": 0.5,
+   "fy": 0.55,
+   "z": 1.15,
+   "bg": [
+    70,
+    22,
+    36
+   ],
+   "fg": [
+    246,
+    226,
+    190
+   ],
+   "lines": [
+    "dark academia,",
+    "spooky season."
+   ],
+   "rot": -3
+  }
+ ]
+}
