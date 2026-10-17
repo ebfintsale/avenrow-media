@@ -85,8 +85,12 @@ def build_base(path, frame=None):
     bg = cv2.resize(img, (int(round(iw * s)), int(round(ih * s))), interpolation=cv2.INTER_AREA)
     ox, oy = (bg.shape[1] - WIN_W) // 2, (bg.shape[0] - WIN_H) // 2
     bg = bg[oy:oy + WIN_H, ox:ox + WIN_W]
-    bg = cv2.GaussianBlur(bg, (0, 0), float(frame.get("blur", 70)))
-    bg = (bg.astype(np.float32) * float(frame.get("dim", 0.45))).clip(0, 255)
+    if frame.get("solid"):
+        r, g, b = frame["solid"]
+        bg = np.empty((WIN_H, WIN_W, 3), np.float32); bg[...] = (b, g, r)
+    else:
+        bg = cv2.GaussianBlur(bg, (0, 0), float(frame.get("blur", 70)))
+        bg = (bg.astype(np.float32) * float(frame.get("dim", 0.45))).clip(0, 255)
     fw = WIN_W
     fh = int(round(ih * fw / iw))
     fg = cv2.resize(img, (fw, fh), interpolation=cv2.INTER_AREA if fw < iw else cv2.INTER_LANCZOS4)
@@ -95,7 +99,8 @@ def build_base(path, frame=None):
     sh = np.zeros((WIN_H, WIN_W), np.float32)
     sh[max(0, y0 - 10):min(WIN_H, y0 + fh + 40), :] = 1.0
     sh = cv2.GaussianBlur(sh, (0, 0), 40)
-    bg = bg * (1.0 - 0.35 * sh[..., None])
+    if not frame.get("solid"):
+        bg = bg * (1.0 - 0.35 * sh[..., None])
     base = bg.astype(np.uint8)
     base[y0:y0 + fh, 0:fw] = fg
     return np.ascontiguousarray(base), (iw, ih), {"y0": y0, "h": fh, "w": fw}
