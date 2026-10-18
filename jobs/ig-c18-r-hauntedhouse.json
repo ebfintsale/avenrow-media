@@ -5,10 +5,10 @@
  "audio": "silent",
  "flame": {
   "hint": [
-   0.43,
-   0.01,
-   0.57,
-   0.16
+   0.3,
+   0.0,
+   0.75,
+   0.32
   ],
   "seed": 52,
   "gust_t": 5.0
@@ -56,5 +56,6 @@
   }
  ],
  "typography": "AVENROW Typography V1",
- "note": "IG Oct 18 catch-up Reel (silent, real Etsy photo)"
+ "note": "IG Oct 18 catch-up Reel (silent, real Etsy photo)",
+ "rev": 2
 }
