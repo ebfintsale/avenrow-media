@@ -1,0 +1,12 @@
+{
+ "id": "ig-c18-feed-engagement",
+ "type": "crop",
+ "items": [
+  {
+   "name": "engagement",
+   "src": "https://i.etsystatic.com/67533802/r/il/f1a20d/8631546816/il_fullxfull.8631546816_go37.jpg",
+   "fx": 0.5,
+   "fy": 0.5
+  }
+ ]
+}

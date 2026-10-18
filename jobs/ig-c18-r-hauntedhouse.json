@@ -1,0 +1,60 @@
+{
+ "id": "ig-c18-r-hauntedhouse",
+ "type": "flame",
+ "product": "ig-c18-r-hauntedhouse",
+ "audio": "silent",
+ "flame": {
+  "hint": [
+   0.43,
+   0.01,
+   0.57,
+   0.16
+  ],
+  "seed": 52,
+  "gust_t": 5.0
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/291027/8729543053/il_fullxfull.8729543053_4oeo.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.04,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "haunted house,",
+     "cozy edition."
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 285,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.4,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12
+   },
+   "frame": {
+    "top": 500,
+    "solid": [
+     20,
+     16,
+     14
+    ]
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "note": "IG Oct 18 catch-up Reel (silent, real Etsy photo)"
+}
