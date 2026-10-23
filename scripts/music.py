@@ -60,15 +60,27 @@ def scale_notes(key, lo, hi):
             if lo <= n <= hi: out.append(n)
     return sorted(out)
 
-def melody(rng, key, lo, hi, bars, beats, rhythm_choices, density, vel=70, start_bar=0):
-    pool = scale_notes(key, midi(lo), midi(hi)); i = len(pool)//2; notes = []
+def melody(rng, key, lo, hi, bars, beats, rhythm_choices, density, vel=70, start_bar=0, prog=None):
+    """Random-walk melody. Per bar the pool is limited to notes that do not sit a semitone from any chord tone."""
+    full = scale_notes(key, midi(lo), midi(hi)); i = len(full)//2; notes = []
     for b in range(start_bar, bars):
+        pool = full
+        if prog:
+            pcs = {midi(x) % 12 for x in CH[prog[b % len(prog)]][1]} | {midi(CH[prog[b % len(prog)]][0]) % 12}
+            ok = [n for n in full if all((n - c) % 12 not in (1, 11) for c in pcs)]
+            if len(ok) >= 3: pool = ok
         t = b * beats * TPQ; pos = 0.0
         if rng.random() > density: continue
+        first = True
         while pos < beats - 0.01:
             d = rng.choice(rhythm_choices); d = min(d, beats - pos)
-            if rng.random() < 0.18: pos += d; continue
-            i = max(0, min(len(pool)-1, i + rng.choice([-2,-1,-1,0,1,1,2])))
+            if not first and rng.random() < 0.18: pos += d; continue
+            if prog and first:  # land on a chord tone on the downbeat
+                ct = [n for n in pool if n % 12 in pcs] or pool
+                tgt = min(ct, key=lambda n: abs(n - pool[min(i, len(pool)-1)])); i = pool.index(tgt)
+            else:
+                i = max(0, min(len(pool)-1, min(i, len(pool)-1) + rng.choice([-2,-1,-1,0,1,1,2])))
+            first = False
             notes.append((int(t + pos*TPQ), int(d*TPQ*0.9), pool[i], vel + rng.randint(-8, 8)))
             pos += d
     return notes
@@ -120,10 +132,10 @@ def build(spec):
         ch[2] = (spec["pad"], pad)
     if spec.get("lead"):
         lp, lo, hi, rc, dens, vel = spec["lead"]
-        ch[3] = (lp, melody(rng, spec["key"], lo, hi, bars, bt, rc, dens, vel, start_bar=spec.get("lead_start", 2)))
+        ch[3] = (lp, melody(rng, spec["key"], lo, hi, bars, bt, rc, dens, vel, start_bar=spec.get("lead_start", 2), prog=prog))
     if spec.get("second"):
         sp, lo, hi, rc, dens, vel = spec["second"]
-        ch[4] = (sp, melody(rng, spec["key"], lo, hi, bars, bt, rc, dens, vel, start_bar=spec.get("second_start", 4)))
+        ch[4] = (sp, melody(rng, spec["key"], lo, hi, bars, bt, rc, dens, vel, start_bar=spec.get("second_start", 4), prog=prog))
     if spec.get("drums"):
         dr = []; kind = spec["drums"]
         for b in range(bars):
