@@ -1,0 +1,63 @@
+{
+ "id": "o25-ig-27-6-pumpkin",
+ "type": "flame",
+ "product": "o25-ig-27-6-pumpkin",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.451,
+   0.155,
+   0.561,
+   0.309
+  ],
+  "seed": 72,
+  "gust_t": 4.0
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/57b39b/8675967298/il_fullxfull.8675967298_5m6c.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.28,
+    "z1": 1.0,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "fall candle",
+     "for the bookshelf"
+    ],
+    "align": "center",
+    "margin": 100,
+    "y": 285,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 820,
+     "max": 0.36,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-pumpkin-folk-guitar.wav",
+  "start": 38,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 ig d27 s6",
+ "rev": 3
+}
