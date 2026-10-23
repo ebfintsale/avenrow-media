@@ -15,12 +15,20 @@ PIN_T = ["09:00","11:30","14:00","16:30","19:00","21:30"]
 TT_T = ["10:30","15:00","20:00"]
 IG_T = ["08:00","10:30","12:45","15:00","17:30","19:45","21:45"]
 def jit(d, s, k): return (d * 7 + s * 3 + k) % 9
+_SC = {i['name']: i for i in json.load(open('/home/claude/avenrow-media/plan/scout.json'))['items']}
 def hint_for(p, ph):
-    if ph == 1:
-        if p == 4: return {"hint":[.36,.0,.64,.24]}
-        return {"hint":[.36,.03,.66,.38]}
-    if (p, ph) in ((31,2),(32,2),(33,2)): return {"hint":[.30,.0,.78,.32]}
-    return {"hint":[.50,.10,.78,.42],"extra":[{"hint":[.22,.20,.52,.55]}]}
+    if ph == 2 and 34 <= p <= 43: return {"hint": [.5, .1, .78, .42], "extra": [{"hint": [.22, .2, .52, .55]}]}
+    it = _SC[f"{p:02d}-{ph}"]
+    c = [x for x in it.get('cands', []) if 100 <= x['area'] <= 1300 and (x['box'][2]-x['box'][0]) <= 0.065 and 0.025 <= (x['box'][3]-x['box'][1]) <= 0.16 and 0.0 <= x['box'][1] <= 0.62 and 0.1 <= (x['box'][0] + x['box'][2]) / 2 <= 0.9]
+    pad = lambda bx: [round(max(0, bx[0] - .04), 3), round(max(0, bx[1] - .04), 3), round(min(1, bx[2] + .04), 3), round(min(1, bx[3] + .06), 3)]
+    twin = ph == 2 and (p, ph) not in ((31, 2), (32, 2), (33, 2))
+    if not twin:
+        c = [x for x in c if 0.3 <= (x['box'][0] + x['box'][2]) / 2 <= 0.7] or c
+        return {"hint": pad(c[0]['box'])} if c else {"hint": [.36, .03, .66, .38]}
+    if len(c) < 2: return {"hint": pad(c[0]['box'])} if c else {"hint": [.5, .1, .78, .42]}
+    a0 = c[0]; a1 = next((x for x in c[1:] if abs((x['box'][0]+x['box'][2])/2 - (a0['box'][0]+a0['box'][2])/2) > .15), None)
+    if not a1: return {"hint": pad(a0['box'])}
+    return {"hint": pad(a0['box']), "extra": [{"hint": pad(a1['box'])}]}
 def shot(plat, rec, lines, align, src):
     tt = plat == "tt"
     ytop = 118 if tt else 285

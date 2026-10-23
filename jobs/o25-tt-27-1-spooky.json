@@ -1,0 +1,78 @@
+{
+ "id": "o25-tt-27-1-spooky",
+ "type": "flame",
+ "product": "o25-tt-27-1-spooky",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.676,
+   0.365,
+   0.778,
+   0.526
+  ],
+  "extra": [
+   {
+    "hint": [
+     0.34,
+     0.215,
+     0.447,
+     0.379
+    ],
+    "seed": 148,
+    "gust_t": 3.2
+   }
+  ],
+  "seed": 48,
+  "gust_t": 5.2
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/702415/8723676139/il_fullxfull.8723676139_oeen.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.05,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "spooky season,",
+     "soft launch"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12
+   },
+   "frame": {
+    "top": 420,
+    "solid": [
+     22,
+     17,
+     15
+    ]
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-music-box-waltz-halloween.wav",
+  "start": 3,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 tt d27 s1",
+ "rev": 3
+}

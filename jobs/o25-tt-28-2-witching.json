@@ -1,0 +1,75 @@
+{
+ "id": "o25-tt-28-2-witching",
+ "type": "flame",
+ "product": "o25-tt-28-2-witching",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.33,
+   0.183,
+   0.437,
+   0.358
+  ],
+  "extra": [
+   {
+    "hint": [
+     0.681,
+     0.333,
+     0.785,
+     0.497
+    ],
+    "seed": 152,
+    "gust_t": 3.2
+   }
+  ],
+  "seed": 52,
+  "gust_t": 4.0
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/fbd35b/8675536218/il_fullxfull.8675536218_smb1.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.0,
+    "fx0": 0.22,
+    "fx1": 0.78,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "gothic cozy",
+     "nightstand"
+    ],
+    "align": "right",
+    "margin": 150,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 700,
+     "max": 0.36,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-spooky-cozy-lofi-hop.wav",
+  "start": 22,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 tt d28 s2",
+ "rev": 3
+}

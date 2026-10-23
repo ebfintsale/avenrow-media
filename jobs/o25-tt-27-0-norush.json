@@ -1,0 +1,63 @@
+{
+ "id": "o25-tt-27-0-norush",
+ "type": "flame",
+ "product": "o25-tt-27-0-norush",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.466,
+   0.154,
+   0.584,
+   0.332
+  ],
+  "seed": 47,
+  "gust_t": 5.5
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/910792/8673733031/il_fullxfull.8673733031_at9j.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.07,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "nothing needs you",
+     "right now."
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 700,
+     "max": 0.36,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-indie-nylon-morning.wav",
+  "start": 6,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 tt d27 s0",
+ "rev": 3
+}

@@ -1,0 +1,66 @@
+{
+ "id": "o25-tt-28-0-housewarming",
+ "type": "flame",
+ "product": "o25-tt-28-0-housewarming",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.466,
+   0.16,
+   0.589,
+   0.354
+  ],
+  "seed": 50,
+  "gust_t": 4.6
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/0e16c0/8631625326/il_fullxfull.8631625326_1w31.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.05,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "first apartment",
+     "essentials: a candle"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12
+   },
+   "frame": {
+    "top": 420,
+    "solid": [
+     22,
+     17,
+     15
+    ]
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-lofi-rhodes-warm.wav",
+  "start": 20,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 tt d28 s0",
+ "rev": 3
+}
