@@ -1,0 +1,78 @@
+{
+ "id": "o25-ig-29-2-anniv",
+ "type": "flame",
+ "product": "o25-ig-29-2-anniv",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.5,
+   0.1,
+   0.78,
+   0.42
+  ],
+  "extra": [
+   {
+    "hint": [
+     0.22,
+     0.2,
+     0.52,
+     0.55
+    ],
+    "seed": 177,
+    "gust_t": 3.2
+   }
+  ],
+  "seed": 77,
+  "gust_t": 4.5
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/c71c12/8601844838/il_fullxfull.8601844838_tau5.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.05,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "still glad",
+     "it was you."
+    ],
+    "align": "center",
+    "margin": 100,
+    "y": 285,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12
+   },
+   "frame": {
+    "top": 500,
+    "solid": [
+     22,
+     17,
+     15
+    ]
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-soft-piano-gift.wav",
+  "start": 22,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 ig d29 s2",
+ "rev": 3
+}

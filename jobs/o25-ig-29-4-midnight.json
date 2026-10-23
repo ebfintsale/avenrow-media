@@ -1,0 +1,75 @@
+{
+ "id": "o25-ig-29-4-midnight",
+ "type": "flame",
+ "product": "o25-ig-29-4-midnight",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.319,
+   0.148,
+   0.418,
+   0.28
+  ],
+  "extra": [
+   {
+    "hint": [
+     0.66,
+     0.335,
+     0.758,
+     0.464
+    ],
+    "seed": 178,
+    "gust_t": 3.2
+   }
+  ],
+  "seed": 78,
+  "gust_t": 4.2
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/a6b15a/8676298942/il_fullxfull.8676298942_dk4i.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.28,
+    "z1": 1.0,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "witchy night in",
+     "starts with a candle"
+    ],
+    "align": "right",
+    "margin": 150,
+    "y": 285,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 820,
+     "max": 0.36,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-dreamy-bedroom-rhodes.wav",
+  "start": 30,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 ig d29 s4",
+ "rev": 3
+}
