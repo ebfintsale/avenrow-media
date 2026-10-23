@@ -65,21 +65,14 @@ jobs:
             fluidsynth --version | head -1
           fi
 
-      - name: Render
-        run: |
-          set -euo pipefail
-          for f in ${{ steps.jobs.outputs.files }}; do
-            python3 scripts/render.py "$f"
-          done
-          ls -la out
-
-      - name: Publish release assets
+      - name: Render and publish each job
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           rc=0
           for f in ${{ steps.jobs.outputs.files }}; do
             id=$(python3 -c "import json;print(json.load(open('$f'))['id'])")
+            if ! python3 scripts/render.py "$f"; then echo "::error::render $id"; rc=1; continue; fi
             tag="video-$id"
             assets=()
             for extra in "out/$id.json" "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png out/$id-crop*.jpg out/$id-src*.jpg out/$id-*.wav; do
@@ -88,16 +81,16 @@ jobs:
             echo "job $id assets: ${assets[*]}"
             if [ ${#assets[@]} -eq 0 ]; then echo "::error::no assets for $id"; rc=1; continue; fi
             ok=0
-            for try in 1 2 3 4; do
+            for try in 1 2 3 4 5 6; do
               if gh release view "$tag" >/dev/null 2>&1; then
                 out=$(gh release upload "$tag" "${assets[@]}" --clobber 2>&1) && { ok=1; break; }
               else
                 out=$(gh release create "$tag" "${assets[@]}" --title "$id" --notes "Rendered by run ${{ github.run_id }}" --target "${{ github.sha }}" 2>&1) && { ok=1; break; }
               fi
-              echo "retry $try $id: ${out//$'\n'/ | }"; sleep $((try*8))
+              echo "retry $try $id: ${out//$'\n'/ | }"; sleep $((try*20))
             done
             if [ $ok -ne 1 ]; then echo "::error::publish $id: ${out//$'\n'/ | }"; rc=1; continue; fi
-            echo "ok $tag"
+            echo "ok $tag"; sleep 4
           done
           if ls fonts/*.ttf >/dev/null 2>&1; then
             gh release view assets-fonts >/dev/null 2>&1 || gh release create assets-fonts fonts/*.ttf --title assets-fonts --notes fonts --target "${{ github.sha }}" || true
