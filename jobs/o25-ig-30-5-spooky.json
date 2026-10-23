@@ -67,9 +67,9 @@
  "typography": "AVENROW Typography V1",
  "music": {
   "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-music-box-waltz-halloween.wav",
-  "start": 24,
+  "start": 20,
   "gain_db": 0
  },
  "note": "Oct25-31 ig d30 s5",
- "rev": 5
+ "rev": 6
 }

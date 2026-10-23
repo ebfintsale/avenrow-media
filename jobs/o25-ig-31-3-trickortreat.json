@@ -70,9 +70,9 @@
  "typography": "AVENROW Typography V1",
  "music": {
   "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-pumpkin-folk-guitar.wav",
-  "start": 44,
+  "start": 30,
   "gain_db": 0
  },
  "note": "Oct25-31 ig d31 s3",
- "rev": 5
+ "rev": 6
 }
