@@ -58,6 +58,13 @@ jobs:
             echo "files=$files" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Install synth (music jobs only)
+        run: |
+          if grep -lE '"type": *"music"' ${{ steps.jobs.outputs.files }} >/dev/null 2>&1; then
+            sudo apt-get install -y -qq fluidsynth fluid-soundfont-gm >/dev/null
+            fluidsynth --version | head -1
+          fi
+
       - name: Render
         run: |
           set -euo pipefail
@@ -75,7 +82,7 @@ jobs:
             id=$(python3 -c "import json;print(json.load(open('$f'))['id'])")
             tag="video-$id"
             assets=()
-            for extra in "out/$id.json" "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png out/$id-crop*.jpg out/$id-src*.jpg; do
+            for extra in "out/$id.json" "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png out/$id-crop*.jpg out/$id-src*.jpg out/$id-*.wav; do
               if [ -f "$extra" ]; then assets+=("$extra"); fi
             done
             echo "job $id assets: ${assets[*]}"

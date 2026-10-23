@@ -300,6 +300,24 @@ def check_specs(info, want_dur):
     return spec
 
 
+def mux_music(mp4, cfg, dur):
+    """Replace the silent track with a segment of an original AVENROW music track (video stream copied)."""
+    tmp = pathlib.Path(tempfile.mkdtemp(prefix="mux_"))
+    trk = fetch(cfg["url"], tmp, 0)
+    out = tmp / "m.mp4"
+    start = float(cfg.get("start", 0)); gain = float(cfg.get("gain_db", 0))
+    fo = min(1.5, dur / 3)
+    run(["ffmpeg", "-y", "-v", "error", "-i", str(mp4), "-ss", f"{start:.2f}", "-t", f"{dur:.3f}", "-i", str(trk),
+         "-filter_complex", f"[1:a]afade=t=in:d=0.4,afade=t=out:st={max(0, dur - fo):.2f}:d={fo:.2f},volume={gain}dB[a]",
+         "-map", "0:v:0", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "44100",
+         "-movflags", "+faststart", "-t", f"{dur:.3f}", str(out)])
+    shutil.copy(out, mp4)
+    lu = subprocess.run(["ffmpeg", "-i", str(mp4), "-af", "ebur128", "-f", "null", "-"], capture_output=True, text=True).stderr
+    import re as _re
+    m = _re.findall(r"I:\s+(-?[\d.]+) LUFS", lu)
+    return {"url": cfg["url"], "start": start, "gain_db": gain, "final_lufs": float(m[-1]) if m else None}
+
+
 def main():
     job = json.loads(pathlib.Path(sys.argv[1]).read_text())
     out_dir = pathlib.Path("out")
@@ -309,6 +327,12 @@ def main():
     if job.get("type") == "contact":
         import contact
         contact.run_contact(job, out_dir)
+        return
+    if job.get("type") == "music":
+        import music
+        meta = music.run_music(job, out_dir)
+        (out_dir / f"{job['id']}.json").write_text(json.dumps(meta, indent=2))
+        print(json.dumps(meta, indent=2)[:3000])
         return
     if job.get("type") == "scout":
         import scout
@@ -356,6 +380,8 @@ def main():
         extra = meta
     else:
         raise SystemExit(f"unsupported job type: {job.get('type')}")
+    if job.get("music") and job.get("type") == "flame":
+        extra["music"] = mux_music(mp4, job["music"], want)
     info = ffprobe_json(mp4, "-show_format", "-show_streams")
     spec = check_specs(info, want)
     spec.update(extra)
