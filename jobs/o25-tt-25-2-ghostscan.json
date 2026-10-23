@@ -1,0 +1,62 @@
+{
+ "id": "o25-tt-25-2-ghostscan",
+ "type": "flame",
+ "product": "o25-tt-25-2-ghostscan",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.3,
+   0.0,
+   0.78,
+   0.32
+  ],
+  "seed": 43,
+  "gust_t": 4.7
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/c53d36/8674530211/il_fullxfull.8674530211_piij.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.07,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "ghosts? i'm staying",
+     "in tonight."
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 700,
+     "max": 0.36,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-spooky-cozy-lofi-hop.wav",
+  "start": 8,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 tt d25 s2"
+}

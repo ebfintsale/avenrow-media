@@ -1,0 +1,74 @@
+{
+ "id": "o25-tt-26-2-introvert",
+ "type": "flame",
+ "product": "o25-tt-26-2-introvert",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.5,
+   0.1,
+   0.78,
+   0.42
+  ],
+  "extra": [
+   {
+    "hint": [
+     0.22,
+     0.2,
+     0.52,
+     0.55
+    ],
+    "seed": 146,
+    "gust_t": 3.2
+   }
+  ],
+  "seed": 46,
+  "gust_t": 3.8
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/7c342d/8649285541/il_fullxfull.8649285541_roel.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.28,
+    "z1": 1.0,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "me, with no",
+     "plans tomorrow"
+    ],
+    "align": "right",
+    "margin": 150,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 700,
+     "max": 0.36,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-dreamy-bedroom-rhodes.wav",
+  "start": 12,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 tt d26 s2"
+}

@@ -18,10 +18,16 @@ def run_crop(job, out_dir):
         meta_i = {"name": it["name"], "src": it["src"], "src_size": f"{w}x{h}", "sha256": R.sha256(p)}
         cv2.imwrite(str(out_dir / f"{job['id']}-src-{it['name']}.jpg"), im, [cv2.IMWRITE_JPEG_QUALITY, 92])
         if not it.get("preview_only"):
+            fy, fx = float(it.get("fy", 0.5)), float(it.get("fx", 0.5))
+            z = float(it.get("z", 1.0))
+            if z > 1.0:  # tighter window of the real photo (never repainted)
+                cw, ch = w / z, h / z
+                x0z = int(min(max(fx * w - cw / 2, 0), w - cw)); y0z = int(min(max(fy * h - ch / 2, 0), h - ch))
+                im = im[y0z:y0z + int(ch), x0z:x0z + int(cw)]
+                h, w = im.shape[:2]; fx = fy = 0.5
             s = max(W / w, H / h)
             nw, nh = int(round(w * s)), int(round(h * s))
             big = cv2.resize(im, (nw, nh), interpolation=cv2.INTER_LANCZOS4)
-            fy, fx = float(it.get("fy", 0.5)), float(it.get("fx", 0.5))
             x0 = int(round((nw - W) * fx)); y0 = int(round((nh - H) * fy))
             c = big[y0:y0 + H, x0:x0 + W]
             assert c.shape[:2] == (H, W), c.shape

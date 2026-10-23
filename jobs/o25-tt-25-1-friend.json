@@ -1,0 +1,62 @@
+{
+ "id": "o25-tt-25-1-friend",
+ "type": "flame",
+ "product": "o25-tt-25-1-friend",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.36,
+   0.03,
+   0.66,
+   0.38
+  ],
+  "seed": 42,
+  "gust_t": 5.0
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/5d51df/8649149707/il_fullxfull.8649149707_s8me.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.2,
+    "z1": 1.3,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.55,
+    "fy1": 0.52
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "that friend",
+     "who just gets it"
+    ],
+    "align": "center",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12,
+    "scrim": {
+     "h": 700,
+     "max": 0.36,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-playful-pizzicato-day.wav",
+  "start": 6,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 tt d25 s1"
+}

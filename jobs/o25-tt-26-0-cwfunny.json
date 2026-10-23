@@ -1,0 +1,65 @@
+{
+ "id": "o25-tt-26-0-cwfunny",
+ "type": "flame",
+ "product": "o25-tt-26-0-cwfunny",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.36,
+   0.03,
+   0.66,
+   0.38
+  ],
+  "seed": 44,
+  "gust_t": 4.4
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/9800c4/8649830941/il_fullxfull.8649830941_qf5s.jpg",
+   "dur": 8.0,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.05,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "monday to-do list:",
+     "1. tomorrow"
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.5,
+    "end": 3.5,
+    "fade_in": 0.55,
+    "fade_out": 0.45,
+    "rise": 14,
+    "stagger": 0.12
+   },
+   "frame": {
+    "top": 420,
+    "solid": [
+     22,
+     17,
+     15
+    ]
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-jazz-vibes-cozy.wav",
+  "start": 5,
+  "gain_db": 0
+ },
+ "note": "Oct25-31 tt d26 s0"
+}
