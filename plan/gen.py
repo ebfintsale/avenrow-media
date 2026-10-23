@@ -7,6 +7,7 @@ SLUG = {0:"goodmorning",1:"birthday",2:"goodvibes",3:"selfcareclub",4:"boo",5:"h
         11:"witching",12:"slowsunday",13:"staycozy",16:"mom",17:"dad",18:"sibling",19:"pet",23:"cwleaving",25:"housewarming",26:"samenew",27:"engagement",
         29:"norush",31:"hcouples",32:"baddec",33:"ghostscan",35:"cwfunny",37:"anniv",39:"cancelled",41:"introvert",43:"friend"}
 PLAN_CROP = "feed-o25"
+REDO = {"d25-s3-12","d27-s1-10","d29-s1-07"}
 def et(d, hhmm, jit=0):
     h, m = map(int, hhmm.split(':'))
     return datetime.datetime(2026, 10, d, h, m) + datetime.timedelta(minutes=jit)
@@ -86,9 +87,10 @@ def build():
         items.append(dict(name=name, src=img(p, ph), z=z, fx=fx, fy=fy))
         t = et(d, IG_T[s], jit(d, s, 2))
         cta = "\n\nLink in bio to shop." if n % 4 == 1 else ""
-        out.append(dict(plat="instagram", fmt="POST", day=d, slot=s, prod=p, photo=ph, et=str(t), dubai=str(dubai(t)), media=f"{REL}/video-{PLAN_CROP}/{PLAN_CROP}-crop-{name}.jpg",
+        out.append(dict(plat="instagram", fmt="POST", day=d, slot=s, prod=p, photo=ph, et=str(t), dubai=str(dubai(t)), media=(f"{REL}/video-feed-o25b/feed-o25b-crop-{name}.jpg" if name in REDO else f"{REL}/video-{PLAN_CROP}/{PLAN_CROP}-crop-{name}.jpg"),
                         text=f"{cap}{cta}\n\n{tags}", alt=alt))
     jobs[PLAN_CROP] = {"id": PLAN_CROP, "type": "crop", "items": items}
+    jobs["feed-o25b"] = {"id": "feed-o25b", "type": "crop", "items": [i for i in items if i["name"] in REDO]}
     return out, jobs
 if __name__ == "__main__":
     out, jobs = build()
