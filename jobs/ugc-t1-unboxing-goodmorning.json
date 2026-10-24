@@ -8,7 +8,7 @@
    "url": "https://app-uploads.krea.ai/public/95d72667-e948-49ff-9803-8c742a7eb45b-video.mp4",
    "ss": 0,
    "dur": 5.0,
-   "grade": "format=yuv420p,geq=lum='lum(X,Y)*(1-0.42*pow(max(0,1-Y/760),1.5))':cb='cb(X,Y)':cr='cr(X,Y)'"
+   "grade": "format=yuv420p,geq=lum='lum(X,Y)*(1-0.55*pow(max(0,1-Y/1000),1.3))':cb='cb(X,Y)':cr='cr(X,Y)'"
   },
   {
    "kind": "flame",
@@ -89,5 +89,5 @@
   "gain_db": 0
  },
  "caption": "ugc test 1",
- "rev": 2
+ "rev": 3
 }
