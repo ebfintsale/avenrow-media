@@ -1,0 +1,81 @@
+{
+ "id": "ugc-t2-nightroutine-staycozy",
+ "type": "ugc",
+ "product": "4593737204",
+ "segments": [
+  {
+   "kind": "clip",
+   "url": "https://app-uploads.krea.ai/public/2f19a6a0-d06b-4e5a-84c6-58e7068586b1-video.mp4",
+   "ss": 0,
+   "dur": 5.0
+  },
+  {
+   "kind": "flame",
+   "src": "https://i.etsystatic.com/67533802/r/il/b37581/8664347108/il_fullxfull.8664347108_gmbf.jpg",
+   "dur": 5.0,
+   "flame": {
+    "hint": [
+     0.459,
+     0.193,
+     0.571,
+     0.361
+    ],
+    "seed": 69,
+    "gust_t": 4.9
+   },
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.06,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   }
+  }
+ ],
+ "texts": [
+  {
+   "weight": "bold",
+   "size": 64,
+   "lines": [
+    "my current",
+    "night routine"
+   ],
+   "align": "center",
+   "margin": 100,
+   "y": 285,
+   "leading": 64,
+   "start": 0.3,
+   "end": 3.8,
+   "fade_in": 0.4,
+   "fade_out": 0.4,
+   "rise": 10,
+   "stagger": 0.1
+  },
+  {
+   "weight": "bold",
+   "size": 64,
+   "lines": [
+    "lights off,",
+    "candle on"
+   ],
+   "align": "center",
+   "margin": 100,
+   "y": 285,
+   "leading": 64,
+   "start": 5.4,
+   "end": 9.6,
+   "fade_in": 0.4,
+   "fade_out": 0.4,
+   "rise": 10,
+   "stagger": 0.1
+  }
+ ],
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-dreamy-bedroom-rhodes.wav",
+  "start": 4,
+  "gain_db": 0
+ },
+ "caption": "ugc test 2",
+ "rev": 1
+}
