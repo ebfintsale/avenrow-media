@@ -358,9 +358,9 @@ def main():
         (out_dir / f"{job['id']}.json").write_text(json.dumps(meta, indent=2))
         print(json.dumps(meta, indent=2))
         return
-    if job.get("type") in ("probe", "cutout"):
+    if job.get("type") in ("probe", "cutout", "comp"):
         import ugcx
-        meta = (ugcx.run_probe if job["type"] == "probe" else ugcx.run_cutout)(job, out_dir)
+        meta = {"probe": ugcx.run_probe, "cutout": ugcx.run_cutout, "comp": ugcx.run_comp}[job["type"]](job, out_dir)
         (out_dir / f"{job['id']}.json").write_text(json.dumps(meta, indent=2, default=str))
         print(json.dumps(meta, indent=2, default=str)[:1500])
         return

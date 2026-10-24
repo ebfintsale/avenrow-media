@@ -72,3 +72,54 @@ def run_cutout(job, out):
             "src_size": [w, h], "offset_in_src": [int(x0 + bx0), int(y0 + by0)]}
     shutil.rmtree(tmp, ignore_errors=True)
     return meta
+
+
+def _cover(img, W=1080, H=1920):
+    h, w = img.shape[:2]
+    s = max(W / w, H / h)
+    r = cv2.resize(img, (int(round(w * s)), int(round(h * s))), interpolation=cv2.INTER_AREA if s < 1 else cv2.INTER_CUBIC)
+    y0, x0 = (r.shape[0] - H) // 2, (r.shape[1] - W) // 2
+    return r[y0:y0 + H, x0:x0 + W]
+
+
+LABEL_RECT = (36, 195, 508, 655)  # label box inside jar_*.png (585x721), pixels
+
+
+def run_comp(job, out):
+    jid = job["id"]
+    tmp = pathlib.Path(tempfile.mkdtemp(prefix="comp_"))
+    bg = _cover(cv2.imread(str(R.fetch(job["bg"], tmp, 0)), cv2.IMREAD_COLOR))
+    jar = cv2.imread(f"assets/ucx/{job.get('jar', 'jar_unlit')}.png", cv2.IMREAD_UNCHANGED)
+    pl = job["place"]
+    s = pl["width"] / jar.shape[1]
+    jw, jh = int(round(jar.shape[1] * s)), int(round(jar.shape[0] * s))
+    jr = cv2.resize(jar, (jw, jh), interpolation=cv2.INTER_AREA)
+    x0 = int(round(pl["cx"] - jw / 2)); y0 = int(round(pl["base_y"] - jh))
+    out_img = bg.astype(np.float32)
+    # contact + cast shadow (light from the left -> shadow falls right)
+    sh = np.zeros(bg.shape[:2], np.float32)
+    cv2.ellipse(sh, (int(pl["cx"] + jw * 0.04), int(pl["base_y"] - jh * 0.012)), (int(jw * 0.50), int(jw * 0.085)), 0, 0, 360, 1.0, -1)
+    cast = np.zeros_like(sh)
+    cv2.ellipse(cast, (int(pl["cx"] + jw * 0.42), int(pl["base_y"] - jh * 0.01)), (int(jw * 0.55), int(jw * 0.07)), 0, 0, 360, 1.0, -1)
+    sh = np.clip(cv2.GaussianBlur(sh, (0, 0), jw * 0.025) * 0.55 + cv2.GaussianBlur(cast, (0, 0), jw * 0.05) * 0.35, 0, 0.75)
+    out_img *= (1 - sh[:, :, None] * 0.75)
+    # paste jar (real pixels, untouched colour)
+    ys0, xs0 = max(0, y0), max(0, x0)
+    ys1, xs1 = min(bg.shape[0], y0 + jh), min(bg.shape[1], x0 + jw)
+    sub = jr[ys0 - y0:ys1 - y0, xs0 - x0:xs1 - x0]
+    al = sub[:, :, 3:4].astype(np.float32) / 255
+    out_img[ys0:ys1, xs0:xs1] = sub[:, :, :3].astype(np.float32) * al + out_img[ys0:ys1, xs0:xs1] * (1 - al)
+    comp = np.clip(out_img, 0, 255).astype(np.uint8)
+    cv2.imwrite(str(out / f"{jid}-comp.png"), comp)
+    dbg = comp.copy()
+    for g in range(0, 1920, 100):
+        cv2.line(dbg, (0, g), (1080, g), (0, 255, 255), 1); cv2.putText(dbg, str(g), (4, g + 14), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
+    for g in range(0, 1080, 100):
+        cv2.line(dbg, (g, 0), (g, 1920), (0, 255, 255), 1); cv2.putText(dbg, str(g), (g + 2, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
+    cv2.imwrite(str(out / f"{jid}-compdbg.jpg"), cv2.resize(dbg, None, fx=0.5, fy=0.5), [cv2.IMWRITE_JPEG_QUALITY, 88])
+    cv2.imwrite(str(out / f"{jid}-bgonly.jpg"), cv2.resize(bg, None, fx=0.5, fy=0.5), [cv2.IMWRITE_JPEG_QUALITY, 88])
+    lx0, ly0, lx1, ly1 = LABEL_RECT
+    meta = {"id": jid, "ok": True, "jar_box": [x0, y0, x0 + jw, y0 + jh], "scale": s,
+            "label_box_out": [int(x0 + lx0 * s), int(y0 + ly0 * s), int(x0 + lx1 * s), int(y0 + ly1 * s)]}
+    shutil.rmtree(tmp, ignore_errors=True)
+    return meta
