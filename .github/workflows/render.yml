@@ -75,7 +75,7 @@ jobs:
             if ! python3 scripts/render.py "$f"; then echo "::error::render $id"; rc=1; continue; fi
             tag="video-$id"
             assets=()
-            for extra in "out/$id.json" "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png out/$id-crop*.jpg out/$id-src*.jpg out/$id-*.wav; do
+            for extra in "out/$id.json" "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png out/$id-crop*.jpg out/$id-src*.jpg out/$id-*.wav out/$id-raw*.mp4 out/$id-vo.* out/$id-seg*.jpg; do
               if [ -f "$extra" ]; then assets+=("$extra"); fi
             done
             echo "job $id assets: ${assets[*]}"

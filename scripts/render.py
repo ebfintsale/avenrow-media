@@ -369,6 +369,9 @@ def main():
         want = sum(s["duration_s"] for s in shots)
         extra = {"shots": shots, "render_script_seconds": secs, "caption": job.get("caption"),
                  "audio": job.get("audio", "silent")}
+    elif job.get("type") == "ugc":
+        import render_ugc
+        want, extra = render_ugc.render_ugc(job, out_dir)
     elif job.get("type") == "flame":
         import render_flame
         shots, meta = render_flame.render_flame(job, out_dir)
