@@ -5,7 +5,7 @@
  "segments": [
   {
    "kind": "clip",
-   "url": "https://app-uploads.krea.ai/public/2f19a6a0-d06b-4e5a-84c6-58e7068586b1-video.mp4",
+   "url": "https://app-uploads.krea.ai/public/7bba64ad-5081-4006-acba-0a4b08c609ba-video.mp4",
    "ss": 0,
    "dur": 5.0
   },
@@ -38,8 +38,8 @@
    "weight": "bold",
    "size": 64,
    "lines": [
-    "my current",
-    "night routine"
+    "my sunday reset",
+    "starts with this"
    ],
    "align": "center",
    "margin": 100,
@@ -56,8 +56,8 @@
    "weight": "bold",
    "size": 64,
    "lines": [
-    "lights off,",
-    "candle on"
+    "candle on,",
+    "phone down"
    ],
    "align": "center",
    "margin": 100,
@@ -77,5 +77,5 @@
   "gain_db": 0
  },
  "caption": "ugc test 2",
- "rev": 1
+ "rev": 2
 }
