@@ -176,7 +176,7 @@ def patch_clip(raw, comp_path, label_box, jar_box, dur, ss, out_mp4, dbg_dir, ji
         ring_f = fr[ly0:ly1, max(0, lx0 - 160):max(1, lx0 - 40)].astype(np.float32).mean()
         ring_c = comp[ly0:ly1, max(0, lx0 - 160):max(1, lx0 - 40)].astype(np.float32).mean()
         gain = float(np.clip(ring_f / max(ring_c, 1), 0.92, 1.08))
-        cs2 = np.clip(cs.astype(np.float32) * gain, 0, 255)
+        cs2 = np.clip(cv2.GaussianBlur(cs, (0, 0), 0.8).astype(np.float32) * gain, 0, 255)
         outf = fr.astype(np.float32) * (1 - mk[:, :, None]) + cs2 * mk[:, :, None]
         outf = np.clip(outf, 0, 255).astype(np.uint8)
         enc.stdin.write(outf.tobytes())
