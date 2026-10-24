@@ -58,6 +58,12 @@ jobs:
             echo "files=$files" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Install rembg (cutout jobs only)
+        run: |
+          if grep -lE '"type": *"cutout"' ${{ steps.jobs.outputs.files }} >/dev/null 2>&1; then
+            pip install --quiet --break-system-packages rembg onnxruntime || true
+          fi
+
       - name: Install synth (music jobs only)
         run: |
           if grep -lE '"type": *"music"' ${{ steps.jobs.outputs.files }} >/dev/null 2>&1; then
@@ -75,7 +81,7 @@ jobs:
             if ! python3 scripts/render.py "$f"; then echo "::error::render $id"; rc=1; continue; fi
             tag="video-$id"
             assets=()
-            for extra in "out/$id.json" "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png out/$id-crop*.jpg out/$id-src*.jpg out/$id-*.wav out/$id-raw*.mp4 out/$id-vo.* out/$id-seg*.jpg; do
+            for extra in "out/$id.json" "out/$id.mp4" "out/$id-contact.jpg" "out/$id-label-frame.jpg" out/$id-sheet*.jpg out/$id-still*.png out/$id-crop*.jpg out/$id-src*.jpg out/$id-*.wav out/$id-raw*.mp4 out/$id-vo.* out/$id-seg*.jpg out/$id-raw.mp4 out/$id-cutout*.* out/$id-last.png out/$id-first.png out/$id-at*.jpg out/$id-comp*.* out/$id-dbg*.*; do
               if [ -f "$extra" ]; then assets+=("$extra"); fi
             done
             echo "job $id assets: ${assets[*]}"

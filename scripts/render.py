@@ -358,6 +358,12 @@ def main():
         (out_dir / f"{job['id']}.json").write_text(json.dumps(meta, indent=2))
         print(json.dumps(meta, indent=2))
         return
+    if job.get("type") in ("probe", "cutout"):
+        import ugcx
+        meta = (ugcx.run_probe if job["type"] == "probe" else ugcx.run_cutout)(job, out_dir)
+        (out_dir / f"{job['id']}.json").write_text(json.dumps(meta, indent=2, default=str))
+        print(json.dumps(meta, indent=2, default=str)[:1500])
+        return
     if job.get("type") == "audio":
         import audio
         want, extra = audio.run_audio(job, out_dir)
