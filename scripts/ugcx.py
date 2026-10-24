@@ -9,7 +9,6 @@ def run_probe(job, out):
     jid = job["id"]
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="probe_"))
     v = R.fetch(job["url"], tmp, 0)
-    shutil.copy(v, out / f"{jid}-raw.mp4")
     info = R.ffprobe_json(v, "-show_entries", "format=duration:stream=width,height,r_frame_rate,nb_frames")
     dur = float(info["format"]["duration"])
     n = int(job.get("frames", 12))
