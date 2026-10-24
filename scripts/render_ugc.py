@@ -51,7 +51,6 @@ def render_ugc(job, out_dir):
         n_out = tmp / f"seg{i}.mp4"
         if kind == "clip":
             raw = R.fetch(seg["url"], tmp, i)
-            shutil.copy(raw, out_dir / f"{jid}-raw{i}.mp4")
             info = R.ffprobe_json(raw, "-select_streams", "v:0", "-show_entries", "stream=width,height,duration")
             ss = float(seg.get("ss", 0))
             speed = float(seg.get("speed", 1.0))
@@ -66,6 +65,15 @@ def render_ugc(job, out_dir):
             _enc_norm(trimmed, n_out)
             seg_meta.append({"kind": kind, "url": seg["url"], "sha256": R.sha256(raw),
                              "source": info["streams"][0], "ss": ss, "dur": dur})
+        elif kind == "patch":
+            import ugcx
+            raw = R.fetch(seg["url"], tmp, i)
+            pm = tmp / f"patched{i}.mp4"
+            st = ugcx.patch_clip(raw, seg["comp"], seg["label_box"], seg["jar_box"], dur, float(seg.get("ss", 0)), pm, out_dir, jid)
+            _enc_norm(pm, n_out)
+            (out_dir / f"{jid}-patchstats.json").write_text(json.dumps(st))
+            seg_meta.append({"kind": kind, "url": seg["url"], "sha256": R.sha256(raw), "dur": dur,
+                             "max_shift": max(max(abs(x["dx"]), abs(x["dy"])) for x in st), "mean_mask": sum(x["mask_mean"] for x in st) / len(st)})
         elif kind == "photo":
             src = R.fetch(seg["src"], tmp, i)
             d = R.ffprobe_json(src, "-select_streams", "v:0", "-show_entries", "stream=width,height")["streams"][0]

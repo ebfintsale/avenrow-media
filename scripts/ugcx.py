@@ -123,3 +123,68 @@ def run_comp(job, out):
             "label_box_out": [int(x0 + lx0 * s), int(y0 + ly0 * s), int(x0 + lx1 * s), int(y0 + ly1 * s)]}
     shutil.rmtree(tmp, ignore_errors=True)
     return meta
+
+
+def patch_clip(raw, comp_path, label_box, jar_box, dur, ss, out_mp4, dbg_dir, jid, W=1080, H=1920, FPS=30):
+    """Re-impose the REAL label pixels (from the composited still) over a generated clip of the same still.
+    Per frame: estimate small camera drift, keep generated pixels where something occludes the label (hand/sleeve)."""
+    comp = cv2.imread(str(comp_path), cv2.IMREAD_COLOR)
+    lx0, ly0, lx1, ly1 = label_box
+    jx0, jy0, jx1, jy1 = jar_box
+    pad = 70
+    px0, py0, px1, py1 = max(0, jx0 - pad), max(0, jy0 - pad), min(W, jx1 + pad), min(H, jy1 + pad)
+    ref = cv2.cvtColor(comp[py0:py1, px0:px1], cv2.COLOR_BGR2GRAY).astype(np.float32)
+    win = cv2.createHanningWindow((ref.shape[1], ref.shape[0]), cv2.CV_32F)
+    # feathered label mask (rounded rect)
+    m0 = np.zeros((H, W), np.float32)
+    cv2.rectangle(m0, (lx0 + 3, ly0 + 3), (lx1 - 3, ly1 - 3), 1.0, -1)
+    m0 = cv2.GaussianBlur(m0, (0, 0), 2.0)
+    proc = subprocess.Popen(["ffmpeg", "-v", "error", "-ss", f"{ss}", "-i", str(raw), "-t", f"{dur}",
+                             "-vf", f"scale={W}:{H}:flags=lanczos,fps={FPS}", "-f", "rawvideo", "-pix_fmt", "bgr24", "-"],
+                            stdout=subprocess.PIPE)
+    enc = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS),
+                            "-i", "-", "-c:v", "libx264", "-crf", "10", "-preset", "fast", "-pix_fmt", "yuv420p", str(out_mp4)],
+                           stdin=subprocess.PIPE)
+    fsz = W * H * 3
+    stats, i, keep = [], 0, {}
+    while True:
+        buf = proc.stdout.read(fsz)
+        if len(buf) < fsz:
+            break
+        fr = np.frombuffer(buf, np.uint8).reshape(H, W, 3).copy()
+        g = cv2.cvtColor(fr[py0:py1, px0:px1], cv2.COLOR_BGR2GRAY).astype(np.float32)
+        (dx, dy), resp = cv2.phaseCorrelate(ref, g, win)
+        if abs(dx) > 25 or abs(dy) > 25 or resp < 0.03:
+            dx, dy = 0.0, 0.0
+        M = np.float32([[1, 0, dx], [0, 1, dy]])
+        cs = cv2.warpAffine(comp, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+        ms = cv2.warpAffine(m0, M, (W, H), flags=cv2.INTER_LINEAR)
+        # occlusion: large blurred luminance disagreement between generated frame and the real label pixels
+        d = np.abs(cv2.GaussianBlur(cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY), (0, 0), 7).astype(np.float32)
+                   - cv2.GaussianBlur(cv2.cvtColor(cs, cv2.COLOR_BGR2GRAY), (0, 0), 7).astype(np.float32))
+        occ = ((d > 40) & (ms > 0.5)).astype(np.uint8)
+        occ = cv2.morphologyEx(occ, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+        n, lab, st, _ = cv2.connectedComponentsWithStats(occ)
+        keepocc = np.zeros_like(occ)
+        for k in range(1, n):
+            if st[k, cv2.CC_STAT_AREA] > 1200:
+                keepocc[lab == k] = 1
+        keepocc = cv2.dilate(keepocc, np.ones((25, 25), np.uint8))
+        keepocc = cv2.GaussianBlur(keepocc.astype(np.float32), (0, 0), 8)
+        mk = ms * (1 - np.clip(keepocc * 1.5, 0, 1))
+        # exposure follow: scale real pixels by the local light change seen on the table beside the jar
+        ring_f = fr[ly0:ly1, max(0, lx0 - 160):max(1, lx0 - 40)].astype(np.float32).mean()
+        ring_c = comp[ly0:ly1, max(0, lx0 - 160):max(1, lx0 - 40)].astype(np.float32).mean()
+        gain = float(np.clip(ring_f / max(ring_c, 1), 0.92, 1.08))
+        cs2 = np.clip(cs.astype(np.float32) * gain, 0, 255)
+        outf = fr.astype(np.float32) * (1 - mk[:, :, None]) + cs2 * mk[:, :, None]
+        outf = np.clip(outf, 0, 255).astype(np.uint8)
+        enc.stdin.write(outf.tobytes())
+        stats.append({"i": i, "dx": round(float(dx), 2), "dy": round(float(dy), 2), "resp": round(float(resp), 3),
+                      "occ_px": int(keepocc.sum() > 1), "mask_mean": round(float(mk.sum() / max(ms.sum(), 1)), 3), "gain": round(gain, 3)})
+        if i in (0, 40, 80, 120, 160):
+            cv2.imwrite(str(pathlib.Path(dbg_dir) / f"{jid}-dbg{i}.jpg"), outf)
+            cv2.imwrite(str(pathlib.Path(dbg_dir) / f"{jid}-dbgraw{i}.jpg"), fr)
+        i += 1
+    enc.stdin.close(); enc.wait(); proc.wait()
+    return stats

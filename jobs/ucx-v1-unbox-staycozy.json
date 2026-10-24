@@ -1,0 +1,78 @@
+{
+ "id": "ucx-v1-unbox-staycozy",
+ "type": "ugc",
+ "product": "4593737204",
+ "segments": [
+  {
+   "kind": "clip",
+   "url": "https://app-uploads.krea.ai/public/3e005c30-b9c6-4aaa-be91-e3819ad32b54-video.mp4",
+   "ss": 0,
+   "dur": 6.6,
+   "grade": "format=yuv420p,geq=lum='lum(X,Y)*(1-0.35*pow(max(0,1-Y/900),1.3))':cb='cb(X,Y)':cr='cr(X,Y)'"
+  },
+  {
+   "kind": "patch",
+   "url": "https://app-uploads.krea.ai/public/5dcf0e97-6343-45e1-8473-e9864e25c9fd-video.mp4",
+   "ss": 0,
+   "dur": 6.0,
+   "comp": "assets/ucx/s2a-comp.png",
+   "label_box": [
+    331,
+    1113,
+    678,
+    1451
+   ],
+   "jar_box": [
+    305,
+    970,
+    735,
+    1500
+   ]
+  }
+ ],
+ "texts": [
+  {
+   "weight": "bold",
+   "size": 64,
+   "lines": [
+    "my etsy order",
+    "finally came"
+   ],
+   "align": "center",
+   "margin": 100,
+   "y": 285,
+   "leading": 64,
+   "start": 0.3,
+   "end": 3.6,
+   "fade_in": 0.4,
+   "fade_out": 0.4,
+   "rise": 10,
+   "stagger": 0.1
+  },
+  {
+   "weight": "bold",
+   "size": 64,
+   "lines": [
+    "ok the label",
+    "is so pretty"
+   ],
+   "align": "center",
+   "margin": 100,
+   "y": 285,
+   "leading": 64,
+   "start": 7.4,
+   "end": 11.6,
+   "fade_in": 0.4,
+   "fade_out": 0.4,
+   "rise": 10,
+   "stagger": 0.1
+  }
+ ],
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-indie-nylon-morning.wav",
+  "start": 0,
+  "gain_db": 0
+ },
+ "caption": "continuity unboxing v1",
+ "rev": 1
+}
