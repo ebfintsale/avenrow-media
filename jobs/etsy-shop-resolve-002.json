@@ -1,0 +1,14 @@
+{
+ "id": "etsy-shop-resolve-002",
+ "type": "webfetch",
+ "rev": 1,
+ "urls": [
+  "https://www.etsy.com/shop/Avenrow?sort_order=date_desc&ref=items-pagination&page=1",
+  "https://www.etsy.com/shop/Avenrow?sort_order=date_desc&ref=items-pagination&page=2",
+  "https://www.etsy.com/shop/Avenrow?ref=shop_sugg_market&search_query=christmas",
+  "https://www.etsy.com/shop/Avenrow/rss",
+  "https://www.etsy.com/shop/Avenrow/sitemap_listings.xml",
+  "https://www.etsy.com/search?q=avenrow+christmas+candle&order=date_desc",
+  "https://openapi.etsy.com/v3/application/shops?shop_name=Avenrow"
+ ]
+}
