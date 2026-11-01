@@ -124,7 +124,7 @@ RL = [
 (2,3,43,1,"tight_up",["a gift for","your person"],"left","IN",10,"Some People Just Get It. For the friend who knows what you mean before you finish the sentence.","#bestfriendgift #giftforfriend #friendshipgift #soycandle #giftideas"),
 (3,1,56,1,"wide_in",["good things","ahead."],"left","PP",4,"Something to look forward to. Good Things Ahead, coral label, blue checkerboard.","#goodthingsahead #positivevibes #encouragement #soycandle #cozyhome"),
 (3,3,41,1,"pull_back",["plans tomorrow?","respectfully, no."],"right","JV",8,"For the homebody who guards their free evenings.","#homebody #introvert #cozynight #funnygifts #soycandle"),
-(4,1,49,1,"tight_up",["holly jolly,","a little early."],"left","WM",8,"Holly Jolly Christmas, in a cream label with a tiny holly tree. It's November 4th and I'm ready.","#hollyjolly #christmascandle #cozychristmas #soycandle #christmasgiftideas"),
+(4,1,49,1,"wide_in",["holly jolly,","a little early."],"left","WM",8,"Holly Jolly Christmas, in a cream label with a tiny holly tree. It's November 4th and I'm ready.","#hollyjolly #christmascandle #cozychristmas #soycandle #christmasgiftideas"),
 (4,3,29,1,"frame",["after work:","lights low."],"left","SP",8,"A wind-down routine that takes one match.","#winddown #selfcareroutine #relaxation #soycandle #eveningroutine"),
 (5,1,57,2,"pan_twin",["fresh start,","two sizes."],"left","BM",12,"Fresh Start comes in a mini and a classic. Pick one for your desk, one for a friend.","#freshstart #newbeginnings #giftideas #soycandle #candlelover"),
 (5,3,37,1,"pull_back",["anniversary gift,","no flowers."],"left","SP",22,"Out of everyone I could have met, I'm glad it was you. A simple anniversary gift.","#anniversarygift #giftforhim #giftforher #romanticgift #soycandle"),
