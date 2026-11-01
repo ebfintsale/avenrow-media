@@ -1,0 +1,15 @@
+{
+ "id": "etsy-shop-resolve-003",
+ "type": "webfetch",
+ "rev": 1,
+ "urls": [
+  "https://www.etsy.com/shop/Avenrow/rss",
+  "https://www.etsy.com/shop/Avenrow/rss?page=2",
+  "https://www.etsy.com/shop/Avenrow/rss?limit=100",
+  "https://www.etsy.com/shop/Avenrow/rss?offset=10",
+  "https://www.etsy.com/shop/Avenrow/rss?sort_order=date_asc",
+  "https://www.etsy.com/shop/Avenrow/rss?search_query=candle&page=2",
+  "https://www.etsy.com/shop/Avenrow/rss?section_id=0&page=2",
+  "https://www.etsy.com/shop/Avenrow/rss?ref=items-pagination&page=2"
+ ]
+}

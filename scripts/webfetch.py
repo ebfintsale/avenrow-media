@@ -28,7 +28,12 @@ def run_webfetch(job, out_dir):
             links.setdefault(m.group(1), m.group(2))
         titles = re.findall(r'<title[^>]*>(.*?)</title>', body, re.S)
         cnt = re.findall(r'All\s*\(?(\d+)\)?', body)[:3]
-        res.append({"url": u, "status": st, "bytes": len(body),
+        items = []
+        for it in re.findall(r'<item>(.*?)</item>', body, re.S):
+            g = lambda t: (re.search(r'<%s[^>]*>(.*?)</%s>' % (t, t), it, re.S) or [None, ""])[1]
+            items.append({"title": html.unescape(g("title")).strip(), "link": g("link").strip(), "pub": g("pubDate").strip(),
+                          "img": (re.findall(r'https://i\.etsystatic\.com/[^"\'<\s]+', it) or [""])[0]})
+        res.append({"items": items, "url": u, "status": st, "bytes": len(body),
                     "title": html.unescape(titles[0].strip()) if titles else None,
                     "count_hint": cnt, "listings": links,
                     "head": body[:200] if not links else ""})
