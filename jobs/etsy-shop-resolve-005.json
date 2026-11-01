@@ -1,0 +1,13 @@
+{
+ "id": "etsy-shop-resolve-005",
+ "type": "webfetch",
+ "rev": 1,
+ "urls": [
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow?sort_order=date_desc",
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow?sort_order=date_desc&page=2",
+  "https://archive.org/wayback/available?url=etsy.com/shop/Avenrow&timestamp=20261101",
+  "https://web.archive.org/web/2026id_/https://www.etsy.com/shop/Avenrow?sort_order=date_desc",
+  "https://api.allorigins.win/raw?url=https%3A%2F%2Fwww.etsy.com%2Fshop%2FAvenrow%3Fsort_order%3Ddate_desc",
+  "https://www.etsy.com/shop/Avenrow/rss?locale=en-US&currency=USD&region=US"
+ ]
+}
