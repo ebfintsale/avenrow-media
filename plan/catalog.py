@@ -1,5 +1,5 @@
 import csv
-_rows = list(csv.reader(open('/home/claude/avenrow_master_catalog_v45.csv')))[1:]
+_rows = list(csv.reader(open('/home/claude/avenrow-media/plan/avenrow_master_catalog_v46.csv')))[1:]
 URL = {i: r[1] for i, r in enumerate(_rows)}
 LID = {i: r[0] for i, r in enumerate(_rows)}
 def img(i, n):
@@ -13,3 +13,4 @@ NAME = {0:"Good Morning",1:"Happy Birthday",2:"Good Vibes Only",3:"Self Care Clu
 40:"Couples",41:"Funny Introvert",42:"Long Distance Friendship",43:"Funny Friendship"}
 B_H = "Halloween Decor & Spooky Season Ideas"; B_C = "Cozy Home & Apartment Ideas"; B_G = "Gift Ideas for Every Occasion"
 B_S = "Self Care & Cozy Living"; B_F = "Gifts for Her"; B_A = "Apartment Decor Ideas"; B_K = "Candles & Candle Decor"
+NAME.update({44:"Christmas Eve",45:"Winter Wonderland",46:"Season's Greetings",47:"Joy to the World",48:"Merry Christmas (cream)",49:"Holly Jolly Christmas",50:"Let It Snow",51:"Merry & Bright",52:"Under the Mistletoe",53:"Gingerbread Season",54:"Merry Christmas (burgundy)",55:"Cozy Home",56:"Good Things Ahead",57:"Fresh Start",58:"You Got This",59:"Just Breathe",60:"Slow Down"})
