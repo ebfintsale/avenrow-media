@@ -119,7 +119,7 @@ IG_T = {1:["12:00","15:00","18:15","21:15"],2:["08:30","11:30","15:00","19:30"],
 # ---------------- REELS: (d, slot, prod, photo, recipe, lines, align, music, start, caption, tags)
 RL = [
 (1,1,60,1,"tight_up",["sunday night:","slow down."],"left","LE",8,"Sunday evening, slowed down. The Slow Down candle has a lavender label and a checkerboard border. A small reminder to do less tonight.","#slowdown #sundayreset #lavendercandle #soycandle #cozyevening"),
-(1,3,13,2,"wide_in",["one candle,","one blanket."],"left","DR",14,"A cozy night in doesn't need more than this. Stay Cozy comes in 4 oz and 9 oz.","#stayhome #cozynight #soycandle #candlelover #nightinroutine"),
+(1,3,13,2,"pan_twin",["one candle,","one blanket."],"left","DR",14,"A cozy night in doesn't need more than this. Stay Cozy comes in 4 oz and 9 oz.","#stayhome #cozynight #soycandle #candlelover #nightinroutine"),
 (2,1,58,1,"frame",["monday?","you got this."],"left","BM",6,"A little pep talk for Monday morning. You Got This, soy candle, amber jar.","#mondaymotivation #yougotthis #deskdecor #soycandle #encouragement"),
 (2,3,43,1,"tight_up",["a gift for","your person"],"left","IN",10,"Some People Just Get It. For the friend who knows what you mean before you finish the sentence.","#bestfriendgift #giftforfriend #friendshipgift #soycandle #giftideas"),
 (3,1,56,1,"wide_in",["good things","ahead."],"left","PP",4,"Something to look forward to. Good Things Ahead, coral label, blue checkerboard.","#goodthingsahead #positivevibes #encouragement #soycandle #cozyhome"),
@@ -153,7 +153,7 @@ TT = [
 (5,2,50,1,"wide_in",["it's getting cold.","stay in."],"left","LR",24,"let it snow, from the couch ❄️","#letitsnow #cozywinter #wintercandle #homebody"),
 (6,0,60,2,"pan_twin",["friday night,","slow down."],"left","LE",30,"lavender, checkerboard, nowhere to be 💜","#slowdown #lavender #fridaynight #selfcare"),
 (6,1,36,2,"pull_back",["older, yes.","wiser? we'll see."],"left","PP",22,"for the birthday friend who is over it 🎂","#funnybirthday #birthdaygift #giftforfriend #candlegift"),
-(6,2,44,2,"tight_up",["the most magical","night of the year."],"left","WM",22,"christmas eve, in a jar 🎄","#christmaseve #christmascandle #holidaygifts #cozychristmas"),
+(6,2,44,2,"pan_twin",["the most magical","night of the year."],"left","WM",22,"christmas eve, in a jar 🎄","#christmaseve #christmascandle #holidaygifts #cozychristmas"),
 (7,0,43,2,"pull_back",["some people","just get it."],"center","BM",24,"you know who 🫶","#bestfriendgift #giftideas #friendshipgifts #funnygifts"),
 (7,1,30,1,"frame",["something good","is coming."],"left","DR",20,"good luck gift for a friend starting something new 🍀","#goodluckgift #encouragement #newbeginnings #candlegift"),
 (7,2,53,1,"tight_up",["baking season,","candle edition."],"left","FG",14,"for the one who bakes before thanksgiving 🍪","#gingerbread #christmascandle #holidaybaking #cozykitchen"),
