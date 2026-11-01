@@ -1,0 +1,21 @@
+{
+ "id": "etsy-shop-resolve-006",
+ "type": "webfetch",
+ "rev": 1,
+ "urls": [
+  "https://html.duckduckgo.com/html/?q=site%3Aetsy.com/listing%20Avenrow%20Fresh%20Start%20Soy%20Candle%20New%20Beginnings%20Gift%20Job%20Promotion",
+  "https://www.bing.com/search?q=site%3Aetsy.com/listing%20Avenrow%20Fresh%20Start%20Soy%20Candle%20New%20Beginnings%20Gift%20Job%20Promotion",
+  "https://html.duckduckgo.com/html/?q=site%3Aetsy.com/listing%20Avenrow%20Just%20Breathe%20Soy%20Candle%20Mindfulness%20Gift",
+  "https://www.bing.com/search?q=site%3Aetsy.com/listing%20Avenrow%20Just%20Breathe%20Soy%20Candle%20Mindfulness%20Gift",
+  "https://html.duckduckgo.com/html/?q=site%3Aetsy.com/listing%20Avenrow%20Slow%20Down%20Soy%20Candle%20Mindfulness%20Gift%20Relaxing%20Home%20Decor",
+  "https://www.bing.com/search?q=site%3Aetsy.com/listing%20Avenrow%20Slow%20Down%20Soy%20Candle%20Mindfulness%20Gift%20Relaxing%20Home%20Decor",
+  "https://html.duckduckgo.com/html/?q=site%3Aetsy.com/listing%20Avenrow%20You%20Got%20This%20Soy%20Candle%20Motivational%20Gift%20Encouragement",
+  "https://www.bing.com/search?q=site%3Aetsy.com/listing%20Avenrow%20You%20Got%20This%20Soy%20Candle%20Motivational%20Gift%20Encouragement",
+  "https://html.duckduckgo.com/html/?q=site%3Aetsy.com/listing%20Avenrow%20Cozy%20Home%20Soy%20Candle%20Housewarming%20Gift%20Amber%20Jar%20Candle%20New%20Home%20Gift",
+  "https://www.bing.com/search?q=site%3Aetsy.com/listing%20Avenrow%20Cozy%20Home%20Soy%20Candle%20Housewarming%20Gift%20Amber%20Jar%20Candle%20New%20Home%20Gift",
+  "https://html.duckduckgo.com/html/?q=site%3Aetsy.com/listing%20Avenrow%20Good%20Things%20Ahead%20Candle%20Encouragement%20Gift%20Positive%20Affirmation",
+  "https://www.bing.com/search?q=site%3Aetsy.com/listing%20Avenrow%20Good%20Things%20Ahead%20Candle%20Encouragement%20Gift%20Positive%20Affirmation",
+  "https://html.duckduckgo.com/html/?q=site%3Aetsy.com/listing%20Avenrow%20Merry%20Christmas%20Candle%20Christmas%20Gift%20Holiday%20Soy%20Candle%20Stocking%20Stuffer",
+  "https://www.bing.com/search?q=site%3Aetsy.com/listing%20Avenrow%20Merry%20Christmas%20Candle%20Christmas%20Gift%20Holiday%20Soy%20Candle%20Stocking%20Stuffer"
+ ]
+}
