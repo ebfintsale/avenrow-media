@@ -1,0 +1,12 @@
+{
+ "id": "etsy-shop-resolve-004",
+ "type": "webfetch",
+ "rev": 1,
+ "urls": [
+  "https://www.etsy.com/listing/4606346636/christmas-eve-candle-cozy-christmas-soy",
+  "https://www.etsy.com/listing/4601566505/gingerbread-season-candle-christmas-soy",
+  "https://www.etsy.com/listing/4601566505",
+  "https://www.etsy.com/shop/Avenrow/rss?ref=shop_home_active_1",
+  "https://www.etsy.com/shop/Avenrow?section_id=0"
+ ]
+}
