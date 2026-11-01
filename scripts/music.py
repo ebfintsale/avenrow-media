@@ -167,6 +167,10 @@ LIB = {
  "soft-piano-gift": dict(seed=79, tempo=72, ts=(4,4), key="Ebmaj", prog=["Ebmaj7","Bbm7","Ab6","Bbm7"] if False else ["Ebmaj7","Gm7","Ab6","Bbm7"], bars=12, comp="arp", step=0.5, chord_prog=0, bass="root", bass_prog=32, lead=(0,"Bb4","G5",[1,1.5,2],0.6,58), lead_start=3, pad=48, mood="soft piano, gifting"),
  "pumpkin-folk-guitar": dict(seed=83, tempo=96, ts=(4,4), key="Gmaj", prog=["G","Em","C","D"], bars=16, comp="arp", step=0.5, chord_prog=25, bass="root", bass_prog=32, lead=(11,"D5","G6",[1,1,2],0.5,58), lead_start=4, drums="light", drum_start=2, mood="autumn folk guitar"),
  "spooky-cozy-lofi-hop": dict(seed=97, tempo=82, ts=(4,4), key="Cmin", prog=["Cm","Ab","Eb","Gm"], bars=16, comp="offbeat", chord_prog=4, bass="root", bass_prog=33, lead=(8,"G5","C7",[1,1,1.5,2],0.55,52), lead_start=2, drums="lofi", drum_start=1, pad=89, mood="spooky-cozy minor lo-fi"),
+ "winter-music-box-glow": dict(seed=101, tempo=92, ts=(3,4), key="Cmaj", prog=["C","Am","F","G","C","Am","F","G"], bars=16, comp="waltz", chord_prog=10, bass="root", bass_prog=32, lead=(9,"C5","G6",[1,1,2],0.8,60), lead_start=1, pad=48, drums=None, mood="winter music box waltz"),
+ "cozy-fireside-guitar": dict(seed=103, tempo=84, ts=(4,4), key="Fmaj", prog=["F","Dm","Bb","C"], bars=16, comp="arp", step=0.5, chord_prog=24, bass="root", bass_prog=32, lead=(11,"A4","F6",[1,1,2],0.5,58), lead_start=4, drums="brush", drum_start=4, mood="warm fireside acoustic guitar"),
+ "late-evening-keys": dict(seed=107, tempo=76, ts=(4,4), key="Cmaj", prog=["Am7","Fmaj7","Cmaj7","G6"], bars=16, comp="sustain", chord_prog=4, bass="root", bass_prog=33, lead=(11,"E5","G6",[1,2,2],0.5,56), lead_start=3, pad=89, drums="lofi", drum_start=4, mood="late-evening lo-fi keys"),
+ "bright-morning-strum": dict(seed=109, tempo=104, ts=(4,4), key="Gmaj", prog=["G","C","Em","D"], bars=16, comp="arp", step=0.5, chord_prog=25, bass="root", bass_prog=32, lead=(12,"D5","G6",[0.5,1,1,2],0.6,58), lead_start=2, drums="light", drum_start=2, mood="bright morning acoustic"),
 }
 
 def run_music(job, out_dir):
