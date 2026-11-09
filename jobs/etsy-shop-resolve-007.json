@@ -1,0 +1,24 @@
+{
+ "id": "etsy-shop-resolve-007",
+ "type": "webfetch",
+ "rev": 1,
+ "urls": [
+  "https://www.etsy.com/shop/Avenrow/rss?locale=en-US&currency=USD&region=US&nc=1109",
+  "https://www.etsy.com/shop/Avenrow?search_query=fresh+start",
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow?search_query=fresh+start",
+  "https://www.etsy.com/shop/Avenrow?search_query=you+got+this",
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow?search_query=you+got+this",
+  "https://www.etsy.com/shop/Avenrow?search_query=just+breathe",
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow?search_query=just+breathe",
+  "https://www.etsy.com/shop/Avenrow?search_query=slow+down",
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow?search_query=slow+down",
+  "https://www.etsy.com/shop/Avenrow?search_query=cozy+home",
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow?search_query=cozy+home",
+  "https://www.etsy.com/shop/Avenrow?search_query=good+things+ahead",
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow?search_query=good+things+ahead",
+  "https://www.etsy.com/shop/Avenrow?search_query=merry+christmas",
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow?search_query=merry+christmas",
+  "https://r.jina.ai/https://www.etsy.com/shop/Avenrow/sitemap",
+  "https://www.etsy.com/sitemap.xml"
+ ]
+}
