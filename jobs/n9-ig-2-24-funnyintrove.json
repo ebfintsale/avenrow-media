@@ -29,15 +29,15 @@
    "text": {
     "v1": true,
     "weight": "bold",
-    "size": 84,
+    "size": 78,
     "lines": [
      "plans tomorrow?",
      "respectfully, no."
     ],
-    "align": "left",
-    "margin": 100,
-    "y": 1180,
-    "leading": 84,
+    "align": "right",
+    "margin": 110,
+    "y": 285,
+    "leading": 78,
     "start": 0.15,
     "end": 3.4,
     "fade_in": 0.4,
@@ -46,9 +46,8 @@
     "stagger": 0.1,
     "scrim": {
      "h": 760,
-     "max": 0.45,
-     "pow": 1.5,
-     "bottom": true
+     "max": 0.42,
+     "pow": 1.5
     }
    }
   }

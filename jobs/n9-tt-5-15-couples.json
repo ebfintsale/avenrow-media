@@ -1,1 +1,62 @@
-{"id": "n9-tt-5-15-couples", "type": "flame", "product": "n9-tt-5-15-couples", "audio": "music", "flame": {"hint": [0.36, 0.03, 0.66, 0.38], "seed": 95, "gust_t": 5.1}, "shots": [{"src": "https://i.etsystatic.com/67533802/r/il/a0f2a2/8601510084/il_fullxfull.8601510084_fsd4.jpg", "dur": 8, "mode": "cover", "motion": {"z0": 1.1, "z1": 1.02, "fx0": 0.45, "fx1": 0.55, "fy0": 0.5, "fy1": 0.5}, "text": {"v1": true, "weight": "bold", "size": 84, "lines": ["anniversary gift", "that isn't flowers."], "align": "left", "margin": 100, "y": 1180, "leading": 84, "start": 0.15, "end": 3.4, "fade_in": 0.4, "fade_out": 0.4, "rise": 12, "stagger": 0.1, "scrim": {"h": 760, "max": 0.45, "pow": 1.5, "bottom": true}}}], "typography": "AVENROW Typography V1", "music": {"url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-003/music-lib-003-late-evening-keys.wav", "start": 14, "gain_db": 0}, "note": "Nov9-15 tt d5"}
+{
+ "id": "n9-tt-5-15-couples",
+ "type": "flame",
+ "product": "n9-tt-5-15-couples",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.36,
+   0.03,
+   0.66,
+   0.38
+  ],
+  "seed": 95,
+  "gust_t": 5.1
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/a0f2a2/8601510084/il_fullxfull.8601510084_fsd4.jpg",
+   "dur": 8,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.1,
+    "z1": 1.02,
+    "fx0": 0.45,
+    "fx1": 0.55,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 78,
+    "lines": [
+     "anniversary gift",
+     "that isn't flowers."
+    ],
+    "align": "right",
+    "margin": 110,
+    "y": 118,
+    "leading": 78,
+    "start": 0.15,
+    "end": 3.4,
+    "fade_in": 0.4,
+    "fade_out": 0.4,
+    "rise": 12,
+    "stagger": 0.1,
+    "scrim": {
+     "h": 760,
+     "max": 0.42,
+     "pow": 1.5
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-003/music-lib-003-late-evening-keys.wav",
+  "start": 14,
+  "gain_db": 0
+ },
+ "note": "Nov9-15 tt d5"
+}

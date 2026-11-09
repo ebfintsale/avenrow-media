@@ -30,8 +30,7 @@ def shot(plat,rec,lines,align,src,dur,st):
         top=max(st.get("top",420),420 if tt else 500); s["frame"]={"top":top,"solid":FR[st.get("frame","ink")]}
         txt["size"]=68; txt["leading"]=68; txt["y"]=ytop
     elif st.get("scrim_b"):
-        txt["y"]=1180; txt["size"]=84; txt["leading"]=84; txt["scrim"]={"h":760,"max":0.45,"pow":1.5,"bottom":True}
-        s["scrimtext_y"]=1180
+        txt["align"]="right"; txt["margin"]=110; txt["size"]=78; txt["leading"]=78; txt["scrim"]={"h":760,"max":0.42,"pow":1.5}
     else:
         txt["scrim"]={"h":700 if tt else 820,"max":0.36,"pow":1.6}
     return s

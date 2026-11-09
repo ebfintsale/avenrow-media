@@ -1,1 +1,62 @@
-{"id": "n9-ig-4-29-hollyjollych", "type": "flame", "product": "n9-ig-4-29-hollyjollych", "audio": "music", "flame": {"hint": [0.44, 0.12, 0.6, 0.3], "seed": 109, "gust_t": 4.9}, "shots": [{"src": "https://i.etsystatic.com/67533802/r/il/10513e/8803400593/il_fullxfull.8803400593_gov9.jpg", "dur": 8, "mode": "cover", "motion": {"z0": 1.28, "z1": 1.0, "fx0": 0.5, "fx1": 0.5, "fy0": 0.5, "fy1": 0.5}, "text": {"v1": true, "weight": "bold", "size": 84, "lines": ["holly jolly,", "a little early."], "align": "left", "margin": 100, "y": 1180, "leading": 84, "start": 0.15, "end": 3.4, "fade_in": 0.4, "fade_out": 0.4, "rise": 12, "stagger": 0.1, "scrim": {"h": 760, "max": 0.45, "pow": 1.5, "bottom": true}}}], "typography": "AVENROW Typography V1", "music": {"url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-soft-piano-gift.wav", "start": 20, "gain_db": 0}, "note": "Nov9-15 ig d4"}
+{
+ "id": "n9-ig-4-29-hollyjollych",
+ "type": "flame",
+ "product": "n9-ig-4-29-hollyjollych",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.44,
+   0.12,
+   0.6,
+   0.3
+  ],
+  "seed": 109,
+  "gust_t": 4.9
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/10513e/8803400593/il_fullxfull.8803400593_gov9.jpg",
+   "dur": 8,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.28,
+    "z1": 1.0,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 78,
+    "lines": [
+     "holly jolly,",
+     "a little early."
+    ],
+    "align": "right",
+    "margin": 110,
+    "y": 285,
+    "leading": 78,
+    "start": 0.15,
+    "end": 3.4,
+    "fade_in": 0.4,
+    "fade_out": 0.4,
+    "rise": 12,
+    "stagger": 0.1,
+    "scrim": {
+     "h": 760,
+     "max": 0.42,
+     "pow": 1.5
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-soft-piano-gift.wav",
+  "start": 20,
+  "gain_db": 0
+ },
+ "note": "Nov9-15 ig d4"
+}
