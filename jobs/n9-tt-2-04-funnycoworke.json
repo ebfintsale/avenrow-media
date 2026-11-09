@@ -1,0 +1,62 @@
+{
+ "id": "n9-tt-2-04-funnycoworke",
+ "type": "flame",
+ "product": "n9-tt-2-04-funnycoworke",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.44,
+   0.161,
+   0.557,
+   0.328
+  ],
+  "seed": 84,
+  "gust_t": 4.4
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/9800c4/8649830941/il_fullxfull.8649830941_qf5s.jpg",
+   "dur": 8,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.28,
+    "z1": 1.0,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 72,
+    "lines": [
+     "that's a",
+     "tomorrow problem."
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.15,
+    "end": 3.4,
+    "fade_in": 0.4,
+    "fade_out": 0.4,
+    "rise": 12,
+    "stagger": 0.1,
+    "scrim": {
+     "h": 700,
+     "max": 0.36,
+     "pow": 1.6
+    }
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-002/music-lib-002-lofi-rhodes-warm.wav",
+  "start": 12,
+  "gain_db": 0
+ },
+ "note": "Nov9-15 tt d2"
+}

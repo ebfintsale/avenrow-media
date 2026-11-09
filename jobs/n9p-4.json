@@ -1,0 +1,90 @@
+{
+ "id": "n9p-4",
+ "type": "pin",
+ "items": [
+  {
+   "name": "d7-25-47",
+   "layout": "photo_top_text",
+   "src": "https://i.etsystatic.com/67533802/r/il/3dbd1a/8809516757/il_fullxfull.8809516757_quxh.jpg",
+   "fx": 0.45,
+   "fy": 0.5,
+   "lines": [
+    "stocking stuffer",
+    "ideas for her."
+   ],
+   "size": 66,
+   "y": 60
+  },
+  {
+   "name": "d7-26-25",
+   "layout": "card_bottom",
+   "src": "https://i.etsystatic.com/67533802/r/il/0e16c0/8631625326/il_fullxfull.8631625326_1w31.jpg",
+   "fx": 0.46,
+   "fy": 0.6,
+   "z": 1.7,
+   "lines": [
+    "housewarming gift",
+    "for the new place."
+   ],
+   "sub": "This Place Suits You soy candle",
+   "size": 80
+  },
+  {
+   "name": "d7-27-23",
+   "layout": "tag",
+   "src": "https://i.etsystatic.com/67533802/r/il/b532e7/8679564555/il_fullxfull.8679564555_gdtz.jpg",
+   "fx": 0.45,
+   "pos": "bottom",
+   "lines": [
+    "farewell gift for the",
+    "coworker who escaped"
+   ],
+   "size": 56
+  },
+  {
+   "name": "d7-28-40",
+   "layout": "polaroid",
+   "src": "https://i.etsystatic.com/67533802/r/il/d2ae4a/8601510410/il_fullxfull.8601510410_qnqf.jpg",
+   "bg": [
+    246,
+    230,
+    222
+   ],
+   "fg": [
+    110,
+    48,
+    44
+   ],
+   "lines": [
+    "anniversary gift",
+    "for your person."
+   ],
+   "sub": "no flowers needed",
+   "rot": 3,
+   "size": 80
+  },
+  {
+   "name": "d7-29-43",
+   "layout": "numbered",
+   "src": "https://i.etsystatic.com/67533802/r/il/5d51df/8649149707/il_fullxfull.8649149707_s8me.jpg",
+   "bg": [
+    232,
+    236,
+    226
+   ],
+   "fg": [
+    48,
+    60,
+    44
+   ],
+   "head": "best friend gift list:",
+   "items": [
+    "a handwritten note",
+    "a candle",
+    "a reason to call"
+   ],
+   "size": 62,
+   "item_size": 54
+  }
+ ]
+}

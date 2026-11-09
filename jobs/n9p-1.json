@@ -1,0 +1,154 @@
+{
+ "id": "n9p-1",
+ "type": "pin",
+ "items": [
+  {
+   "name": "d1-00-35",
+   "layout": "photo_top_text",
+   "src": "https://i.etsystatic.com/67533802/r/il/9800c4/8649830941/il_fullxfull.8649830941_qf5s.jpg",
+   "fx": 0.45,
+   "fy": 0.5,
+   "lines": [
+    "secret santa for the",
+    "coworker you like."
+   ],
+   "size": 62,
+   "y": 60
+  },
+  {
+   "name": "d1-01-44",
+   "layout": "split_band",
+   "src": "https://i.etsystatic.com/67533802/r/il/eeb2ce/8768785298/il_fullxfull.8768785298_nzkr.jpg",
+   "bg": [
+    244,
+    236,
+    222
+   ],
+   "fg": [
+    84,
+    36,
+    36
+   ],
+   "lines": [
+    "mini or classic?",
+    "pick your size."
+   ],
+   "sub": "4 oz and 9 oz soy candles",
+   "size": 84
+  },
+  {
+   "name": "d1-02-39",
+   "layout": "slip",
+   "src": "https://i.etsystatic.com/67533802/r/il/7b349b/8649395717/il_fullxfull.8649395717_nw6c.jpg",
+   "fy": 0.55,
+   "lines": [
+    "i am allowed",
+    "to cancel plans."
+   ],
+   "sub": "signed: the couch",
+   "size": 96
+  },
+  {
+   "name": "d1-03-49",
+   "layout": "numbered",
+   "src": "https://i.etsystatic.com/67533802/r/il/10513e/8803400593/il_fullxfull.8803400593_gov9.jpg",
+   "bg": [
+    236,
+    238,
+    228
+   ],
+   "fg": [
+    40,
+    60,
+    44
+   ],
+   "head": "tiny apartment christmas:",
+   "items": [
+    "candle on the shelf",
+    "lights on the window",
+    "that's the whole plan"
+   ],
+   "size": 62,
+   "item_size": 52
+  },
+  {
+   "name": "d2-04-47",
+   "layout": "polaroid",
+   "src": "https://i.etsystatic.com/67533802/r/il/6928b4/8809517119/il_fullxfull.8809517119_3hws.jpg",
+   "bg": [
+    240,
+    226,
+    214
+   ],
+   "fg": [
+    110,
+    36,
+    36
+   ],
+   "lines": [
+    "christmas gifts",
+    "for her."
+   ],
+   "sub": "sister, mom or best friend",
+   "rot": 3,
+   "size": 92
+  },
+  {
+   "name": "d2-05-27",
+   "layout": "tag",
+   "src": "https://i.etsystatic.com/67533802/r/il/f1a20d/8631546816/il_fullxfull.8631546816_go37.jpg",
+   "fx": 0.45,
+   "pos": "bottom",
+   "lines": [
+    "engagement gift idea:",
+    "well, about time."
+   ],
+   "size": 58
+  },
+  {
+   "name": "d2-06-53",
+   "layout": "arch",
+   "src": "https://i.etsystatic.com/67533802/r/il/39e3be/8728322834/il_fullxfull.8728322834_8aoa.jpg",
+   "bg": [
+    244,
+    234,
+    220
+   ],
+   "fg": [
+    88,
+    40,
+    30
+   ],
+   "lines": [
+    "for the one who",
+    "bakes in november."
+   ],
+   "sub": "Gingerbread Season soy candle",
+   "size": 72
+  },
+  {
+   "name": "d2-07-18",
+   "layout": "duo",
+   "src": "https://i.etsystatic.com/67533802/r/il/972d04/8643411908/il_fullxfull.8643411908_itra.jpg",
+   "bg": [
+    236,
+    230,
+    216
+   ],
+   "fg": [
+    52,
+    40,
+    32
+   ],
+   "lines": [
+    "different lives.",
+    "same weird."
+   ],
+   "fy": 0.5,
+   "fy2": 0.5,
+   "size": 80,
+   "foot": "a gift for your sibling",
+   "src2": "https://i.etsystatic.com/67533802/r/il/1ef3ac/8691233351/il_fullxfull.8691233351_qudl.jpg"
+  }
+ ]
+}

@@ -323,7 +323,10 @@ def render_flame(job, out_dir):
     if scrim_cfg:
         hh = int(scrim_cfg.get("h", 800))
         yy_ = np.arange(H, dtype=np.float32)
-        gcol = np.clip(1.0 - yy_ / hh, 0, 1) ** float(scrim_cfg.get("pow", 1.6))
+        if scrim_cfg.get("bottom"):
+            gcol = np.clip(1.0 - (H - 1 - yy_) / hh, 0, 1) ** float(scrim_cfg.get("pow", 1.6))
+        else:
+            gcol = np.clip(1.0 - yy_ / hh, 0, 1) ** float(scrim_cfg.get("pow", 1.6))
         scrim_g = gcol.reshape(H, 1, 1)
     cxy = []
     for i in range(n):

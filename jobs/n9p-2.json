@@ -1,0 +1,141 @@
+{
+ "id": "n9p-2",
+ "type": "pin",
+ "items": [
+  {
+   "name": "d3-08-52",
+   "layout": "split_band",
+   "src": "https://i.etsystatic.com/67533802/r/il/0412f9/8743921958/il_fullxfull.8743921958_8sog.jpg",
+   "bg": [
+    246,
+    230,
+    222
+   ],
+   "fg": [
+    96,
+    34,
+    40
+   ],
+   "lines": [
+    "date night in,",
+    "christmas edition."
+   ],
+   "sub": "romantic christmas gift idea",
+   "size": 78
+  },
+  {
+   "name": "d3-09-26",
+   "layout": "tag",
+   "src": "https://i.etsystatic.com/67533802/r/il/fb58d5/8631568912/il_fullxfull.8631568912_qcrh.jpg",
+   "fx": 0.45,
+   "pos": "bottom",
+   "lines": [
+    "birthday gift idea:",
+    "same you, new number."
+   ],
+   "size": 56
+  },
+  {
+   "name": "d3-10-37",
+   "layout": "split_band",
+   "src": "https://i.etsystatic.com/67533802/r/il/ec59bd/8673596003/il_fullxfull.8673596003_mwnq.jpg",
+   "bg": [
+    240,
+    230,
+    214
+   ],
+   "fg": [
+    70,
+    48,
+    36
+   ],
+   "lines": [
+    "candle care,",
+    "in four steps."
+   ],
+   "sub": "make it last longer",
+   "size": 84
+  },
+  {
+   "name": "d3-11-51",
+   "layout": "photo_top_text",
+   "src": "https://i.etsystatic.com/67533802/r/il/f844f5/8791793499/il_fullxfull.8791793499_d8uj.jpg",
+   "fx": 0.45,
+   "fy": 0.5,
+   "lines": [
+    "holiday decor for",
+    "the coffee table."
+   ],
+   "size": 64,
+   "y": 60
+  },
+  {
+   "name": "d4-12-16",
+   "layout": "polaroid",
+   "src": "https://i.etsystatic.com/67533802/r/il/c7c074/8691314671/il_fullxfull.8691314671_aaqq.jpg",
+   "bg": [
+    236,
+    228,
+    214
+   ],
+   "fg": [
+    70,
+    48,
+    36
+   ],
+   "lines": [
+    "a gift for the mom",
+    "who's always right."
+   ],
+   "sub": "mom gift idea",
+   "rot": -3,
+   "size": 70
+  },
+  {
+   "name": "d4-13-46",
+   "layout": "card_bottom",
+   "src": "https://i.etsystatic.com/67533802/r/il/8e37a2/8761896746/il_fullxfull.8761896746_5xmd.jpg",
+   "fy": 0.5,
+   "lines": [
+    "neighbor gift,",
+    "sorted."
+   ],
+   "sub": "Season's Greetings soy candle",
+   "size": 92
+  },
+  {
+   "name": "d4-14-20",
+   "layout": "arch",
+   "src": "https://i.etsystatic.com/67533802/r/il/979f2e/8632032100/il_fullxfull.8632032100_9zyp.jpg",
+   "bg": [
+    238,
+    232,
+    220
+   ],
+   "fg": [
+    68,
+    54,
+    44
+   ],
+   "lines": [
+    "a new parent",
+    "gift idea"
+   ],
+   "sub": "worth every yawn",
+   "size": 84
+  },
+  {
+   "name": "d4-15-45",
+   "layout": "photo_top_text",
+   "src": "https://i.etsystatic.com/67533802/r/il/129c05/8809860039/il_fullxfull.8809860039_az1e.jpg",
+   "fx": 0.45,
+   "fy": 0.5,
+   "lines": [
+    "cozy winter nights,",
+    "sorted."
+   ],
+   "size": 66,
+   "y": 60
+  }
+ ]
+}

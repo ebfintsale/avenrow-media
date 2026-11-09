@@ -182,6 +182,20 @@ def build(it, photo):
         if it.get("sub"):
             d.text((W // 2, y + 14), it["sub"], font=font(34, False), fill=fg + (200,), anchor="ma")
         return base.convert("RGB")
+    if lay == "tag":
+        im = zcover(photo, W, H, fx, fy, it.get('z', 1.0)).convert("RGBA")
+        d = ImageDraw.Draw(im)
+        sz = it.get("size", 62); fnt = font(sz); lead = int(sz * 1.18)
+        tw = max(d.textlength(t, font=fnt) for t in it["lines"])
+        bw, bh = int(tw + 84), int(lead * len(it["lines"]) + 52)
+        x0 = 56 if it.get("align", "left") == "left" else W - 56 - bw
+        y0 = it.get("y", 70) if it.get("pos", "top") == "top" else H - 70 - bh
+        bg = tuple(it.get("bg", CREAM)); fg = tuple(it.get("fg", INK))
+        ov = Image.new("RGBA", im.size, (0, 0, 0, 0)); od = ImageDraw.Draw(ov)
+        od.rounded_rectangle((x0, y0, x0 + bw, y0 + bh), 34, fill=bg + (238,))
+        im = Image.alpha_composite(im, ov); d = ImageDraw.Draw(im)
+        lines(d, (x0 + 42, y0 + 24), it["lines"], fnt, fg + (255,), lead)
+        return im.convert("RGB")
     raise SystemExit("unknown layout " + lay)
 
 

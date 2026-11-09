@@ -1,0 +1,65 @@
+{
+ "id": "n9-tt-2-06-goodvibesonl",
+ "type": "flame",
+ "product": "n9-tt-2-06-goodvibesonl",
+ "audio": "music",
+ "flame": {
+  "hint": [
+   0.458,
+   0.148,
+   0.571,
+   0.331
+  ],
+  "seed": 86,
+  "gust_t": 3.8
+ },
+ "shots": [
+  {
+   "src": "https://i.etsystatic.com/67533802/r/il/b40778/8687711160/il_fullxfull.8687711160_ez80.jpg",
+   "dur": 7.5,
+   "mode": "cover",
+   "motion": {
+    "z0": 1.0,
+    "z1": 1.06,
+    "fx0": 0.5,
+    "fx1": 0.5,
+    "fy0": 0.5,
+    "fy1": 0.5
+   },
+   "text": {
+    "v1": true,
+    "weight": "bold",
+    "size": 68,
+    "lines": [
+     "desk upgrade:",
+     "good vibes only."
+    ],
+    "align": "left",
+    "margin": 100,
+    "y": 118,
+    "leading": 68,
+    "start": 0.15,
+    "end": 3.4,
+    "fade_in": 0.4,
+    "fade_out": 0.4,
+    "rise": 12,
+    "stagger": 0.1
+   },
+   "frame": {
+    "top": 420,
+    "solid": [
+     28,
+     46,
+     36
+    ]
+   }
+  }
+ ],
+ "typography": "AVENROW Typography V1",
+ "music": {
+  "url": "https://github.com/ebfintsale/avenrow-media/releases/download/video-music-lib-003/music-lib-003-bright-morning-strum.wav",
+  "start": 6,
+  "gain_db": 0
+ },
+ "note": "Nov9-15 tt d2"
+}

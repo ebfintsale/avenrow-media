@@ -1,0 +1,163 @@
+{
+ "id": "n9p-3",
+ "type": "pin",
+ "items": [
+  {
+   "name": "d5-16-01",
+   "layout": "split_band",
+   "src": "https://i.etsystatic.com/67533802/r/il/07a336/8687775854/il_fullxfull.8687775854_r0ke.jpg",
+   "bg": [
+    216,
+    228,
+    242
+   ],
+   "fg": [
+    36,
+    58,
+    100
+   ],
+   "lines": [
+    "make a wish."
+   ],
+   "sub": "birthday gift idea for a best friend",
+   "size": 100,
+   "band_top": true
+  },
+  {
+   "name": "d5-17-48",
+   "layout": "tag",
+   "src": "https://i.etsystatic.com/67533802/r/il/e3704b/8755725850/il_fullxfull.8755725850_ihm7.jpg",
+   "fx": 0.45,
+   "pos": "bottom",
+   "lines": [
+    "small christmas gift",
+    "for coworkers"
+   ],
+   "size": 58
+  },
+  {
+   "name": "d5-18-12",
+   "layout": "checklist",
+   "src": "https://i.etsystatic.com/67533802/r/il/d2e46b/8664535916/il_fullxfull.8664535916_dy9y.jpg",
+   "bg": [
+    226,
+    234,
+    240
+   ],
+   "fg": [
+    40,
+    60,
+    80
+   ],
+   "head": "sunday, itemized:",
+   "items": [
+    "blanket: yes",
+    "book: yes",
+    "plans: no"
+   ],
+   "size": 74,
+   "item_size": 58
+  },
+  {
+   "name": "d5-19-44",
+   "layout": "card_bottom",
+   "src": "https://i.etsystatic.com/67533802/r/il/0b72fc/8816604705/il_fullxfull.8816604705_5bb0.jpg",
+   "lines": [
+    "what's in",
+    "the jar?"
+   ],
+   "sub": "soy wax, cotton wick, amber glass",
+   "size": 92
+  },
+  {
+   "name": "d6-20-50",
+   "layout": "photo_top_text",
+   "src": "https://i.etsystatic.com/67533802/r/il/97bd17/8803305725/il_fullxfull.8803305725_lxvi.jpg",
+   "fx": 0.45,
+   "fy": 0.5,
+   "lines": [
+    "cold outside,",
+    "candle inside."
+   ],
+   "size": 70,
+   "y": 60
+  },
+  {
+   "name": "d6-21-24",
+   "layout": "slip",
+   "src": "https://i.etsystatic.com/67533802/r/il/865766/8631690228/il_fullxfull.8631690228_3egl.jpg",
+   "fy": 0.55,
+   "lines": [
+    "birthday policy:",
+    "be unreasonable."
+   ],
+   "sub": "effective immediately",
+   "size": 88
+  },
+  {
+   "name": "d6-22-02",
+   "layout": "split_band",
+   "src": "https://i.etsystatic.com/67533802/r/il/b40778/8687711160/il_fullxfull.8687711160_ez80.jpg",
+   "bg": [
+    226,
+    234,
+    222
+   ],
+   "fg": [
+    40,
+    60,
+    44
+   ],
+   "lines": [
+    "desk upgrade:",
+    "good vibes only."
+   ],
+   "sub": "home office gift idea",
+   "size": 80,
+   "band_top": true
+  },
+  {
+   "name": "d6-23-13",
+   "layout": "polaroid",
+   "src": "https://i.etsystatic.com/67533802/r/il/b37581/8664347108/il_fullxfull.8664347108_gmbf.jpg",
+   "bg": [
+    238,
+    222,
+    214
+   ],
+   "fg": [
+    90,
+    34,
+    44
+   ],
+   "lines": [
+    "a roommate gift",
+    "that isn't a mug."
+   ],
+   "sub": "Stay Cozy soy candle",
+   "rot": -3,
+   "size": 78
+  },
+  {
+   "name": "d6-24-03",
+   "layout": "arch",
+   "src": "https://i.etsystatic.com/67533802/r/il/5511f7/8735433559/il_fullxfull.8735433559_oyrh.jpg",
+   "bg": [
+    246,
+    228,
+    224
+   ],
+   "fg": [
+    120,
+    44,
+    56
+   ],
+   "lines": [
+    "self care night,",
+    "one candle."
+   ],
+   "sub": "gift idea for her",
+   "size": 80
+  }
+ ]
+}

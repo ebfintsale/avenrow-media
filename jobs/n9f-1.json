@@ -1,0 +1,242 @@
+{
+ "id": "n9f-1",
+ "type": "crop",
+ "items": [
+  {
+   "name": "d1-00-27-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/f1a20d/8631546816/il_fullxfull.8631546816_go37.jpg",
+   "fx": 0.5,
+   "fy": 0.55,
+   "z": 1.0
+  },
+  {
+   "name": "d1-00-27-2",
+   "src": "https://i.etsystatic.com/67533802/r/il/9c868c/8679369381/il_fullxfull.8679369381_o6nk.jpg",
+   "fx": 0.55,
+   "fy": 0.5,
+   "z": 1.0
+  },
+  {
+   "name": "d1-00-27-3",
+   "src": "https://i.etsystatic.com/67533802/r/il/c78706/8679369945/il_fullxfull.8679369945_p052.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0
+  },
+  {
+   "name": "d1-01-52-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/4e5274/8791750151/il_fullxfull.8791750151_2csu.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0,
+   "style": "pill",
+   "pos": "bottom",
+   "lines": [
+    "a little christmas romance"
+   ],
+   "size": 54
+  },
+  {
+   "name": "d2-02-30-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/fbdddc/8673702069/il_fullxfull.8673702069_a1sy.jpg",
+   "fx": 0.5,
+   "fy": 0.55,
+   "z": 1.0
+  },
+  {
+   "name": "d2-02-30-2",
+   "src": "https://i.etsystatic.com/67533802/r/il/a8a77d/8625878364/il_fullxfull.8625878364_q20r.jpg",
+   "fx": 0.55,
+   "fy": 0.5,
+   "z": 1.0
+  },
+  {
+   "name": "d2-02-30-3",
+   "src": "https://i.etsystatic.com/67533802/r/il/19e56d/8625878682/il_fullxfull.8625878682_3wvc.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0
+  },
+  {
+   "name": "d2-03-46-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/f4688e/8761896222/il_fullxfull.8761896222_41q7.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0,
+   "style": "band",
+   "bg": [
+    36,
+    52,
+    44
+   ],
+   "fg": [
+    246,
+    226,
+    190
+   ],
+   "lines": [
+    "neighbor gift,",
+    "sorted."
+   ],
+   "size": 76,
+   "band": 300
+  },
+  {
+   "name": "d3-04-01-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/07a336/8687775854/il_fullxfull.8687775854_r0ke.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0,
+   "style": "top",
+   "lines": [
+    "make a wish."
+   ],
+   "size": 96,
+   "y": 90
+  },
+  {
+   "name": "d3-05-47-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/3dbd1a/8809516757/il_fullxfull.8809516757_quxh.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0
+  },
+  {
+   "name": "d4-06-59-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/3b7e0c/8703303674/il_fullxfull.8703303674_9u9u.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0,
+   "style": "band",
+   "bg": [
+    250,
+    226,
+    214
+   ],
+   "fg": [
+    130,
+    60,
+    56
+   ],
+   "lines": [
+    "just breathe."
+   ],
+   "size": 88,
+   "band": 260
+  },
+  {
+   "name": "d4-07-54-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/7e0ec4/8728151752/il_fullxfull.8728151752_hpnl.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0,
+   "style": "pill",
+   "pos": "bottom",
+   "lines": [
+    "for the early decorator"
+   ],
+   "size": 54,
+   "bg": [
+    88,
+    30,
+    44
+   ],
+   "fg": [
+    250,
+    236,
+    214
+   ]
+  },
+  {
+   "name": "d5-08-26-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/fb58d5/8631568912/il_fullxfull.8631568912_qcrh.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0
+  },
+  {
+   "name": "d5-09-56-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/d12274/8769729509/il_fullxfull.8769729509_o6ey.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0,
+   "style": "top",
+   "lines": [
+    "good things ahead."
+   ],
+   "size": 90,
+   "y": 90
+  },
+  {
+   "name": "d6-10-48-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/e3704b/8755725850/il_fullxfull.8755725850_ihm7.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0,
+   "style": "pill",
+   "pos": "bottom",
+   "lines": [
+    "peace, joy, cozy moments"
+   ],
+   "size": 52
+  },
+  {
+   "name": "d6-11-16-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/c7c074/8691314671/il_fullxfull.8691314671_aaqq.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0,
+   "style": "band",
+   "bg": [
+    236,
+    228,
+    214
+   ],
+   "fg": [
+    70,
+    48,
+    36
+   ],
+   "lines": [
+    "mom was right.",
+    "again."
+   ],
+   "size": 80,
+   "band": 300
+  },
+  {
+   "name": "d7-12-44-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/220955/8768782690/il_fullxfull.8768782690_5yls.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0
+  },
+  {
+   "name": "d7-12-44-2",
+   "src": "https://i.etsystatic.com/67533802/r/il/7cea79/8768783658/il_fullxfull.8768783658_rjhi.jpg",
+   "fx": 0.55,
+   "fy": 0.5,
+   "z": 1.0
+  },
+  {
+   "name": "d7-13-20-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/979f2e/8632032100/il_fullxfull.8632032100_9zyp.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0,
+   "style": "top",
+   "lines": [
+    "worth every yawn."
+   ],
+   "size": 90,
+   "y": 90
+  },
+  {
+   "name": "d7-14-02-1",
+   "src": "https://i.etsystatic.com/67533802/r/il/b40778/8687711160/il_fullxfull.8687711160_ez80.jpg",
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": 1.0
+  }
+ ]
+}
